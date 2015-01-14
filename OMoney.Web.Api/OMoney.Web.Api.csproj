@@ -105,6 +105,20 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OMoney.Data\OMoney.Data.csproj">
+      <Project>{f4b72a91-ac12-4eb8-b452-1f0fde6ed9f5}</Project>
+      <Name>OMoney.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OMoney.Domain.Entities\OMoney.Domain.Core.csproj">
+      <Project>{4580fe8b-3cb6-4dbe-b70b-067b1ed44393}</Project>
+      <Name>OMoney.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OMoney.Domain.Services\OMoney.Domain.Services.csproj">
+      <Project>{a04daf73-e074-4586-9540-8e03f3ce4d2a}</Project>
+      <Name>OMoney.Domain.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
