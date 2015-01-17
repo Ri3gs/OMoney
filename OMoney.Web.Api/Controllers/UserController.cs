@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using AutoMapper;
+using OMoney.Domain.Core.Validation;
 using OMoney.Domain.Entities.Entities;
-using OMoney.Domain.Entities.Validation;
 using OMoney.Domain.Services.Users;
 using OMoney.Web.Api.Models;
 

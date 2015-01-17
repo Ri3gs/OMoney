@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
 using OMoney.Data.Users;
 using OMoney.Domain.Core.Validation;
 using OMoney.Domain.Core.Validation.Users;
 using OMoney.Domain.Entities.Entities;
-using OMoney.Domain.Entities.Validation;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Notifications.NotificationMessages;
 
@@ -38,7 +38,7 @@ namespace OMoney.Domain.Services.Users
 
         public void Activate(User user)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private EmailNotificationMessage BuildNewUserNotificationMessage(User user)
