@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using OMoney.Domain.Entities.Entities;
+using OMoney.Domain.Core.Entities;
 
-namespace OMoney.Domain.Core.Validation.Users
+namespace OMoney.Domain.Services.Validation.Users
 {
     public class ActivateUserValidator : IDomainEntityValidator<User>
     {

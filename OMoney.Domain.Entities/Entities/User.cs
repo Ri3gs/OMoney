@@ -1,4 +1,4 @@
-﻿namespace OMoney.Domain.Entities.Entities
+﻿namespace OMoney.Domain.Core.Entities
 {
     public class User
     {

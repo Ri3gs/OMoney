@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
 using AutoMapper;
-using OMoney.Domain.Core.Validation;
-using OMoney.Domain.Entities.Entities;
+using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Users;
+using OMoney.Domain.Services.Validation;
 using OMoney.Web.Api.Models;
 
 namespace OMoney.Web.Api.Controllers

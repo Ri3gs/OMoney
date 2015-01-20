@@ -1,4 +1,4 @@
-﻿using OMoney.Domain.Entities.Entities;
+﻿using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Data.Users
 {

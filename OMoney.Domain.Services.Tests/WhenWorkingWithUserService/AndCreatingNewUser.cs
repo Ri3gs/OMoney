@@ -1,7 +1,7 @@
 ﻿using Moq;
 using NUnit.Framework;
-using OMoney.Domain.Core.Validation;
-using OMoney.Domain.Entities.Entities;
+using OMoney.Domain.Core.Entities;
+using OMoney.Domain.Services.Validation;
 using OMoney.Domain.Services.Notifications.NotificationMessages;
 
 namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService

@@ -48,12 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhenWorkingWithValidators\AndUsingCreateNewUserValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OMoney.Domain.Entities\OMoney.Domain.Core.csproj">
       <Project>{4580fe8b-3cb6-4dbe-b70b-067b1ed44393}</Project>
       <Name>OMoney.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OMoney.Domain.Services\OMoney.Domain.Services.csproj">
+      <Project>{A04DAF73-E074-4586-9540-8E03F3CE4D2A}</Project>
+      <Name>OMoney.Domain.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

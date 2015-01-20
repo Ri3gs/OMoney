@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OMoney.Domain.Core.Validation
+namespace OMoney.Domain.Services.Validation
 {
     public interface IDomainEntityValidator<T> where T : class
     {

@@ -32,12 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>
     </Reference>
@@ -56,7 +50,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WhenWorkingWithUserService\AndCreatingNewUser.cs" />
+    <Compile Include="WhenWorkingWithUserService\AndDeletingUser.cs" />
+    <Compile Include="WhenWorkingWithUserService\AndUpdatingUser.cs" />
     <Compile Include="WhenWorkingWithUserService\UserServiceTestContext.cs" />
+    <Compile Include="WhenWorkingWithValidators\AndUsingCreateNewUserValidator.cs" />
+    <Compile Include="WhenWorkingWithValidators\AndUsingDeleteUserValidator.cs" />
+    <Compile Include="WhenWorkingWithValidators\AndUsingUpdateUserValidator.cs" />
+    <Compile Include="WhenWorkingWithValidators\ValidatorsTestContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

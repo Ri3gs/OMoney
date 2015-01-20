@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
 using OMoney.Data.Users;
-using OMoney.Domain.Core.Validation;
-using OMoney.Domain.Core.Validation.Users;
-using OMoney.Domain.Entities.Entities;
+using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Notifications.NotificationMessages;
+using OMoney.Domain.Services.Validation;
+using OMoney.Domain.Services.Validation.Users;
 
 namespace OMoney.Domain.Services.Users
 {
@@ -53,12 +53,28 @@ namespace OMoney.Domain.Services.Users
 
         public void Update(User user)
         {
-            throw new System.NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                var validationErrors = Validate(user, new UpdateUserValidator(_userRepository)).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
+
+                _userRepository.Update(user);
+
+                transaction.Complete();
+            }
         }
 
         public void Delete(User user)
         {
-            throw new System.NotImplementedException();
+            using (var transaction = new TransactionScope())
+            {
+                var validationErrors = Validate(user, new DeleteUserValidator(_userRepository)).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
+
+                _userRepository.Delete(user);
+
+                transaction.Complete();
+            }
         }
 
         private IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)
