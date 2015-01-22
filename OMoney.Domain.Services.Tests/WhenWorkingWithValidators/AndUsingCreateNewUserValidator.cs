@@ -36,7 +36,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
             // Action
             var result = TestContext.CreateNewUserValidator.Validate(null);
 
-            // Arrange
+            // Assert
             StringAssert.IsMatch("User is NULL.", result.First());
         }
 
@@ -49,7 +49,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
             // Action
             var result = TestContext.CreateNewUserValidator.Validate(user);
 
-            // Arrange
+            // Assert
             StringAssert.IsMatch("Email is EMPTY.", result.First());
         }
 
@@ -62,7 +62,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
             // Action
             var result = TestContext.CreateNewUserValidator.Validate(user);
 
-            // Arrange
+            // Assert
             StringAssert.IsMatch("Password is EMPTY.", result.First());
         }
 
@@ -75,7 +75,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
             // Action
             var result = TestContext.CreateNewUserValidator.Validate(user);
 
-            // Arrange
+            // Assert
             StringAssert.IsMatch("Password Confirm is EMPTY.", result.First());
         }
 
@@ -88,7 +88,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
             // Action
             var result = TestContext.CreateNewUserValidator.Validate(user);
 
-            // Arrange
+            // Assert
             StringAssert.IsMatch("Password and Confirm Password does not match.", result.First());
         }
     }
