@@ -16,7 +16,7 @@ namespace OMoney.Domain.Services.Validation.Users
         public IEnumerable<string> Validate(User user)
         {
             if (user == null) yield return "User is NULL.";
-            // if (user != null && _userRepository.GetByEmail(user.Email) == null) yield return "User does not exist.";
+            if (user != null && _userRepository.GetByEmail(user.Email) == null) yield return "User does not exist.";
         }
     }
 }

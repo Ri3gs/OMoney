@@ -36,15 +36,15 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
         }
 
 
-        //[Test]
-        //public void AndUserDoesNotExist_DomainEntityValidationExceptionShouldBeThrown()
-        //{
-        //    // Arrange
-        //    // Action
+        [Test]
+        public void AndUserDoesNotExist_DomainEntityValidationExceptionShouldBeThrown()
+        {
+            // Arrange
+            // Action
 
-        //    // Assert
-        //    Assert.Throws<DomainEntityValidationException>(() => TestContext.UserService.Delete(TestContext.ValidUser));
-        //}
+            // Assert
+            Assert.Throws<DomainEntityValidationException>(() => TestContext.UserService.Delete(null));
+        }
 
     }
 }

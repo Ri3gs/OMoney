@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using OMoney.Domain.Core.Entities;
 
@@ -15,18 +16,18 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
             TestContext = new ValidatorsTestContext();
         }
 
-        //[Test]
-        //public void AndUserDoesNotExist()
-        //{
-        //    // Arrange
-        //    var user = new User { Name = "ri3gs", Email = "ri3gs@mail.com", Password = "qwerty", ConfirmPassword = "qwerty", IsActive = true };
+        [Test]
+        public void AndUserDoesNotExist()
+        {
+            // Arrange
+            var user = TestContext.PhantomUser;
 
-        //    // Action
-        //    var result = TestContext.DeleteUserValidator.Validate(user);
+            // Action
+            var result = TestContext.DeleteUserValidator.Validate(user);
 
-        //    // Arrange
-        //    Assert.AreEqual("User does not exist.", result.First());
-        //}
+            // Arrange
+            Assert.AreEqual("User does not exist.", result.First());
+        }
 
         [Test]
         public void AndUserIsNull()
@@ -43,7 +44,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndUserIsValid()
         {
             // Arrange
-            var user = new User { Name = "ri3gs", Email = "test@mail.com", Password = "qwerty", ConfirmPassword = "qwerty", IsActive = true };
+            var user = TestContext.ValidUser;
 
             // Action
             var result = TestContext.DeleteUserValidator.Validate(user);

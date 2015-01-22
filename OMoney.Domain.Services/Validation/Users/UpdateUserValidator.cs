@@ -20,7 +20,7 @@ namespace OMoney.Domain.Services.Validation.Users
             if (user != null && string.IsNullOrWhiteSpace(user.Password)) yield return "Password is EMPTY.";
             if (user != null && string.IsNullOrWhiteSpace(user.ConfirmPassword)) yield return "Password Confirm is EMPTY.";
             if (user != null && user.Password != user.ConfirmPassword) yield return "Password and Confirm Password does not match.";
-            // if (user != null && _userRepository.GetByEmail(user.Email) == null) yield return "User does not exist.";
+            if (user != null && _userRepository.GetByEmail(user.Email) == null) yield return "User does not exist.";
         }
     }
 }

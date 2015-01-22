@@ -36,13 +36,13 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
             Assert.Throws<DomainEntityValidationException>(() => TestContext.UserService.Update(null));
         }
 
-        //[Test]
-        //public void AndUserDoesNotExist_DomainEntityValidationExceptionShouldBeThrown()
-        //{
-        //    // Arrange
-        //    // Action
-        //    // Assert
-        //    Assert.Throws<DomainEntityValidationException>(() => TestContext.UserService.Update(TestContext.ValidUser));
-        //}
+        [Test]
+        public void AndUserDoesNotExist_DomainEntityValidationExceptionShouldBeThrown()
+        {
+            // Arrange
+            // Action
+            // Assert
+            Assert.Throws<DomainEntityValidationException>(() => TestContext.UserService.Update(null));
+        }
     }
 }

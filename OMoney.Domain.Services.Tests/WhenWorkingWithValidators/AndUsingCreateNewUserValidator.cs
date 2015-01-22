@@ -20,7 +20,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndUserIsValid()
         {
             // Arrange
-            var user = new User {Email = "test@email.com", Password = "1234qwer", ConfirmPassword = "1234qwer"};
+            var user = TestContext.ValidUser;
 
             // Action
             var result = TestContext.CreateNewUserValidator.Validate(user);

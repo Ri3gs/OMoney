@@ -1,12 +1,16 @@
 ﻿using System.Web.Http;
 using AutoMapper;
+using Ninject.Modules;
+using OMoney.Data.Users;
 using OMoney.Domain.Core.Entities;
+using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Users;
 using OMoney.Domain.Services.Validation;
 using OMoney.Web.Api.Models;
 
 namespace OMoney.Web.Api.Controllers
 {
+    [RoutePrefix("api/account")]
     public class UserController : ApiController
     {
         private readonly IUserService _userService;
@@ -18,11 +22,13 @@ namespace OMoney.Web.Api.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [Route("register")]
         public IHttpActionResult Register(UserViewModel userModel)
         {
             try
             {
-                var user = Mapper.Map<User>(userModel);
+                Mapper.CreateMap<UserViewModel, User>();
+                User user = Mapper.Map<User>(userModel);
                 _userService.Create(user);
                 return Ok();
             }
@@ -35,6 +41,23 @@ namespace OMoney.Web.Api.Controllers
             }
 
             return BadRequest(ModelState);
+        }
+
+        [HttpGet]
+        [Route("register")]
+        public IHttpActionResult Register()
+        {
+            return Ok();
+        }
+    }
+
+    public class UserServiceModule : NinjectModule
+    {
+        public override void Load()
+        {
+            Bind<IUserService>().To<UserService>();
+            Bind<IUserRepository>().To<UserRepository>();
+            Bind<INotificationService>().To<NotificationService>();
         }
     }
 }

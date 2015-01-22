@@ -20,7 +20,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndUserIsValid()
         {
             // Arrange
-            var user = new User { Name = "ri3gs", Email = "test@mail.com", Password = "qwerty", ConfirmPassword = "qwerty", IsActive = true };
+            var user = TestContext.ValidUser;
 
             // Action
             var result = TestContext.UpdateUserValidator.Validate(user);
@@ -30,18 +30,18 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         }
 
 
-        //[Test]
-        //public void AndUserDoesNotExist()
-        //{
-        //    // Arrange
-        //    var user = new User { Name = "ri3gs", Email = "test@mail.com", Password = "qwerty", ConfirmPassword = "qwerty", IsActive = true };
+        [Test]
+        public void AndUserDoesNotExist()
+        {
+            // Arrange
+            var user = TestContext.PhantomUser;
 
-        //    // Action
-        //    var result = TestContext.UpdateUserValidator.Validate(user);
+            // Action
+            var result = TestContext.UpdateUserValidator.Validate(user);
 
-        //    // Arrange
-        //    Assert.AreEqual("User does not exist.", result.First());
-        //}
+            // Arrange
+            Assert.AreEqual("User does not exist.", result.First());
+        }
 
         [Test]
         public void AndUserIsNull()
