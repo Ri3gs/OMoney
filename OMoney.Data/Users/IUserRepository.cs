@@ -4,7 +4,7 @@ namespace OMoney.Data.Users
 {
     public interface IUserRepository
     {
-        void Create(User user);
+        void Create(User user, string password);
         void Update(User user);
         void Delete(User user);
 

@@ -29,7 +29,7 @@ namespace OMoney.Web.Api.Controllers
             {
                 Mapper.CreateMap<UserViewModel, User>();
                 User user = Mapper.Map<User>(userModel);
-                _userService.Create(user);
+                _userService.Create(user, userModel.Password, userModel.ConfirmPassword);
                 return Ok();
             }
             catch (DomainEntityValidationException validationException)

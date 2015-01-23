@@ -4,7 +4,7 @@ namespace OMoney.Domain.Services.Users
 {
     public interface IUserService
     {
-        void Create(User user);
+        void Create(User user, string password, string confirmPassword);
         void Activate(User user);
         void Update(User user);
         void Delete(User user);

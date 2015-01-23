@@ -22,14 +22,15 @@ namespace OMoney.Domain.Services.Users
             _notificationService = notificationService;
         }
 
-        public void Create(User user)
+        public void Create(User user, string password, string confrimPassword)
         {
             using (var transaction = new TransactionScope())
             {
-                var validationErrors = Validate(user, new CreateNewUserValidator()).ToList();
+                var validationErrors =
+                    ValidateCreate(user, password, confrimPassword, new CreateNewUserValidator()).ToList();
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
-                _userRepository.Create(user);
+                _userRepository.Create(user, password);
                 _notificationService.SendEmail(BuildNewUserNotificationMessage(user));
 
                 transaction.Complete();
@@ -77,9 +78,15 @@ namespace OMoney.Domain.Services.Users
             }
         }
 
-        private IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)
+        private static IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)
         {
             return validator.Validate(user);
         }
+
+        private static IEnumerable<string> ValidateCreate(User user, string password, string confirmPassword,
+            ICreateNewUserValidator<User> validator)
+        {
+            return validator.Validate(user, password, confirmPassword);
+        } 
     }
 }

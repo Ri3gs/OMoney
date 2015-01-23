@@ -14,12 +14,22 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
         public UserService UserService { get; set; }
 
         public User ValidUser {
-            get { return new User {Name = "test", Email = "test@email.com", Password = "1234qwer", ConfirmPassword = "1234qwer", IsActive = true}; }
+            get { return new User {Name = "test", Email = "test@email.com", IsActive = true}; }
         }
 
         public User PhantomUser
         {
-            get { return new User { Email = "phantom@gmail.com", Password = "1234qwer", ConfirmPassword = "1234qwer" }; }
+            get { return new User {Name = "phantom", Email = "phantom@gmail.com", IsActive = true}; }
+        }
+
+        public string GoodPass
+        {
+            get { return "1234qwer"; }
+        }
+
+        public string BadPass
+        {
+            get { return "1234"; }
         }
 
         public UserServiceTestContext()

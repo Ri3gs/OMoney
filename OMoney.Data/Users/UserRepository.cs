@@ -5,7 +5,7 @@ namespace OMoney.Data.Users
     public class UserRepository : IUserRepository
     {
 
-        public void Create(Domain.Core.Entities.User user)
+        public void Create(Domain.Core.Entities.User user, string password)
         {
             throw new NotImplementedException();
         }

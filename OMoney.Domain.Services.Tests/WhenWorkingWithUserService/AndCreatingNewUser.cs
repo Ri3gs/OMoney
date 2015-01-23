@@ -22,10 +22,10 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
         {
             // Arrange
             // Action
-            TestContext.UserService.Create(TestContext.ValidUser);
+            TestContext.UserService.Create(TestContext.ValidUser, TestContext.GoodPass, TestContext.GoodPass);
 
             // Assert
-            TestContext.MockUserRepository.Verify(x => x.Create(It.IsAny<User>()), Times.Once);
+            TestContext.MockUserRepository.Verify(x => x.Create(It.IsAny<User>(), It.IsAny<string>()), Times.Once);
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
         {
             // Arrange
             // Action
-            TestContext.UserService.Create(TestContext.ValidUser);
+            TestContext.UserService.Create(TestContext.ValidUser, TestContext.GoodPass, TestContext.GoodPass);
 
             // Assert
             TestContext.MockNotificationService.Verify(x => x.SendEmail(It.IsAny<EmailNotificationMessage>()), Times.Once);
@@ -45,7 +45,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
             // Arrange
             // Action
             // Assert
-            Assert.Throws<DomainEntityValidationException>(() => TestContext.UserService.Create(null));
+            Assert.Throws<DomainEntityValidationException>(() => TestContext.UserService.Create(null, string.Empty, string.Empty));
         }
     }
 }

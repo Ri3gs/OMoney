@@ -23,7 +23,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
             var user = TestContext.ValidUser;
 
             // Action
-            var result = TestContext.CreateNewUserValidator.Validate(user);
+            var result = TestContext.CreateNewUserValidator.Validate(user, TestContext.GoodPass, TestContext.GoodPass);
 
             // Assert
             Assert.IsEmpty(result);
@@ -34,7 +34,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         {
             // Arrange
             // Action
-            var result = TestContext.CreateNewUserValidator.Validate(null);
+            var result = TestContext.CreateNewUserValidator.Validate(null, string.Empty, string.Empty);
 
             // Assert
             StringAssert.IsMatch("User is NULL.", result.First());
@@ -44,10 +44,10 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndEmailIsEmpty()
         {
             // Arrange
-            var user = new User {Email = string.Empty, Password = "1234qwer", ConfirmPassword = "1234qwer"};
+            var user = new User {Name = "test", Email = string.Empty, IsActive = true};
 
             // Action
-            var result = TestContext.CreateNewUserValidator.Validate(user);
+            var result = TestContext.CreateNewUserValidator.Validate(user, TestContext.GoodPass, TestContext.GoodPass);
 
             // Assert
             StringAssert.IsMatch("Email is EMPTY.", result.First());
@@ -57,10 +57,8 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndPasswordIsEmpty()
         {
             // Arrange
-            var user = new User { Email = "test@email.com", Password = string.Empty, ConfirmPassword = "1234qwer" };
-
             // Action
-            var result = TestContext.CreateNewUserValidator.Validate(user);
+            var result = TestContext.CreateNewUserValidator.Validate(TestContext.ValidUser, string.Empty, TestContext.GoodPass);
 
             // Assert
             StringAssert.IsMatch("Password is EMPTY.", result.First());
@@ -70,10 +68,8 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndConfirmPasswordIsEmpty()
         {
             // Arrange
-            var user = new User { Email = "test@email.com", Password = "1234qwer", ConfirmPassword = string.Empty };
-
             // Action
-            var result = TestContext.CreateNewUserValidator.Validate(user);
+            var result = TestContext.CreateNewUserValidator.Validate(TestContext.ValidUser, TestContext.GoodPass, string.Empty);
 
             // Assert
             StringAssert.IsMatch("Password Confirm is EMPTY.", result.First());
@@ -83,10 +79,8 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndPasswordAndConfirmPasswordDoesNotMatch()
         {
             // Arrange
-            var user = new User { Email = "test@email.com", Password = "1234qwer", ConfirmPassword = "1234qwert" };
-
             // Action
-            var result = TestContext.CreateNewUserValidator.Validate(user);
+            var result = TestContext.CreateNewUserValidator.Validate(TestContext.ValidUser, TestContext.GoodPass, TestContext.BadPass);
 
             // Assert
             StringAssert.IsMatch("Password and Confirm Password does not match.", result.First());
