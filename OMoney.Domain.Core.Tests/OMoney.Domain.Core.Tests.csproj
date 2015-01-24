@@ -50,7 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OMoney.Domain.Entities\OMoney.Domain.Core.csproj">
+    <ProjectReference Include="..\OMoney.Domain.Core\OMoney.Domain.Core.csproj">
       <Project>{4580fe8b-3cb6-4dbe-b70b-067b1ed44393}</Project>
       <Name>OMoney.Domain.Core</Name>
     </ProjectReference>
