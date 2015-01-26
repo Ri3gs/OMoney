@@ -2,14 +2,47 @@
 <html>
 <head>
     <title>OMoney</title>
-</head>
-<body>
-    <h1>HELLO OMONEY!</h1>
 
-    <!-- 3rd Party Scripts -->
+    <!-- Stylesheets -->
+    <link href="Content/bootstrap.css" rel="stylesheet"/>
+    <link href="Content/app.css" rel="stylesheet"/>
+
+    <!-- Libraries -->
     <script src="scripts/jquery-2.1.3.min.js"></script>
-    
-    <!-- AngularJS Libraries -->
     <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-ui-router.js"></script>
+    <script src="scripts/angular-resource.js"></script>
+    <script src="scripts/angular-messages.js"></script>
+
+    <!-- Application script -->
+    <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/userResource.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/users/signUpCtrl.js"></script>
+
+</head>
+<body ng-app="oMoney">
+    <nav class="navbar navbar-inverse">
+    <div class="container">
+        <a class="navbar-brand"
+           ui-sref="home">OMoney Project</a>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref="signUp">SignUp</a>
+                </li>
+            </ul>
+     </div>
+    </nav>
+
+
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
 </body>
 </html>

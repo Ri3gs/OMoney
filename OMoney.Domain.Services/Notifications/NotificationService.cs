@@ -6,7 +6,7 @@ namespace OMoney.Domain.Services.Notifications
     {
         public void SendEmail(NotificationMessages.EmailNotificationMessage message)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

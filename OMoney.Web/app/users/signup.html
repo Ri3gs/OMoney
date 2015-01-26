@@ -1,0 +1,83 @@
+﻿<form class="form-horizontal" name="signupForm" novalidate>
+    <fieldset>
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="Name">Name</label>
+            <div class="col-md-4">
+                <input class="form-control"
+                       name="Name"
+                       id="Name"
+                       type="text"
+                       placeholder="Name"
+                       ng-model="suCtrl.User.Name"
+                       required/>
+            </div>
+            <div ng-messages="signupForm.Name.$error" ng-messages-include="app/users/messages.html"></div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="email">Email</label>
+            <div class="col-md-4">
+                <input class="form-control"
+                       name="Email"
+                       id="email"
+                       type="email"
+                       placeholder="test@mail.com"
+                       ng-model="suCtrl.User.Email"
+                       required/>
+            </div>
+            <div ng-messages="signupForm.Email.$error" ng-messages-include="app/users/messages.html"></div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="Password">Password</label>
+            <div class="col-md-4">
+                <input class="form-control"
+                       name="Password"
+                       id="Password"
+                       type="password"
+                       placeholder="Password"
+                       ng-model="suCtrl.User.Password"
+                       required/>
+            </div>
+            <div ng-messages="signupForm.Password.$error" ng-messages-include="app/users/messages.html"></div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="Confirmpassword">Confirm Password</label>
+            <div class="col-md-4">
+                <input class="form-control"
+                       name="ConfirmPassword"
+                       id="Confirmpassword"
+                       type="password"
+                       placeholder="Confirm Password"
+                       ng-model="suCtrl.User.ConfirmPassword"
+                       required
+                       pw-check="Password"/>
+            </div>
+            <div ng-messages="signupForm.ConfirmPassword.$error" ng-messages-include="app/users/messages.html"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px; margin-right:10px"
+                            ng-click="suCtrl.submit(signupForm.$valid)">
+                        Sign Up
+                    </button>
+                </span>
+                <span>
+                    <button class="btn btn-default"
+                            style="width:70px"
+                            ng-click="suCtrl.cancel()">
+                        Cancel
+                    </button>
+                </span>
+            </div>
+        </div>
+    </fieldset>
+</form>

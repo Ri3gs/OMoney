@@ -1,13 +1,34 @@
 ﻿using System;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using OMoney.Data.Context;
+using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Data.Users
 {
     public class UserRepository : IUserRepository
     {
 
-        public void Create(Domain.Core.Entities.User user, string password)
+        private readonly AuthContext _authDbContext;
+        private readonly UserManager<IdentityUser> _userManager;
+
+        public UserRepository()
         {
-            throw new NotImplementedException();
+            _authDbContext = new AuthContext();
+            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_authDbContext));
+        }
+
+
+        public void Create(User user, string password)
+        {
+            IdentityUser userDb = new IdentityUser
+            {
+                UserName = user.Name,
+                Email = user.Email
+            };
+
+            _userManager.Create(userDb, password);
+
         }
 
         public void Update(Domain.Core.Entities.User user)
@@ -23,6 +44,13 @@ namespace OMoney.Data.Users
         public Domain.Core.Entities.User GetByEmail(string email)
         {
             throw new NotImplementedException();
+        }
+
+
+        public void Dispose()
+        {
+            _authDbContext.Dispose();
+            _userManager.Dispose();
         }
     }
 }

@@ -1,17 +1,13 @@
-﻿using System.Linq;
-using System.Net.Http.Formatting;
-using System.Reflection;
-using System.Web.Http;
-using Owin;
-using Microsoft.Owin;
-using Newtonsoft.Json.Serialization;
+﻿using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Ninject;
 using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
 using OMoney.Domain.Services.Users;
+using OMoney.Web.Api;
+using Owin;
 
-
-[assembly: OwinStartup(typeof(OMoney.Web.Api.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 namespace OMoney.Web.Api
 {
     public class Startup
@@ -21,6 +17,7 @@ namespace OMoney.Web.Api
 
         public void Configuration(IAppBuilder app)
         {
+            app.UseCors(CorsOptions.AllowAll);
             app.UseNinjectMiddleware(NinjectWebCommon.CreateKernel).UseNinjectWebApi(WebApiConfig.Register());
         }
 
