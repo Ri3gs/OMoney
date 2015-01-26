@@ -13,6 +13,7 @@
             if (isValid) {
                 var user = new userResource(vm.User);
                 user.$save();
+                alert("Success!");
             } else {
                 alert("Make sure each input is correct");
             }
