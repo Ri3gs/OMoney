@@ -28,7 +28,8 @@ namespace OMoney.Web.Api.Controllers
             try
             {
                 Mapper.CreateMap<UserViewModel, User>();
-                User user = Mapper.Map<User>(userModel);
+                var user = Mapper.Map<User>(userModel);
+                user.Name = "CARL POPPA";
                 _userService.Create(user, userModel.Password, userModel.ConfirmPassword);
                 return Ok();
             }

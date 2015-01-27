@@ -7,13 +7,17 @@
         $urlRouterProvider.otherwise("/");
 
         $stateProvider.state("home", {
-            url: "/",
-            templateUrl: "app/welcome.html"
-        })
+                url: "/",
+                templateUrl: "app/welcome.html"
+            })
             .state("signUp", {
                 url: "/signup",
                 templateUrl: "app/users/signup.html",
                 controller: "SignUpCtrl as suCtrl"
+            })
+            .state("success", {
+                url: "/success",
+                templateUrl: "app/users/success.html"
             });
 
 

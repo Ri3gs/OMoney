@@ -64,6 +64,7 @@
     <Content Include="app\users\messages.html" />
     <Content Include="app\users\signup.html" />
     <Content Include="app\users\signUpCtrl.js" />
+    <Content Include="app\users\success.html" />
     <Content Include="app\welcome.html" />
     <Content Include="common\services\userResource.js" />
     <Content Include="Content\app.css" />

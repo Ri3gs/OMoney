@@ -14,7 +14,7 @@
                 user.$save(function(data) {
                     toastr.success("Регистрация прошла успешно. На указанный адрес электронной почты выслано письмо со ссылкой для активации.");
                 });
-            $state.go("home");
+            $state.go("success");
         }
 
         vm.cancel = function () {

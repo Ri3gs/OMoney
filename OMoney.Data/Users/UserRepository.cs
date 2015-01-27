@@ -21,8 +21,9 @@ namespace OMoney.Data.Users
 
         public void Create(User user, string password)
         {
-            IdentityUser userDb = new IdentityUser
+            var userDb = new IdentityUser
             {
+                UserName = user.Name,
                 Email = user.Email
             };
 
@@ -30,17 +31,17 @@ namespace OMoney.Data.Users
 
         }
 
-        public void Update(Domain.Core.Entities.User user)
+        public void Update(User user)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Domain.Core.Entities.User user)
+        public void Delete(User user)
         {
             throw new NotImplementedException();
         }
 
-        public Domain.Core.Entities.User GetByEmail(string email)
+        public User GetByEmail(string email)
         {
             throw new NotImplementedException();
         }
