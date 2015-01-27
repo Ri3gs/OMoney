@@ -20,14 +20,14 @@ namespace OMoney.Web.Api.Tests.WhenWorkingWithUserController
         {
             get
             {
-                return new UserViewModel { Name = "test", Email = "test@email.com", Password = "SuperPass", ConfirmPassword = "SuperPass", IsActive = false };
+                return new UserViewModel {Email = "test@email.com", Password = "SuperPass", ConfirmPassword = "SuperPass"};
             }
         }
 
         public UserViewModel InvalidUser {
             get
             {
-                return new UserViewModel { Name = "fail", Email = "fail", Password = "fail", ConfirmPassword = "liaf", IsActive = true};
+                return new UserViewModel {Email = "fail", Password = "fail", ConfirmPassword = "liaf"};
             }
         }
 

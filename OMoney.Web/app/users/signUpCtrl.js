@@ -9,14 +9,12 @@
         var vm = this;
         vm.User = {};
 
-        vm.submit = function (isValid) {
-            if (isValid) {
+        vm.submit = function () {
                 var user = new userResource(vm.User);
-                user.$save();
-                alert("Success!");
-            } else {
-                alert("Make sure each input is correct");
-            }
+                user.$save(function(data) {
+                    toastr.success("Регистрация прошла успешно. На указанный адрес электронной почты выслано письмо со ссылкой для активации.");
+                });
+            $state.go("home");
         }
 
         vm.cancel = function () {

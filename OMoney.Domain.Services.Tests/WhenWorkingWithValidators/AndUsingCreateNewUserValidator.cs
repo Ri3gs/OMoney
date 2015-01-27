@@ -44,7 +44,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndEmailIsEmpty()
         {
             // Arrange
-            var user = new User {Name = "test", Email = string.Empty, IsActive = true};
+            var user = new User {Email = string.Empty, IsActive = true};
 
             // Action
             var result = TestContext.CreateNewUserValidator.Validate(user, TestContext.GoodPass, TestContext.GoodPass);

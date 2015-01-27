@@ -15,12 +15,12 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
 
         public User ValidUser
         {
-            get { return new User { Name = "test", Email = "test@email.com", IsActive = true}; }
+            get { return new User {Email = "test@email.com", IsActive = true}; }
         }
 
         public User PhantomUser
         {
-            get { return new User { Name = "phantom", Email = "phantom@gmail.com", IsActive = true}; }
+            get { return new User {Email = "phantom@gmail.com", IsActive = true}; }
         }
 
         public string GoodPass
