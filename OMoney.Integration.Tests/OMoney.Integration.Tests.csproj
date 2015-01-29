@@ -52,7 +52,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox .cs" />
+    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_1 .cs" />
+    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_2.cs" />
+    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_3.cs" />
+    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_4.cs" />
+    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_5.cs" />
+    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_6.cs" />
+    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_7.cs" />
+    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_8.cs" />
+    <Compile Include="WhenWorkingWithSignupForm\old.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
