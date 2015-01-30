@@ -18,9 +18,17 @@
             .state("success", {
                 url: "/success",
                 templateUrl: "app/users/success.html"
+            })
+            .state("login", {
+                url: "login",
+                templateUrl: "app/templates/login.html",
+                controller: "loginController as loginController"
+            })
+            .state("profile", {
+                url: "profile",
+                templateUrl: "app/templates/profile.html",
+                controller: "profileController as profileController"
             });
-
-
     }]);
 
 

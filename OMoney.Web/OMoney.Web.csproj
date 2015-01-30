@@ -61,6 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\profileController.js" />
+    <Content Include="app\templates\login.html" />
+    <Content Include="app\templates\profile.html" />
     <Content Include="app\users\messages.html" />
     <Content Include="app\users\signup.html" />
     <Content Include="app\users\signUpCtrl.js" />
@@ -125,6 +129,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

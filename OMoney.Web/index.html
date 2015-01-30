@@ -7,7 +7,27 @@
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/toastr.css" rel="stylesheet" />
     <link href="Content/app.css" rel="stylesheet"/>
+</head>
+<body ng-app="oMoney">
+    <nav class="navbar navbar-inverse">
+    <div class="container">
+        <a class="navbar-brand" ui-sref="home">OMoney Project</a>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref="signUp">Зарегистрироваться</a>
+                </li>
+                <li>
+                    <a ui-sref="login">Войти</a>
+                </li>
+            </ul>
+     </div>
+    </nav>
 
+    <div class="container">
+        <div ui-view></div>
+    </div>
+    
+    
     <!-- Libraries -->
     <script src="scripts/jquery-2.1.3.min.js"></script>
     <script src="scripts/angular.min.js"></script>
@@ -25,26 +45,7 @@
 
     <!-- Controllers -->
     <script src="app/users/signUpCtrl.js"></script>
-
-</head>
-<body ng-app="oMoney">
-    <nav class="navbar navbar-inverse">
-    <div class="container">
-        <a class="navbar-brand"
-           ui-sref="home">OMoney Project</a>
-            <ul class="nav navbar-nav">
-                <li>
-                    <a ui-sref="signUp">Регистрация</a>
-                </li>
-            </ul>
-     </div>
-    </nav>
-
-
-
-    <div class="container">
-        <div ui-view></div>
-    </div>
-
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/profileController.js"></script>>
 </body>
 </html>
