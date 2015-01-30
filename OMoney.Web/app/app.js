@@ -12,12 +12,12 @@
             })
             .state("signUp", {
                 url: "/signup",
-                templateUrl: "app/users/signup.html",
-                controller: "SignUpCtrl as suCtrl"
+                templateUrl: "app/templates/signup.html",
+                controller: "signupController as signupController"
             })
             .state("success", {
                 url: "/success",
-                templateUrl: "app/users/success.html"
+                templateUrl: "app/templates/success.html"
             })
             .state("login", {
                 url: "login",

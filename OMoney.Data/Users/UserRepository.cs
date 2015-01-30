@@ -23,8 +23,8 @@ namespace OMoney.Data.Users
         {
             var userDb = new IdentityUser
             {
-                UserName = user.Email,
-                Email = user.Email,
+                UserName = user.Name,
+                Email = user.Email
             };
 
             _userManager.Create(userDb, password);

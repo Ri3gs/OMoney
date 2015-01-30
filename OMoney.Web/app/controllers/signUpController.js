@@ -3,9 +3,9 @@
     "use strict";
 
     angular.module("oMoney")
-        .controller("SignUpCtrl", ["$state", "userResource", SignUpCtrl]);
+        .controller("signupController", ["$state", "userResource", signupController]);
 
-    function SignUpCtrl($state, userResource) {
+    function signupController($state, userResource) {
         var vm = this;
         vm.User = {};
 

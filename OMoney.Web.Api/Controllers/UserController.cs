@@ -52,6 +52,7 @@ namespace OMoney.Web.Api.Controllers
         {
             return Ok();
         }
+
     }
 
     public class UserServiceModule : NinjectModule

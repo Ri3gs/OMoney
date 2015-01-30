@@ -65,10 +65,10 @@
     <Content Include="app\controllers\profileController.js" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\profile.html" />
-    <Content Include="app\users\messages.html" />
-    <Content Include="app\users\signup.html" />
-    <Content Include="app\users\signUpCtrl.js" />
-    <Content Include="app\users\success.html" />
+    <Content Include="app\templates\messages.html" />
+    <Content Include="app\templates\signup.html" />
+    <Content Include="app\controllers\signupController.js" />
+    <Content Include="app\templates\success.html" />
     <Content Include="app\welcome.html" />
     <Content Include="common\services\userResource.js" />
     <Content Include="Content\app.css" />
