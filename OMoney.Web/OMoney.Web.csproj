@@ -69,8 +69,8 @@
     <Content Include="app\templates\signup.html" />
     <Content Include="app\controllers\signupController.js" />
     <Content Include="app\templates\success.html" />
-    <Content Include="app\welcome.html" />
-    <Content Include="common\services\userResource.js" />
+    <Content Include="app\templates\home.html" />
+    <Content Include="app\services\userResource.js" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -93,7 +93,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="common\services\common.services.js" />
+    <Content Include="app\services\common.services.js" />
     <Content Include="scripts\angular-messages.min.js.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />

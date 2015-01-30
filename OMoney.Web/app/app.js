@@ -8,7 +8,7 @@
 
         $stateProvider.state("home", {
                 url: "/",
-                templateUrl: "app/welcome.html"
+                templateUrl: "app/home.html"
             })
             .state("signUp", {
                 url: "/signup",
