@@ -35,7 +35,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
 
         public ValidatorsTestContext()
         {
-            CreateNewUserValidator = new CreateNewUserValidator();
+            CreateNewUserValidator = new CreateNewUserValidator(string.Empty, string.Empty);
             MockUserRepository = new Mock<IUserRepository>();
 
             MockUserRepository.Setup(x => x.GetByEmail(ValidUser.Email)).Returns(ValidUser);
@@ -43,6 +43,11 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
 
             UpdateUserValidator = new UpdateUserValidator(MockUserRepository.Object);
             DeleteUserValidator = new DeleteUserValidator(MockUserRepository.Object);
+        }
+
+        public void SetPasswords(string password, string confirmPassword)
+        {
+            CreateNewUserValidator = new CreateNewUserValidator(password, confirmPassword);
         }
     }
 }

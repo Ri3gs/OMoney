@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Linq;
+using System.Web.Http;
 using AutoMapper;
 using Ninject.Modules;
 using OMoney.Data.Users;
@@ -29,7 +31,7 @@ namespace OMoney.Web.Api.Controllers
             {
                 Mapper.CreateMap<UserViewModel, User>();
                 var user = Mapper.Map<User>(userModel);
-                user.Name = "CARL POPPA";
+                user.Name = userModel.Email;
                 _userService.Create(user, userModel.Password, userModel.ConfirmPassword);
                 return Ok();
             }

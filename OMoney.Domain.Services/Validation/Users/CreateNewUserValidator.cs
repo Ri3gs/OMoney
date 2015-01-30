@@ -3,15 +3,25 @@ using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Domain.Services.Validation.Users
 {
-    public class CreateNewUserValidator : ICreateNewUserValidator<User>
+    public class CreateNewUserValidator : IDomainEntityValidator<User>
     {
-        public IEnumerable<string> Validate(User user, string password, string confirmPassword)
+        private readonly string _password;
+        private readonly string _confirmPassword;
+
+
+        public CreateNewUserValidator(string password, string confirmPassword)
+        {
+            _password = password;
+            _confirmPassword = confirmPassword;
+        }
+
+        public IEnumerable<string> Validate(User user)
         {
             if (user == null) yield return "User is NULL.";
             if (user != null && string.IsNullOrWhiteSpace(user.Email)) yield return "Email is EMPTY.";
-            if (user != null && string.IsNullOrWhiteSpace(password)) yield return "Password is EMPTY.";
-            if (user != null && string.IsNullOrWhiteSpace(confirmPassword)) yield return "Password Confirm is EMPTY.";
-            if (user != null && password != confirmPassword) yield return "Password and Confirm Password does not match.";
+            if (user != null && string.IsNullOrWhiteSpace(_password)) yield return "Password is EMPTY.";
+            if (user != null && string.IsNullOrWhiteSpace(_confirmPassword)) yield return "Password Confirm is EMPTY.";
+            if (user != null && _password != _confirmPassword) yield return "Password and Confirm Password does not match.";
         }
     }
 }

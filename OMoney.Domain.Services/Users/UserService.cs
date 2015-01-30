@@ -26,8 +26,7 @@ namespace OMoney.Domain.Services.Users
         {
             using (var transaction = new TransactionScope())
             {
-                var validationErrors =
-                    ValidateCreate(user, password, confrimPassword, new CreateNewUserValidator()).ToList();
+                var validationErrors = Validate(user, new CreateNewUserValidator(password, confrimPassword)).ToList();
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
                 _userRepository.Create(user, password);
@@ -82,11 +81,5 @@ namespace OMoney.Domain.Services.Users
         {
             return validator.Validate(user);
         }
-
-        private static IEnumerable<string> ValidateCreate(User user, string password, string confirmPassword,
-            ICreateNewUserValidator<User> validator)
-        {
-            return validator.Validate(user, password, confirmPassword);
-        } 
     }
 }

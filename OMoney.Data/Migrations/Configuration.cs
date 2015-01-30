@@ -1,3 +1,5 @@
+using Microsoft.AspNet.Identity.EntityFramework;
+
 namespace OMoney.Data.Migrations
 {
     using System;
@@ -26,6 +28,8 @@ namespace OMoney.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+           
         }
     }
 }

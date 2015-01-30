@@ -64,7 +64,6 @@
     <Compile Include="Users\IUserService.cs" />
     <Compile Include="Users\UserService.cs" />
     <Compile Include="Validation\DomainEntityValidationException.cs" />
-    <Compile Include="Validation\ICreateNewUserValidator.cs" />
     <Compile Include="Validation\IDomainEntityValidator.cs" />
     <Compile Include="Validation\Users\ActivateUserValidator.cs" />
     <Compile Include="Validation\Users\CreateNewUserValidator.cs" />
