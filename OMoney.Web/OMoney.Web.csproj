@@ -68,7 +68,7 @@
     <Content Include="app\templates\messages.html" />
     <Content Include="app\templates\signup.html" />
     <Content Include="app\controllers\signupController.js" />
-    <Content Include="app\templates\success.html" />
+    <Content Include="app\templates\activation.html" />
     <Content Include="app\templates\home.html" />
     <Content Include="app\services\userResource.js" />
     <Content Include="Content\app.css" />

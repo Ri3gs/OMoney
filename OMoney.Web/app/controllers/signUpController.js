@@ -15,7 +15,7 @@
             resource.$query({ email: vm.User.Email }, function () {
                 var user = new userResource(vm.User);
                 user.$save(function (data) {
-                    $state.go("success");
+                    $state.go("activation");
                 }, function() {
                     toastr.error("Ошибка на стороне сервера");
                 });

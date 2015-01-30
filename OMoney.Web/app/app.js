@@ -8,16 +8,16 @@
 
         $stateProvider.state("home", {
                 url: "/",
-                templateUrl: "app/home.html"
+                templateUrl: "app/templates/home.html"
             })
             .state("signUp", {
                 url: "/signup",
                 templateUrl: "app/templates/signup.html",
                 controller: "signupController as signupController"
             })
-            .state("success", {
-                url: "/success",
-                templateUrl: "app/templates/success.html"
+            .state("activation", {
+                url: "/activation",
+                templateUrl: "app/templates/activation.html"
             })
             .state("login", {
                 url: "login",
