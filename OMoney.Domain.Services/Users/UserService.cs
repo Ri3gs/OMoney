@@ -77,6 +77,24 @@ namespace OMoney.Domain.Services.Users
             }
         }
 
+        public User GetByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CheckByEmail(string email)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                var validator = new CheckByEmailValidator();
+                var validationErrors = validator.Validate(email).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
+                transaction.Complete();
+            }
+
+            return _userRepository.CheckByEmail(email);
+        }
+
         private static IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)
         {
             return validator.Validate(user);

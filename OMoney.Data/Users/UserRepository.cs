@@ -46,6 +46,11 @@ namespace OMoney.Data.Users
             throw new NotImplementedException();
         }
 
+        public bool CheckByEmail(string email)
+        {
+            return _userManager.FindByEmail(email) == null;
+        }
+
 
         public void Dispose()
         {

@@ -8,13 +8,20 @@
     function signupController($state, userResource) {
         var vm = this;
         vm.User = {};
-
+        vm.unavailableemail = false;
         vm.submit = function () {
+
+            var resource = new userResource();
+            resource.$query({ email: vm.User.Email }, function () {
                 var user = new userResource(vm.User);
-                user.$save(function(data) {
-                    toastr.success("Регистрация прошла успешно. На указанный адрес электронной почты выслано письмо со ссылкой для активации.");
+                user.$save(function (data) {
+                    $state.go("success");
+                }, function() {
+                    toastr.error("Ошибка на стороне сервера");
                 });
-            $state.go("success");
+            }, function () {
+                vm.unavailableemail = true;
+            });
         }
 
         vm.cancel = function () {

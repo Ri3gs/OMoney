@@ -13,6 +13,7 @@
                        required />
             </div>
             <div ng-messages="signupForm.Email.$error" ng-messages-include="app/templates/messages.html"></div>
+            <div class="messages" ng-show="signupController.unavailableemail">Такой адрес уже зарегистрирован.</div>
         </div>
 
         <div class="form-group">

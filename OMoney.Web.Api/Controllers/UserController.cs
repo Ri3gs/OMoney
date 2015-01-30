@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using AutoMapper;
 using Ninject.Modules;
 using OMoney.Data.Users;
@@ -48,11 +46,14 @@ namespace OMoney.Web.Api.Controllers
 
         [HttpGet]
         [Route("register")]
-        public IHttpActionResult Register()
+        public IHttpActionResult CheckByEmail(string email)
         {
-            return Ok();
+            if (_userService.CheckByEmail(email))
+            {
+                return Ok();
+            }
+            return NotFound();
         }
-
     }
 
     public class UserServiceModule : NinjectModule
