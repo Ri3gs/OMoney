@@ -1,5 +1,4 @@
-﻿
-(function () {
+﻿(function () {
     var app = angular.module("oMoney", ["common.services", "ui.router", "ngMessages"]);
 
 
@@ -48,4 +47,8 @@
     };
 
     app.directive("pwCheck", pwCheck);
+
+    app.run(['authService', function(authService) {
+        authService.authenticate();
+    }]);
 }());

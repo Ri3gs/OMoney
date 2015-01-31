@@ -1,20 +1,19 @@
 ﻿(function () {
     "use strict";
-    angular.module("oMoney").controller("loginController", ["$state", "userResource", loginController]);
+    angular.module('oMoney').controller('loginController', ['$scope', '$state', 'authService', function($scope, $state, authService) {
+        $scope.loginViewModel = {
+            email: "",
+            password: ""
+        };
 
-    function loginController($state, userResource) {
-        var vm = this;
-        vm.User = {};
+        $scope.message = "";
 
-        vm.login = function () {
-            var user = new userResource(vm.User);
-            user.$save(function (data) {
-                $state.go("profile");
+        $scope.login = function() {
+            authService.login($scope.loginViewModel).then(function(response) {
+                $state.go('profile');
+            }, function(error) {
+                $scope.message = error.error_description;
             });
         }
-
-        vm.cancel = function () {
-            $state.go("home");
-        }
-    };
+    }]);
 }());

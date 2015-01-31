@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web;
+﻿using System.Reflection;
 using Ninject;
+using Ninject.Modules;
+using OMoney.Data.Users;
+using OMoney.Domain.Services.Notifications;
+using OMoney.Domain.Services.Users;
 
 namespace OMoney.Web.Api
 {
@@ -14,6 +14,16 @@ namespace OMoney.Web.Api
             var kernel = new StandardKernel();
             kernel.Load(Assembly.GetExecutingAssembly());
             return kernel;
+        }
+    }
+
+    public class UserServiceModule : NinjectModule
+    {
+        public override void Load()
+        {
+            Bind<IUserService>().To<UserService>();
+            Bind<IUserRepository>().To<UserRepository>();
+            Bind<INotificationService>().To<NotificationService>();
         }
     }
 }

@@ -62,7 +62,9 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\navigationController.js" />
     <Content Include="app\controllers\profileController.js" />
+    <Content Include="app\services\authService.js" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\profile.html" />
     <Content Include="app\templates\messages.html" />

@@ -1,9 +1,6 @@
 ﻿using System.Web.Http;
 using AutoMapper;
-using Ninject.Modules;
-using OMoney.Data.Users;
 using OMoney.Domain.Core.Entities;
-using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Users;
 using OMoney.Domain.Services.Validation;
 using OMoney.Web.Api.Models;
@@ -44,25 +41,11 @@ namespace OMoney.Web.Api.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet]
-        [Route("register")]
-        public IHttpActionResult CheckByEmail(string email)
+        [HttpPost]
+        [Route("login")]
+        public IHttpActionResult Login(LoginViewModel model)
         {
-            if (_userService.CheckByEmail(email))
-            {
-                return Ok();
-            }
-            return NotFound();
-        }
-    }
-
-    public class UserServiceModule : NinjectModule
-    {
-        public override void Load()
-        {
-            Bind<IUserService>().To<UserService>();
-            Bind<IUserRepository>().To<UserRepository>();
-            Bind<INotificationService>().To<NotificationService>();
+            return BadRequest(ModelState);
         }
     }
 }
