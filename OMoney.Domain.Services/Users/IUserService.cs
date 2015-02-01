@@ -9,7 +9,6 @@ namespace OMoney.Domain.Services.Users
         void Update(User user);
         void Delete(User user);
 
-        User GetByEmail(string email);
-        bool CheckByEmail(string email);
+        User FindUser(string email, string password);
     }
 }

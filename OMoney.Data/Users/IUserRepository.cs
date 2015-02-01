@@ -9,6 +9,5 @@ namespace OMoney.Data.Users
         void Delete(User user);
 
         User GetByEmail(string email);
-        bool CheckByEmail(string email);
     }
 }

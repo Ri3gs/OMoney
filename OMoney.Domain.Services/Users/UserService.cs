@@ -26,7 +26,7 @@ namespace OMoney.Domain.Services.Users
         {
             using (var transaction = new TransactionScope())
             {
-                var validationErrors = Validate(user, new CreateNewUserValidator(password, confrimPassword)).ToList();
+                var validationErrors = Validate(user, new CreateNewUserValidator(_userRepository, password, confrimPassword)).ToList();
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
                 _userRepository.Create(user, password);
@@ -41,22 +41,12 @@ namespace OMoney.Domain.Services.Users
             throw new NotImplementedException();
         }
 
-        private EmailNotificationMessage BuildNewUserNotificationMessage(User user)
-        {
-            return new EmailNotificationMessage {Subject = "Wellcome to OMoney!", Body = string.Format("Please follow this link: <a href='{0}'>link</a>", GenerateActivationLink(user))};
-        }
-
-        private string GenerateActivationLink(User user)
-        {
-            return string.Format("http://omoney.com.ua/activate/{0}", user.Email);
-        }
-
         public void Update(User user)
         {
             using (var transaction = new TransactionScope())
             {
                 var validationErrors = Validate(user, new UpdateUserValidator(_userRepository)).ToList();
-                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
+                if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
                 _userRepository.Update(user);
 
@@ -69,7 +59,7 @@ namespace OMoney.Domain.Services.Users
             using (var transaction = new TransactionScope())
             {
                 var validationErrors = Validate(user, new DeleteUserValidator(_userRepository)).ToList();
-                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
+                if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
                 _userRepository.Delete(user);
 
@@ -77,22 +67,19 @@ namespace OMoney.Domain.Services.Users
             }
         }
 
-        public User GetByEmail(string email)
+        public User FindUser(string email, string password)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public bool CheckByEmail(string email)
+        private EmailNotificationMessage BuildNewUserNotificationMessage(User user)
         {
-            using (var transaction = new TransactionScope())
-            {
-                var validator = new CheckByEmailValidator();
-                var validationErrors = validator.Validate(email).ToList();
-                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
-                transaction.Complete();
-            }
+            return new EmailNotificationMessage {Subject = "Wellcome to OMoney!", Body = string.Format("Please follow this link: <a href='{0}'>link</a>", GenerateActivationLink(user))};
+        }
 
-            return _userRepository.CheckByEmail(email);
+        private string GenerateActivationLink(User user)
+        {
+            return string.Format("http://omoney.com.ua/activate/{0}", user.Email);
         }
 
         private static IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)

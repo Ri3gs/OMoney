@@ -34,7 +34,7 @@ namespace OMoney.Web.Api.Controllers
             {
                 foreach (var validationError in validationException.ValidationErrors)
                 {
-                    ModelState.AddModelError("validationError", validationError);
+                    ModelState.AddModelError("validationErrors", validationError);
                 }
             }
 

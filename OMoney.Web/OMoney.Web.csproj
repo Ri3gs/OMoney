@@ -67,6 +67,7 @@
     <Content Include="app\controllers\profileController.js" />
     <Content Include="app\directives\password-check.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\services\notificationService.js" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\profile.html" />
     <Content Include="app\templates\messages.html" />

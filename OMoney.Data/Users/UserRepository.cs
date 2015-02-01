@@ -43,14 +43,16 @@ namespace OMoney.Data.Users
 
         public User GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            var identityUser = _userManager.FindByEmail(email);
+            if (identityUser != null)
+            {
+                return new User
+                {
+                    Email = identityUser.Email
+                };
+            }
+            return null;
         }
-
-        public bool CheckByEmail(string email)
-        {
-            return _userManager.FindByEmail(email) == null;
-        }
-
 
         public void Dispose()
         {
