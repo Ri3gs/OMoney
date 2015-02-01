@@ -1,6 +1,6 @@
 ﻿(function () {
     "use strict";
-    angular.module('oMoney').controller('loginController', ['$scope', '$state', 'authService', function($scope, $state, authService) {
+    angular.module('oMoney').controller('loginController', ['$scope', '$location', 'authService', function($scope, $location, authService) {
         $scope.loginViewModel = {
             email: "",
             password: ""
@@ -10,7 +10,7 @@
 
         $scope.login = function() {
             authService.login($scope.loginViewModel).then(function(response) {
-                $state.go('profile');
+                $location.path('/profile');
             }, function(error) {
                 $scope.message = error.error_description;
             });

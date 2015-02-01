@@ -61,9 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\activationController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\navigationController.js" />
     <Content Include="app\controllers\profileController.js" />
+    <Content Include="app\directives\password-check.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\profile.html" />
@@ -72,7 +74,6 @@
     <Content Include="app\controllers\signupController.js" />
     <Content Include="app\templates\activation.html" />
     <Content Include="app\templates\home.html" />
-    <Content Include="app\services\userResource.js" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -81,6 +82,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="scripts\angular-local-storage.js" />
     <Content Include="scripts\angular-messages.js" />
     <Content Include="scripts\angular-messages.min.js" />
     <Content Include="scripts\angular-ui-router.js" />
@@ -95,7 +97,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="app\services\common.services.js" />
     <Content Include="scripts\angular-messages.min.js.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />

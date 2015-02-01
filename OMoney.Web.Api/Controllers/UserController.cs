@@ -7,7 +7,7 @@ using OMoney.Web.Api.Models;
 
 namespace OMoney.Web.Api.Controllers
 {
-    [RoutePrefix("api/account")]
+    [RoutePrefix("api/user")]
     public class UserController : ApiController
     {
         private readonly IUserService _userService;
@@ -19,8 +19,8 @@ namespace OMoney.Web.Api.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("register")]
-        public IHttpActionResult Register(UserViewModel userModel)
+        [Route("signup")]
+        public IHttpActionResult Signup(UserViewModel userModel)
         {
             try
             {

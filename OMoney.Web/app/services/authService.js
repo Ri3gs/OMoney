@@ -1,7 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('oMoney').factory('authService', ['$http', '$q', function($http, $q) {
+    angular.module('oMoney').factory('authService', ['$http', '$q', 'localStorageService', function ($http, $q, localStorageService) {
         var serviceBaseUrl = 'http://localhost:4586/';
         var authServiceFactory = {};
 
@@ -10,10 +10,10 @@
             userName: ""
         };
 
-        var registration = function (registrationViewModel) {
+        var signup = function (signupViewModel) {
             logOut();
 
-            return $http.post(serviceBaseUrl + 'api/user/registration', registrationViewModel).then(function(response) {
+            return $http.post(serviceBaseUrl + 'api/user/signup', signupViewModel).then(function (response) {
                 return response;
             });
         }
@@ -23,7 +23,10 @@
 
             var deferred = $q.defer();
 
-            $http.post(serviceBaseUrl + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function(response) {
+            $http.post(serviceBaseUrl + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+
+                localStorageService.set('authenticationData', { token: response.access_token, email: loginViewModel.email });
+
                 authentication.isAuthenticated = true;
                 authentication.userName = loginViewModel.email;
 
@@ -42,12 +45,15 @@
         }
 
         var authenticate = function () {
-            authentication.isAuthenticated = true;
-            authentication.userName = "test@email.com";
+            var authenticationData = localStorageService.get('authenticationData');
+            if (authenticationData) {
+                authentication.isAuthenticated = true;
+                authentication.userName = authenticationData.email;
+            }
         }
 
         authServiceFactory.authentication = authentication;
-        authServiceFactory.registration = registration;
+        authServiceFactory.signup = signup;
         authServiceFactory.login = login;
         authServiceFactory.logOut = logOut;
         authServiceFactory.authenticate = authenticate;

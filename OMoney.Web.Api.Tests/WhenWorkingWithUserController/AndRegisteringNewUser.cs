@@ -28,7 +28,7 @@ namespace OMoney.Web.Api.Tests.WhenWorkingWithUserController
         {
             // Arrange
             // Action
-            var actionResult = TestContext.UserController.Register(TestContext.ValidUser);
+            var actionResult = TestContext.UserController.Signup(TestContext.ValidUser);
             // Assert
             Assert.IsInstanceOf<OkResult>(actionResult);
         }
@@ -39,7 +39,7 @@ namespace OMoney.Web.Api.Tests.WhenWorkingWithUserController
             // Arrange
             // Action
             // Assert
-            var actionResult = TestContext.UserController.Register(TestContext.InvalidUser);
+            var actionResult = TestContext.UserController.Signup(TestContext.InvalidUser);
             Assert.IsInstanceOf<InvalidModelStateResult>(actionResult);
         }
     }
