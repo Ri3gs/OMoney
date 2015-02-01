@@ -62,6 +62,7 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\activationController.js" />
+    <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\navigationController.js" />
     <Content Include="app\controllers\profileController.js" />
@@ -83,7 +84,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="scripts\angular-local-storage.js" />
+    <Content Include="scripts\angular-local-storage.min.js" />
     <Content Include="scripts\angular-messages.js" />
     <Content Include="scripts\angular-messages.min.js" />
     <Content Include="scripts\angular-ui-router.js" />

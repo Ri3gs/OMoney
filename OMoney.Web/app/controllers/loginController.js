@@ -8,9 +8,9 @@
 
         $scope.message = "";
 
-        $scope.login = function() {
+        $scope.login = function () {
             authService.login($scope.loginViewModel).then(function(response) {
-                $location.path('/profile');
+                $location.path('/home');
             }, function(error) {
                 $scope.message = error.error_description;
             });

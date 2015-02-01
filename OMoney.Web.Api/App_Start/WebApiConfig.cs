@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net.Http.Formatting;
-using System.Web;
 using System.Web.Http;
 using Newtonsoft.Json.Serialization;
 
@@ -12,7 +9,7 @@ namespace OMoney.Web.Api
     {
         public static HttpConfiguration Register()
         {
-            HttpConfiguration config = new HttpConfiguration();
+            var config = new HttpConfiguration();
             
             config.MapHttpAttributeRoutes();
 

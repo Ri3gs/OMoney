@@ -6,7 +6,7 @@ using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Data.Users
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository, IDisposable
     {
 
         private readonly AuthContext _authDbContext;
@@ -44,6 +44,19 @@ namespace OMoney.Data.Users
         public User GetByEmail(string email)
         {
             var identityUser = _userManager.FindByEmail(email);
+            if (identityUser != null)
+            {
+                return new User
+                {
+                    Email = identityUser.Email
+                };
+            }
+            return null;
+        }
+
+        public User FindUser(string email, string password)
+        {
+            var identityUser = _userManager.Find(email, password);
             if (identityUser != null)
             {
                 return new User
