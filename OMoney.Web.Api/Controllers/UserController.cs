@@ -64,5 +64,17 @@ namespace OMoney.Web.Api.Controllers
             }
             return BadRequest();
         }
+
+        [HttpPost]
+        [Route("changepassword")]
+        public IHttpActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            if (_userService.ChangePassword(model.Email, model.OldPassword, model.NewPassword))
+            {
+                return Ok();
+            }
+
+            return BadRequest();
+        }
     }
 }

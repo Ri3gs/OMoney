@@ -83,6 +83,13 @@ namespace OMoney.Data.Users
             return address;
         }
 
+        public bool ChangePassword(string email, string oldPassword, string newPassword)
+        {
+            var result = _userManager.ChangePassword(_userManager.FindByEmail(email).Id, oldPassword, newPassword);
+            return result.Succeeded;
+
+        }
+
         public bool ConfirmEmail(string userId, string code)
         {
             var result = _userManager.ConfirmEmail(userId, code);

@@ -30,6 +30,15 @@
         $routeProvider.when("/emailconfirmed", {
             templateUrl: "app/templates/emailconfirmed.html"
         });
+
+        $routeProvider.when("/changepassword", {
+            controller: "changePasswordController",
+            templateUrl: "app/templates/changepassword.html"
+        });
+
+        $routeProvider.when("/passwordchanged", {
+            templateUrl: "app/templates/passwordchanged.html"
+        });
     });
 
     app.run(['authService', function(authService) {

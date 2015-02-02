@@ -72,6 +72,11 @@ namespace OMoney.Domain.Services.Users
             return null;
         }
 
+        public bool ChangePassword(string email, string oldPassword, string newPassword)
+        {
+            return _userRepository.ChangePassword(email, oldPassword, newPassword);
+        }
+
         private EmailNotificationMessage BuildNewUserNotificationMessage(User user)
         {
             return new EmailNotificationMessage {Subject = "Wellcome to OMoney!", Body = string.Format("Please follow this link: <a href='{0}'>link</a>", GenerateActivationLink(user)), Destination = user.Email};

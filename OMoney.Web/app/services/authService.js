@@ -10,6 +10,14 @@
             userName: ""
         };
 
+        var changePassword = function(changePasswordViewModel) {
+            logOut();
+
+            return $http.post(serviceBaseUrl + 'api/user/changepassword', changePasswordViewModel).then(function (response) {
+                return response;
+            });
+        }
+
         var signup = function (signupViewModel) {
             logOut();
 
@@ -57,6 +65,7 @@
         authServiceFactory.login = login;
         authServiceFactory.logOut = logOut;
         authServiceFactory.authenticate = authenticate;
+        authServiceFactory.changePassword = changePassword;
 
         return authServiceFactory;
     }]);

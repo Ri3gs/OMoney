@@ -13,5 +13,6 @@ namespace OMoney.Data.Users
         User FindUser(string email, string password);
 
         string GenerateEmailToken(string email);
+        bool ChangePassword(string email, string oldPassword, string newPassword);
     }
 }

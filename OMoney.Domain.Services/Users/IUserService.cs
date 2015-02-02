@@ -10,5 +10,6 @@ namespace OMoney.Domain.Services.Users
         void Delete(User user);
 
         User FindUser(string email, string password);
+        bool ChangePassword(string email, string oldPassword, string newPassword);
     }
 }
