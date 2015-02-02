@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security.DataProtection;
 using OMoney.Data.Context;
 using OMoney.Domain.Core.Entities;
 
@@ -16,6 +19,11 @@ namespace OMoney.Data.Users
         {
             _authDbContext = new AuthContext();
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_authDbContext));
+
+            var provider = new DpapiDataProtectionProvider("OMoney");
+            _userManager.UserTokenProvider = new DataProtectorTokenProvider<IdentityUser>(provider.Create("EmailConfirmation"));
+
+            
         }
 
 
@@ -65,6 +73,20 @@ namespace OMoney.Data.Users
                 };
             }
             return null;
+        }
+
+        public string GenerateEmailToken(string email)
+        {
+            var identityUser = _userManager.FindByEmail(email);
+            var token = _userManager.GenerateEmailConfirmationToken(identityUser.Id);
+            var address = string.Format("userId={0}&code={1}", HttpUtility.UrlEncode(identityUser.Id), HttpUtility.UrlEncode(token));
+            return address;
+        }
+
+        public bool ConfirmEmail(string userId, string code)
+        {
+            var result = _userManager.ConfirmEmail(userId, code);
+            return result.Succeeded;
         }
 
         public void Dispose()

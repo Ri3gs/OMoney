@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using AutoMapper;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Users;
@@ -46,6 +47,22 @@ namespace OMoney.Web.Api.Controllers
         public IHttpActionResult Login(LoginViewModel model)
         {
             return BadRequest(ModelState);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("activate")]
+        public IHttpActionResult Activate(string userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return BadRequest();
+            }
+            if (_userService.Activate(userId, code))
+            {
+                return Redirect("http://localhost:4598/#/emailconfirmed");
+            }
+            return BadRequest();
         }
     }
 }

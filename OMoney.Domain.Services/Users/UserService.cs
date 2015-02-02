@@ -30,15 +30,15 @@ namespace OMoney.Domain.Services.Users
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
                 _userRepository.Create(user, password);
-                _notificationService.SendEmail(BuildNewUserNotificationMessage(user));
 
                 transaction.Complete();
             }
+            _notificationService.SendEmail(BuildNewUserNotificationMessage(user));
         }
 
-        public void Activate(User user)
+        public bool Activate(string userId, string code)
         {
-            throw new NotImplementedException();
+            return _userRepository.ConfirmEmail(userId, code);
         }
 
         public void Update(User user)
@@ -74,12 +74,13 @@ namespace OMoney.Domain.Services.Users
 
         private EmailNotificationMessage BuildNewUserNotificationMessage(User user)
         {
-            return new EmailNotificationMessage {Subject = "Wellcome to OMoney!", Body = string.Format("Please follow this link: <a href='{0}'>link</a>", GenerateActivationLink(user))};
+            return new EmailNotificationMessage {Subject = "Wellcome to OMoney!", Body = string.Format("Please follow this link: <a href='{0}'>link</a>", GenerateActivationLink(user)), Destination = user.Email};
         }
 
         private string GenerateActivationLink(User user)
         {
-            return string.Format("http://omoney.com.ua/activate/{0}", user.Email);
+            var code = _userRepository.GenerateEmailToken(user.Email);
+            return string.Format("http://localhost:4586/api/user/activate?{0}", code);
         }
 
         private static IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)

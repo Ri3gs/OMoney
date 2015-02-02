@@ -26,6 +26,10 @@
             controller: "profileController",
             templateUrl: "app/templates/profile.html"
         });
+
+        $routeProvider.when("/emailconfirmed", {
+            templateUrl: "app/templates/emailconfirmed.html"
+        });
     });
 
     app.run(['authService', function(authService) {
