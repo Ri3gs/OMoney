@@ -33,7 +33,6 @@ namespace OMoney.Domain.Services.Notifications
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 throw ex;
             }
         }

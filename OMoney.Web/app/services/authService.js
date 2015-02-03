@@ -10,6 +10,18 @@
             userName: ""
         };
 
+        var resetPassword = function (resetPasswordViewModel) {
+            return $http.post(serviceBaseUrl + 'api/user/resetpassword', resetPasswordViewModel).then(function (response) {
+                return response;
+            });
+        }
+
+        var sendRestoreEmail = function (restorePasswordViewModel) {
+            return $http.get(serviceBaseUrl + 'api/user/restorepassword', { params: restorePasswordViewModel }).then(function (response) {
+                return response;
+            });
+        }
+
         var changePassword = function(changePasswordViewModel) {
             logOut();
 
@@ -66,6 +78,8 @@
         authServiceFactory.logOut = logOut;
         authServiceFactory.authenticate = authenticate;
         authServiceFactory.changePassword = changePassword;
+        authServiceFactory.sendRestoreEmail = sendRestoreEmail;
+        authServiceFactory.resetPassword = resetPassword;
 
         return authServiceFactory;
     }]);

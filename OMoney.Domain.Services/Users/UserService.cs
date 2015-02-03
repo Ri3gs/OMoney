@@ -77,9 +77,25 @@ namespace OMoney.Domain.Services.Users
             return _userRepository.ChangePassword(email, oldPassword, newPassword);
         }
 
+        public bool ResetPassword(string userId, string code, string newPassword)
+        {
+            return _userRepository.ResetPassword_(userId, code, newPassword);
+        }
+
+        public void SendResetLink(string email)
+        {
+            _notificationService.SendEmail(new EmailNotificationMessage { Subject = "Reset password from OMoney", Body = string.Format("Please follow this link to reset your password: <a href='{0}'>link</a>", GeneratePwdResetLink(email)), Destination = email});
+        }
+
         private EmailNotificationMessage BuildNewUserNotificationMessage(User user)
         {
             return new EmailNotificationMessage {Subject = "Wellcome to OMoney!", Body = string.Format("Please follow this link: <a href='{0}'>link</a>", GenerateActivationLink(user)), Destination = user.Email};
+        }
+
+        private string GeneratePwdResetLink(string email)
+        {
+            var code = _userRepository.GeneratePwdToken(email);
+            return string.Format("http://localhost:4598/#/resetpassword?{0}", code);
         }
 
         private string GenerateActivationLink(User user)

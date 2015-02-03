@@ -11,5 +11,7 @@ namespace OMoney.Domain.Services.Users
 
         User FindUser(string email, string password);
         bool ChangePassword(string email, string oldPassword, string newPassword);
+        bool ResetPassword(string userId, string code, string newPassword);
+        void SendResetLink(string email);
     }
 }

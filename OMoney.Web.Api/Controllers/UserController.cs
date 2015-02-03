@@ -76,5 +76,28 @@ namespace OMoney.Web.Api.Controllers
 
             return BadRequest();
         }
+
+        [HttpGet]
+        [Route("restorepassword")]
+        public IHttpActionResult RestorePassword(string email)
+        {
+            _userService.SendResetLink(email);
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("resetpassword")]
+        public IHttpActionResult ResetPassword(ResetPasswordViewModel model)
+        {
+            if (model.userId == null || model.code == null)
+            {
+                return BadRequest();
+            }
+            if (_userService.ResetPassword(model.userId, model.code, model.newPassword))
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
     }
 }

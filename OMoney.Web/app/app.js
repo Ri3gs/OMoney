@@ -39,6 +39,24 @@
         $routeProvider.when("/passwordchanged", {
             templateUrl: "app/templates/passwordchanged.html"
         });
+
+        $routeProvider.when("/restorepassword", {
+            controller: "restorePasswordController",
+            templateUrl: "app/templates/restorepassword.html"
+        });
+
+        $routeProvider.when("/restoreemailsent", {
+            templateUrl: "app/templates/restoreemailsent.html"
+        });
+
+        $routeProvider.when("/resetpassword", {
+            controller: "resetPasswordController",
+            templateUrl: "app/templates/resetpassword.html"
+        });
+
+        $routeProvider.when("/passwordrestored", {
+            templateUrl: "app/templates/passwordrestored.html"
+        });
     });
 
     app.run(['authService', function(authService) {

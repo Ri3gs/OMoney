@@ -83,11 +83,25 @@ namespace OMoney.Data.Users
             return address;
         }
 
+        public string GeneratePwdToken(string email)
+        {
+            var identityUser = _userManager.FindByEmail(email);
+            var token = _userManager.GeneratePasswordResetToken(identityUser.Id);
+            var address = string.Format("userId={0}&code={1}", HttpUtility.UrlEncode(identityUser.Id), HttpUtility.UrlEncode(token));
+            return address;
+        }
+
         public bool ChangePassword(string email, string oldPassword, string newPassword)
         {
             var result = _userManager.ChangePassword(_userManager.FindByEmail(email).Id, oldPassword, newPassword);
             return result.Succeeded;
 
+        }
+
+        public bool ResetPassword_(string userId, string code, string newPassword)
+        {
+            var result = _userManager.ResetPassword(userId, code, newPassword);
+            return result.Succeeded;
         }
 
         public bool ConfirmEmail(string userId, string code)
