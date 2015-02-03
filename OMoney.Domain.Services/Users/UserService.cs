@@ -33,12 +33,28 @@ namespace OMoney.Domain.Services.Users
 
                 transaction.Complete();
             }
-            _notificationService.SendEmail(BuildNewUserNotificationMessage(user));
+
+            SendConfirmationEmailForNewUser(user);
         }
 
         public bool Activate(string userId, string code)
         {
-            return _userRepository.ConfirmEmail(userId, code);
+            using (var transaction = new TransactionScope())
+            {
+                var validator = new ActivateUserValidator(_userRepository);
+                var validationErrors = validator.Validate(userId, code).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
+
+                if (_userRepository.ConfirmEmail(userId, code))
+                {
+                    transaction.Complete();
+                }
+                else
+                {
+                    throw new DomainEntityValidationException { ValidationErrors = new List<string>{ "Cant confirm your email. Try again." }};
+                }
+            }
+            return true;
         }
 
         public void Update(User user)
@@ -87,26 +103,25 @@ namespace OMoney.Domain.Services.Users
             _notificationService.SendEmail(new EmailNotificationMessage { Subject = "Reset password from OMoney", Body = string.Format("Please follow this link to reset your password: <a href='{0}'>link</a>", GeneratePwdResetLink(email)), Destination = email});
         }
 
-        private EmailNotificationMessage BuildNewUserNotificationMessage(User user)
-        {
-            return new EmailNotificationMessage {Subject = "Wellcome to OMoney!", Body = string.Format("Please follow this link: <a href='{0}'>link</a>", GenerateActivationLink(user)), Destination = user.Email};
-        }
-
         private string GeneratePwdResetLink(string email)
         {
             var code = _userRepository.GeneratePwdToken(email);
             return string.Format("http://localhost:4598/#/resetpassword?{0}", code);
         }
 
-        private string GenerateActivationLink(User user)
-        {
-            var code = _userRepository.GenerateEmailToken(user.Email);
-            return string.Format("http://localhost:4586/api/user/activate?{0}", code);
-        }
-
         private static IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)
         {
             return validator.Validate(user);
+        }
+
+        private void SendConfirmationEmailForNewUser(User user)
+        {
+            var id = _userRepository.GetId(user.Email);
+            var code = _userRepository.GenerateEmailToken(id);
+            var link = _notificationService.BuildEmailConfirmationLink(id, code);
+            var message = _notificationService.BuildConfirmEmailForNewUserNotificationMessage(link, user.Email);
+
+            _notificationService.SendEmail(message);
         }
     }
 }

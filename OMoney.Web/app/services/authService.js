@@ -10,6 +10,12 @@
             userName: ""
         };
 
+        var confirmEmail = function (emailConfirmationViewModel) {
+            return $http.post(serviceBaseUrl + 'api/user/activate', emailConfirmationViewModel).then(function (response) {
+                return response;
+            });
+        }
+
         var resetPassword = function (resetPasswordViewModel) {
             return $http.post(serviceBaseUrl + 'api/user/resetpassword', resetPasswordViewModel).then(function (response) {
                 return response;
@@ -80,6 +86,7 @@
         authServiceFactory.changePassword = changePassword;
         authServiceFactory.sendRestoreEmail = sendRestoreEmail;
         authServiceFactory.resetPassword = resetPassword;
+        authServiceFactory.confirmEmail = confirmEmail;
 
         return authServiceFactory;
     }]);

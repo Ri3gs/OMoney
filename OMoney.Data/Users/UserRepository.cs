@@ -75,12 +75,44 @@ namespace OMoney.Data.Users
             return null;
         }
 
-        public string GenerateEmailToken(string email)
+        public User FindById(string userId)
+        {
+            var identityUser = _userManager.FindById(userId);
+            if (identityUser != null)
+            {
+                return new User
+                {
+                    Email = identityUser.Email,
+                };
+            }
+            return null;
+        }
+
+        public string GetId(string email)
         {
             var identityUser = _userManager.FindByEmail(email);
-            var token = _userManager.GenerateEmailConfirmationToken(identityUser.Id);
-            var address = string.Format("userId={0}&code={1}", HttpUtility.UrlEncode(identityUser.Id), HttpUtility.UrlEncode(token));
-            return address;
+            if (identityUser != null)
+            {
+                return identityUser.Id;
+            }
+            return null;
+        }
+
+        public string GenerateEmailToken(string userId)
+        {
+            var identityUser = _userManager.FindById(userId);
+            if (identityUser != null)
+            {
+                return _userManager.GenerateEmailConfirmationToken(userId);
+            }
+
+            return null;
+        }
+
+        public bool ConfirmEmail(string userId, string code)
+        {
+            var result = _userManager.ConfirmEmail(userId, code);
+            return result.Succeeded;
         }
 
         public string GeneratePwdToken(string email)
@@ -101,12 +133,6 @@ namespace OMoney.Data.Users
         public bool ResetPassword_(string userId, string code, string newPassword)
         {
             var result = _userManager.ResetPassword(userId, code, newPassword);
-            return result.Succeeded;
-        }
-
-        public bool ConfirmEmail(string userId, string code)
-        {
-            var result = _userManager.ConfirmEmail(userId, code);
             return result.Succeeded;
         }
 

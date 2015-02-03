@@ -49,20 +49,25 @@ namespace OMoney.Web.Api.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet]
+        [HttpPost]
         [AllowAnonymous]
         [Route("activate")]
-        public IHttpActionResult Activate(string userId, string code)
+        public IHttpActionResult Activate(EmailConfirmationViewModel model)
         {
-            if (userId == null || code == null)
+            try
             {
-                return BadRequest();
-            }
-            if (_userService.Activate(userId, code))
-            {
+                _userService.Activate(model.UserId, model.Code);
                 return Redirect("http://localhost:4598/#/emailconfirmed");
             }
-            return BadRequest();
+            catch (DomainEntityValidationException validationException)
+            {
+                foreach (var validationError in validationException.ValidationErrors)
+                {
+                    ModelState.AddModelError("validationErrors", validationError);
+                }
+            }
+
+            return BadRequest(ModelState);
         }
 
         [HttpPost]

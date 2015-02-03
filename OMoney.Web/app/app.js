@@ -27,6 +27,11 @@
             templateUrl: "app/templates/profile.html"
         });
 
+        $routeProvider.when("/emailconfirmation", {
+            controller: "emailConfirmationController",
+            templateUrl: "app/templates/emailconfirmation.html"
+        });
+
         $routeProvider.when("/emailconfirmed", {
             templateUrl: "app/templates/emailconfirmed.html"
         });
