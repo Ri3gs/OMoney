@@ -5,7 +5,6 @@ using System.Transactions;
 using OMoney.Data.Users;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Notifications;
-using OMoney.Domain.Services.Notifications.NotificationMessages;
 using OMoney.Domain.Services.Validation;
 using OMoney.Domain.Services.Validation.Users;
 
@@ -106,25 +105,52 @@ namespace OMoney.Domain.Services.Users
             }
         }
 
-        public bool ResetPassword(string userId, string code, string newPassword)
+        public void ResetPassword(string userId, string code, string newPassword, string confirmNewPassword)
         {
-            return _userRepository.ResetPassword_(userId, code, newPassword);
+            using (var transaction = new TransactionScope())
+            {
+                var validator = new ResetPasswordValidator(_userRepository);
+                var validationErrors = validator.Validate(userId, code, newPassword, confirmNewPassword).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
+
+                if (_userRepository.ResetPassword_(userId, code, newPassword))
+                {
+                    transaction.Complete();
+                }
+                else
+                {
+                    throw new DomainEntityValidationException { ValidationErrors = new List<string>{ "Cant reset password. Try again." }};
+                }
+            }
         }
 
         public void SendResetLink(string email)
         {
-            _notificationService.SendEmail(new EmailNotificationMessage { Subject = "Reset password from OMoney", Body = string.Format("Please follow this link to reset your password: <a href='{0}'>link</a>", GeneratePwdResetLink(email)), Destination = email});
-        }
+            using (var transaction = new TransactionScope())
+            {
+                var validator = new SendResetLinkValidator(_userRepository);
+                var validationErrors = validator.Validate(email).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
-        private string GeneratePwdResetLink(string email)
-        {
-            var code = _userRepository.GeneratePwdToken(email);
-            return string.Format("http://localhost:4598/#/resetpassword?{0}", code);
+                SendResetPasswordLink(email);
+
+                transaction.Complete();
+            }
         }
 
         private static IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)
         {
             return validator.Validate(user);
+        }
+
+        private void SendResetPasswordLink(string email)
+        {
+            var id = _userRepository.GetId(email);
+            var code = _userRepository.GeneratePwdToken(id);
+            var link = _notificationService.BuildPasswordResetLink(id, code);
+            var message = _notificationService.BuildResetPasswordNotificationMessage(link, email);
+
+            _notificationService.SendEmail(message);
         }
 
         private void SendConfirmationEmailForNewUser(User user)

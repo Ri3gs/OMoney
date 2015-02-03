@@ -23,7 +23,7 @@
         }
 
         var sendRestoreEmail = function (restorePasswordViewModel) {
-            return $http.get(serviceBaseUrl + 'api/user/restorepassword', { params: restorePasswordViewModel }).then(function (response) {
+            return $http.post(serviceBaseUrl + 'api/user/restorepassword', restorePasswordViewModel).then(function (response) {
                 return response;
             });
         }

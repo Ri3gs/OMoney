@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Http;
+﻿using System.Web.Http;
 using AutoMapper;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Users;
@@ -90,27 +89,44 @@ namespace OMoney.Web.Api.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("restorepassword")]
-        public IHttpActionResult RestorePassword(string email)
+        public IHttpActionResult RestorePassword(RestorePasswordViewModel model)
         {
-            _userService.SendResetLink(email);
-            return Ok();
+            try
+            {
+                _userService.SendResetLink(model.Email);
+                return Ok();
+            }
+            catch (DomainEntityValidationException validationException)
+            {
+                foreach (var validationError in validationException.ValidationErrors)
+                {
+                    ModelState.AddModelError("validationErrors", validationError);
+                }
+            }
+
+            return BadRequest(ModelState);
         }
 
         [HttpPost]
         [Route("resetpassword")]
         public IHttpActionResult ResetPassword(ResetPasswordViewModel model)
         {
-            if (model.userId == null || model.code == null)
+            try
             {
-                return BadRequest();
-            }
-            if (_userService.ResetPassword(model.userId, model.code, model.newPassword))
-            {
+                _userService.ResetPassword(model.userId, model.code, model.newPassword, model.confirmNewPassword);
                 return Ok();
             }
-            return BadRequest();
+            catch (DomainEntityValidationException validationException)
+            {
+                foreach (var validationError in validationException.ValidationErrors)
+                {
+                    ModelState.AddModelError("validationErrors", validationError);
+                }
+            }
+
+            return BadRequest(ModelState);
         }
     }
 }

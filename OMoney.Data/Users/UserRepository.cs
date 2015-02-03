@@ -115,12 +115,15 @@ namespace OMoney.Data.Users
             return result.Succeeded;
         }
 
-        public string GeneratePwdToken(string email)
+        public string GeneratePwdToken(string userId)
         {
-            var identityUser = _userManager.FindByEmail(email);
-            var token = _userManager.GeneratePasswordResetToken(identityUser.Id);
-            var address = string.Format("userId={0}&code={1}", HttpUtility.UrlEncode(identityUser.Id), HttpUtility.UrlEncode(token));
-            return address;
+            var identityUser = _userManager.FindById(userId);
+            if (identityUser != null)
+            {
+                return _userManager.GeneratePasswordResetToken(userId);
+            }
+
+            return null;
         }
 
         public bool ChangePassword(string email, string oldPassword, string newPassword)

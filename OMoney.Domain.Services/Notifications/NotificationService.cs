@@ -64,7 +64,7 @@ namespace OMoney.Domain.Services.Notifications
             return new EmailNotificationMessage
             {
                 Subject = "Password reset from OMoney", 
-                Body = string.Format("Please follow this link to reset your password: <a href='{0}>link</a>'", link),
+                Body = string.Format("Please follow this link to reset your password: <a href='{0}'>link</a>", link),
                 Destination = email
             };
         }
