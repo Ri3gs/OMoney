@@ -74,12 +74,20 @@ namespace OMoney.Web.Api.Controllers
         [Route("changepassword")]
         public IHttpActionResult ChangePassword(ChangePasswordViewModel model)
         {
-            if (_userService.ChangePassword(model.Email, model.OldPassword, model.NewPassword))
+            try
             {
+                _userService.ChangePassword(model.Email, model.OldPassword, model.NewPassword, model.ConfirmNewPassword);
                 return Ok();
             }
+            catch (DomainEntityValidationException validationException)
+            {
+                foreach (var validationError in validationException.ValidationErrors)
+                {
+                    ModelState.AddModelError("validationErrors", validationError);
+                }
+            }
 
-            return BadRequest();
+            return BadRequest(ModelState);
         }
 
         [HttpGet]

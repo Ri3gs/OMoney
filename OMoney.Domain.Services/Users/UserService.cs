@@ -37,7 +37,7 @@ namespace OMoney.Domain.Services.Users
             SendConfirmationEmailForNewUser(user);
         }
 
-        public bool Activate(string userId, string code)
+        public void Activate(string userId, string code)
         {
             using (var transaction = new TransactionScope())
             {
@@ -54,7 +54,6 @@ namespace OMoney.Domain.Services.Users
                     throw new DomainEntityValidationException { ValidationErrors = new List<string>{ "Cant confirm your email. Try again." }};
                 }
             }
-            return true;
         }
 
         public void Update(User user)
@@ -88,9 +87,23 @@ namespace OMoney.Domain.Services.Users
             return null;
         }
 
-        public bool ChangePassword(string email, string oldPassword, string newPassword)
+        public void ChangePassword(string email, string oldPassword, string newPassword, string confirmNewPassword)
         {
-            return _userRepository.ChangePassword(email, oldPassword, newPassword);
+            using (var transaction = new TransactionScope())
+            {
+                var validator = new ChangePasswordValidator(_userRepository);
+                var validationErrors = validator.Validate(email, oldPassword, newPassword, confirmNewPassword).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
+
+                if (_userRepository.ChangePassword(email, oldPassword, newPassword))
+                {
+                    transaction.Complete();
+                }
+                else
+                {
+                    throw new DomainEntityValidationException { ValidationErrors = new List<string> { "Cant change password. Try again." } };
+                }
+            }
         }
 
         public bool ResetPassword(string userId, string code, string newPassword)

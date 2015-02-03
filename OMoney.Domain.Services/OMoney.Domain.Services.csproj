@@ -67,6 +67,7 @@
     <Compile Include="Validation\DomainEntityValidationException.cs" />
     <Compile Include="Validation\IDomainEntityValidator.cs" />
     <Compile Include="Validation\Users\ActivateUserValidator.cs" />
+    <Compile Include="Validation\Users\ChangePasswordValidator.cs" />
     <Compile Include="Validation\Users\CreateNewUserValidator.cs" />
     <Compile Include="Validation\Users\DeleteUserValidator.cs" />
     <Compile Include="Validation\Users\UpdateUserValidator.cs" />
