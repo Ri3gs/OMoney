@@ -57,7 +57,7 @@ namespace OMoney.Web.Api.Controllers
             try
             {
                 _userService.Activate(model.UserId, model.Code);
-                return Redirect("http://localhost:4598/#/emailconfirmed");
+                return Ok();
             }
             catch (DomainEntityValidationException validationException)
             {
