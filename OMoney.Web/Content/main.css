@@ -1,0 +1,268 @@
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/RobotoCondensed-Bold.ttf);
+    font-weight: bolder;
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Thin.ttf);
+    font-weight: 100;
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Light.ttf);
+    font-weight: 300;
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Medium.ttf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Italic.ttf);
+    font-style: italic;
+}
+/*----------------------------------MAIN ELEMENTS BELOW---------------------------------*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Roboto;
+    font-size: 15px;
+}
+h1 {
+    color: #37474F;
+}
+h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #37474F;
+}
+h4 {
+    color: #78909C;
+}
+p {
+    font-weight: 500;
+    color: #607D8B;
+}
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+header {} 
+#content {
+    padding-bottom: 180px;
+    /* Height of the footer element */
+}
+footer {
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #616161;
+}
+a {
+    color: #455A64;
+}
+a:hover,
+a:focus {
+    color: #2774B6;
+    text-decoration: underline;
+}
+.highlight {
+    color: #FFB300;
+}
+/*----------------------------------BUTTONS BELOW---------------------------------*/
+
+.btn {
+    border-radius: 1px;
+}
+.btn-login-header {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+    padding: 15px 45px;
+    margin: 45px 0;
+    -webkit-box-shadow: 0px 14px 47px -21px rgba(69, 90, 100, 1);
+    -moz-box-shadow: 0px 14px 47px -21px rgba(69, 90, 100, 1);
+    box-shadow: 0px 14px 47px -21px rgba(69, 90, 100, 1);
+}
+.btn-primary {
+    color: #ffffff;
+    background-color: #00BCD4;
+    border-color: #00ACC1;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    color: #ffffff;
+    background-color: #00ACC1;
+    border-color: #00ACC1;
+}
+/*----------------------------------INPUTS BELOW---------------------------------*/
+
+.form-control {
+    border-radius: 1px;
+}
+/*----------------------------------NAVS ELEMENTS BELOW---------------------------------*/
+
+.highlight-div {
+    min-height: 50px;
+    background-color: #616161;
+    margin-bottom: 60px;
+    padding: 7px 0;
+    text-transform: uppercase;
+}
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+    margin-top: 10px;
+}
+.list-inline > li > a {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 30px;
+    color: #fff;
+    text-shadow: 6px 4px 0px rgba(0, 0, 0, 0.15);
+    margin: 0 0 0px;
+}
+.list-inline > li > a:hover {
+    opacity: 0.8;
+}
+footer .list-inline {
+    margin-top: 50px;;
+}
+footer .list-inline > li {
+    color: #fff;
+}
+footer .list-inline > li > a {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #fff;
+    text-shadow: none;
+    margin: 0 0 0px;
+}
+/*----------------------------------BANNER BELOW---------------------------------*/
+
+.banner-1 {
+    background-color: #AED581;
+    background-image: url(../Content/img/leaf.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 700px;
+    background-position: 50% 68%;
+    position: relative;
+}
+.banner-1 .container {
+    position: relative;
+}
+.hero-content {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    color: #fff;
+}
+.hero-content h1 {
+    font-weight: bolder;
+    font-size: 60px;
+    color: #fff;
+    text-shadow: 4px 3px 0px #708d9b, 9px 8px 0px rgba(0, 0, 0, 0.15);
+    margin: 0 0 0px;
+}
+.hero-content p {
+    padding-top: 0px;
+}
+.hero-content form {
+    padding-top: 10px;
+}
+.hero-content form .form-control {
+    height: 40px;
+    font-size: 17px;
+}
+.hero-content span {
+    display: block;
+    color: #fff;
+    text-shadow: none;
+    font-weight: bold;
+    font-size: 50px;
+}
+.hero-content small {
+    display: block;
+    color: #fff;
+    text-shadow: none;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.monitor {
+    background-image: url(../Content/img/Outlines-Devices-Presentation.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 500px;
+    background-position: 100% 50%;
+    position: relative;
+}
+.devices {
+    background-image: url(../Content/img/devices.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 290px;
+    background-position: 50% 50%;
+    position: relative;
+}
+/*----------------------------------MAIN BLOCKS BELOW---------------------------------*/
+.story-icon {
+    min-height: 70px;
+    min-width: 70px;
+}
+.grey-div {
+    background-color: #BDBDBD;
+    border-top: 1px solid #d8d8d8;
+    padding: 50px 0;
+    margin-top: 80px;
+    -webkit-box-shadow: inset 0px 28px 44px -28px rgba(69, 90, 100, 1);
+    -moz-box-shadow: inset 0px 28px 44px -28px rgba(69, 90, 100, 1);
+    box-shadow: inset 0px 28px 44px -28px rgba(69, 90, 100, 1);
+}
+.grey-div h1 {
+    color: #689F38;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+.grey-div h3 {
+    color: #fff;
+    margin-bottom: 70px;
+}
+/*----------------------------------MODAL BELOW---------------------------------*/
+
+.modal {
+    overflow-y: auto;
+    text-align: left;
+    color: #000;
+}
+.modal-footer {
+    margin-top: 0px;
+}

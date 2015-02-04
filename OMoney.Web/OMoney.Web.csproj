@@ -93,6 +93,17 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\devices.png" />
+    <Content Include="Content\img\icons\essentials-06.png" />
+    <Content Include="Content\img\icons\essentials-15.png" />
+    <Content Include="Content\img\icons\essentials-16.png" />
+    <Content Include="Content\img\icons\essentials-17.png" />
+    <Content Include="Content\img\icons\essentials-19.png" />
+    <Content Include="Content\img\icons\essentials-22.png" />
+    <Content Include="Content\img\leaf.png" />
+    <Content Include="Content\img\Outlines-Devices-Presentation.png" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\media.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -114,6 +125,13 @@
     <Content Include="scripts\angular-messages.min.js.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="fonts\Roboto-Bold.ttf" />
+    <Content Include="fonts\Roboto-Italic.ttf" />
+    <Content Include="fonts\Roboto-Light.ttf" />
+    <Content Include="fonts\Roboto-Medium.ttf" />
+    <Content Include="fonts\Roboto-Regular.ttf" />
+    <Content Include="fonts\Roboto-Thin.ttf" />
+    <Content Include="fonts\RobotoCondensed-Bold.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
