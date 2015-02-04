@@ -15,7 +15,7 @@ namespace OMoney.Domain.Services.Validation.Users
         {
             _userRepository = userRepository;
             _rgxEmail = new Regex(@"[a-zA-Z0-9-.+]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}");
-            _rgxPwd = new Regex(@"[a-zA-Z0-9]+");
+            _rgxPwd = new Regex(@"^\S*$");
         }
 
         public IEnumerable<string> Validate(string email, string oldPassword, string newPassword, string confirmNewPassword)

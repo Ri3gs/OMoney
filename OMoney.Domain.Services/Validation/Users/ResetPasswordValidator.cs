@@ -12,7 +12,7 @@ namespace OMoney.Domain.Services.Validation.Users
         public ResetPasswordValidator(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _rgxPwd = new Regex(@"[a-zA-Z0-9]+");
+            _rgxPwd = new Regex(@"^\S*$");
         }
 
         public IEnumerable<string> Validate(string userId, string code, string newPassword, string confirmNewPassword)

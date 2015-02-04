@@ -19,7 +19,7 @@ namespace OMoney.Domain.Services.Validation.Users
             _password = password;
             _confirmPassword = confirmPassword;
             _rgxEmail = new Regex(@"[a-zA-Z0-9-.+]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}");
-            _rgxPwd = new Regex(@"[a-zA-Z0-9]+");
+            _rgxPwd = new Regex(@"^\S*$");
         }
 
         public IEnumerable<string> Validate(User user)
