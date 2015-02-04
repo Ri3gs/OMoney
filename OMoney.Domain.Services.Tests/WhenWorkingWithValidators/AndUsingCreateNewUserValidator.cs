@@ -20,7 +20,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
         public void AndUserIsValid()
         {
             // Arrange
-            var user = TestContext.ValidUser;
+            var user = TestContext.ValidNewUser;
             TestContext.SetPasswords(TestContext.GoodPass, TestContext.GoodPass);
 
             // Action

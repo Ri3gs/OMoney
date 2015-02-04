@@ -13,12 +13,12 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
         public UserService UserService { get; set; }
 
         public User ValidUser {
-            get { return new User {Email = "test@email.com", IsActive = true}; }
+            get { return new User {Email = "test@email.com"}; }
         }
 
         public User PhantomUser
         {
-            get { return new User {Email = "phantom@gmail.com", IsActive = true}; }
+            get { return new User {Email = "phantom@gmail.com"}; }
         }
 
         public string GoodPass
@@ -31,6 +31,13 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
             get { return "1234"; }
         }
 
+        public User ValidNewUser {
+            get
+            {
+                return new User { Email = "goodemail@email.com", Name = "goodemail@email.com"};
+            }
+        }
+
         public UserServiceTestContext()
         {
             MockUserRepository = new Mock<IUserRepository>();
@@ -39,6 +46,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
 
             MockUserRepository.Setup(x => x.GetByEmail(ValidUser.Email)).Returns(ValidUser);
             MockUserRepository.Setup(x => x.GetByEmail(PhantomUser.Email)).Returns(null as User);
+            MockUserRepository.Setup(x => x.GetByEmail(ValidNewUser.Email)).Returns(null as User);
 
             UserService = new UserService(MockUserRepository.Object, MockNotificationService.Object);
         }

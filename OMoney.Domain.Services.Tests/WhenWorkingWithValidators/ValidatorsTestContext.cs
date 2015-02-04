@@ -23,6 +23,13 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
             get { return new User {Email = "phantom@gmail.com", IsActive = true}; }
         }
 
+        public User ValidNewUser {
+            get
+            {
+                return new User  {Email = "goodemail@email.com", Name = "goodemail@email.com"};
+            }
+        }
+
         public string GoodPass
         {
             get { return "1234qwer"; }
@@ -35,19 +42,20 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
 
         public ValidatorsTestContext()
         {
-            CreateNewUserValidator = new CreateNewUserValidator(It.IsAny<IUserRepository>(), string.Empty, string.Empty);
             MockUserRepository = new Mock<IUserRepository>();
 
             MockUserRepository.Setup(x => x.GetByEmail(ValidUser.Email)).Returns(ValidUser);
             MockUserRepository.Setup(x => x.GetByEmail(PhantomUser.Email)).Returns(null as User);
+            MockUserRepository.Setup(x => x.GetByEmail(ValidNewUser.Email)).Returns(null as User);
 
+            CreateNewUserValidator = new CreateNewUserValidator(MockUserRepository.Object, string.Empty, string.Empty);
             UpdateUserValidator = new UpdateUserValidator(MockUserRepository.Object);
             DeleteUserValidator = new DeleteUserValidator(MockUserRepository.Object);
         }
 
         public void SetPasswords(string password, string confirmPassword)
         {
-            CreateNewUserValidator = new CreateNewUserValidator(It.IsAny<IUserRepository>(), password, confirmPassword);
+            CreateNewUserValidator = new CreateNewUserValidator(MockUserRepository.Object, password, confirmPassword);
         }
     }
 }

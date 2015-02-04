@@ -29,11 +29,10 @@ namespace OMoney.Domain.Services.Users
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
                 _userRepository.Create(user, password);
+                SendConfirmationEmailForNewUser(user);
 
                 transaction.Complete();
             }
-
-            SendConfirmationEmailForNewUser(user);
         }
 
         public void Activate(string userId, string code)
