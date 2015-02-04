@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("oMoney", ['ngRoute', 'LocalStorageModule']);
+    var app = angular.module("oMoney", ['ngRoute', 'ngMessages', 'LocalStorageModule']);
 
     app.config(function($routeProvider) {
         $routeProvider.when("/home", {

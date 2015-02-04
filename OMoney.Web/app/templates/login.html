@@ -3,7 +3,7 @@
         <div class="form-group">
             <label for="Email" class="col-md-4 control-label">Адрес электронной почты</label>
             <div class="col-md-4">
-                <input class="form-control" name="Email" id="Email" type="email" placeholder="your@email.com" data-ng-model="loginViewModel.email" required />
+                <input class="form-control" name="Email" id="Email" type="email" placeholder="your@email.com" data-ng-model="loginViewModel.email" ng-pattern="/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}/" required/>
             </div>
             <div ng-messages="loginForm.Email.$error" ng-messages-include="app/templates/messages.html"></div>
         </div>
@@ -11,7 +11,7 @@
         <div class="form-group">
             <label for="Password" class="col-md-4 control-label">Пароль</label>
             <div class="col-md-4">
-                <input class="form-control" name="Password" id="Password" type="password" placeholder="Пароль" data-ng-model="loginViewModel.password" required />
+                <input class="form-control" name="Password" id="Password" type="password" placeholder="Пароль" data-ng-model="loginViewModel.password" ng-pattern="/[^\s]+/" required />
             </div>
             <div ng-messages="loginForm.Password.$error" ng-messages-include="app/templates/messages.html"></div>
         </div>
