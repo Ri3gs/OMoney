@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
 
+
 namespace OMoney.Integration.Tests.WhenWorkingWithSignupForm
 {
 
@@ -22,44 +23,32 @@ namespace OMoney.Integration.Tests.WhenWorkingWithSignupForm
 
             var submit = driver.FindElement(By.CssSelector("button.btn.btn-primary"));
             submit.Click();
-
-            Assert.IsFalse(driver.PageSource.Contains("Регистрация прошла успешно. На указанный адрес электронной почты выслано письмо со ссылкой для активации."));
-            Assert.IsTrue(driver.PageSource.Contains("Обязательное поле"));
-            
-                               
+        
             var mail = driver.FindElement(By.Id("Email"));                            
             mail.SendKeys("new_user@mail.ru");
-            Assert.IsFalse(driver.PageSource.Contains("Неверный адрес электронной почты")); 
- 
+           
             submit.Click();
-            Assert.IsFalse(driver.PageSource.Contains("Регистрация прошла успешно. На указанный адрес электронной почты выслано письмо со ссылкой для активации."));
-            
-                           
+           
             var pass = driver.FindElement(By.Id("Password"));                          
             pass.SendKeys("111111");
 
             submit.Click();
-            Assert.IsFalse(driver.PageSource.Contains("Регистрация прошла успешно. На указанный адрес электронной почты выслано письмо со ссылкой для активации."));
-            Assert.IsFalse(driver.PageSource.Contains("Неверный адрес электронной почты")); 
-            Assert.IsTrue(driver.PageSource.Contains("Обязательное поле"));  
-            
-                         
+           
             var confirm = driver.FindElement(By.Id("Confirmpassword"));                
             confirm.SendKeys("111111");
-            Assert.IsFalse(driver.PageSource.Contains("Пароли не совпадают"));
-            Assert.IsFalse(driver.PageSource.Contains("Неверный адрес электронной почты"));
-            Assert.IsFalse(driver.PageSource.Contains("Обязательное поле"));
+           // Assert.IsFalse(driver.PageSource.Contains("Пароли не совпадают"));
+          //  Assert.IsFalse(driver.PageSource.Contains("Неверный адрес электронной почты"));
+            
 
             submit.Click();
-           // driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));       
-             
-            Assert.IsTrue(driver.PageSource.Contains("Регистрация прошла успешно. На указанный адрес электронной почты выслано письмо со ссылкой для активации."));
+
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
+            Assert.IsTrue(driver.FindElement(By.CssSelector("html body.ng-scope div.container div.ng-scope div.ng-scope")).Displayed);
             driver.Close();
                                                     
             
 
         }
 
-   
     }
 }
