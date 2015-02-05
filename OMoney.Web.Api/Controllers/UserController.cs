@@ -16,7 +16,7 @@ namespace OMoney.Web.Api.Controllers
         {
             _userService = userService;
         }
-
+        
         [HttpPost]
         [AllowAnonymous]
         [Route("signup")]
