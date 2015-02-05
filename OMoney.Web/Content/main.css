@@ -10,7 +10,7 @@
 @font-face {
     font-family: Roboto;
     src: url(../fonts/RobotoCondensed-Bold.ttf);
-    font-weight: bolder;
+    font-weight: bold;
 }
 @font-face {
     font-family: Roboto;
@@ -61,7 +61,7 @@ p {
     min-height: 100%;
     position: relative;
 }
-header {} 
+
 #content {
     padding-bottom: 180px;
     /* Height of the footer element */

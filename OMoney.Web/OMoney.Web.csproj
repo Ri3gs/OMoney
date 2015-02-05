@@ -74,14 +74,10 @@
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\notificationService.js" />
     <Content Include="app\templates\emailconfirmation.html" />
-    <Content Include="app\templates\emailconfirmed.html" />
     <Content Include="app\templates\login.html" />
-    <Content Include="app\templates\passwordchanged.html" />
-    <Content Include="app\templates\passwordrestored.html" />
     <Content Include="app\templates\profile.html" />
     <Content Include="app\templates\messages.html" />
     <Content Include="app\templates\resetpassword.html" />
-    <Content Include="app\templates\restoreemailsent.html" />
     <Content Include="app\templates\restorepassword.html" />
     <Content Include="app\templates\signup.html" />
     <Content Include="app\controllers\signupController.js" />
@@ -93,6 +89,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\devices.png" />
     <Content Include="Content\img\icons\essentials-06.png" />
     <Content Include="Content\img\icons\essentials-15.png" />
@@ -106,6 +104,7 @@
     <Content Include="Content\media.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="scripts\angular-local-storage.min.js" />
     <Content Include="scripts\angular-messages.js" />
@@ -132,6 +131,10 @@
     <Content Include="fonts\Roboto-Regular.ttf" />
     <Content Include="fonts\Roboto-Thin.ttf" />
     <Content Include="fonts\RobotoCondensed-Bold.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

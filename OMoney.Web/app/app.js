@@ -32,17 +32,9 @@
             templateUrl: "app/templates/emailconfirmation.html"
         });
 
-        $routeProvider.when("/emailconfirmed", {
-            templateUrl: "app/templates/emailconfirmed.html"
-        });
-
         $routeProvider.when("/changepassword", {
             controller: "changePasswordController",
             templateUrl: "app/templates/changepassword.html"
-        });
-
-        $routeProvider.when("/passwordchanged", {
-            templateUrl: "app/templates/passwordchanged.html"
         });
 
         $routeProvider.when("/restorepassword", {
@@ -50,17 +42,9 @@
             templateUrl: "app/templates/restorepassword.html"
         });
 
-        $routeProvider.when("/restoreemailsent", {
-            templateUrl: "app/templates/restoreemailsent.html"
-        });
-
         $routeProvider.when("/resetpassword", {
             controller: "resetPasswordController",
             templateUrl: "app/templates/resetpassword.html"
-        });
-
-        $routeProvider.when("/passwordrestored", {
-            templateUrl: "app/templates/passwordrestored.html"
         });
     });
 
