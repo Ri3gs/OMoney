@@ -20,17 +20,17 @@ namespace OMoney.Domain.Services.Validation.Users
         {
             if (userId == null) yield return "userId is null";
             if (code == null) yield return "code is null";
-            if (CheckForSQL(userId)) yield return "SQL INJECTION";
-            if (CheckForSQL(code)) yield return "SQL INJECTION";
             if (string.IsNullOrWhiteSpace(userId)) yield return "userId is empty";
             if (string.IsNullOrWhiteSpace(code)) yield return "code is empty";
             if (_userRepository.FindById(userId) == null) yield return "userId does not exist";
+            if (CheckForSql(userId)) yield return "SQL INJECTION";
+            if (CheckForSql(code)) yield return "SQL INJECTION";
         }
 
-        private bool CheckForSQL(string param)
+        private bool CheckForSql(string param)
         {
-            string checkString = param.Replace("'", "''");
-            for (int i = 0; i <= _sqlCheckList.Length - 1; i++)
+            var checkString = param.Replace("'", "''");
+            for (var i = 0; i <= _sqlCheckList.Length - 1; i++)
             {
                 if ((checkString.IndexOf(_sqlCheckList[i], StringComparison.OrdinalIgnoreCase) >= 0))
                 {
