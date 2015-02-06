@@ -56,7 +56,7 @@ namespace OMoney.Web.Api.Controllers
         {
             try
             {
-                _userService.Activate(HttpUtility.UrlDecode(model.UserId), HttpUtility.UrlDecode(model.Code));
+                _userService.Activate(model.UserId, model.Code);
                 return Ok();
             }
             catch (DomainEntityValidationException validationException)
