@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
 using OMoney.Data.Users;
@@ -28,15 +27,15 @@ namespace OMoney.Domain.Services.Users
                 var validationErrors = Validate(user, new CreateNewUserValidator(_userRepository, password, confrimPassword)).ToList();
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
-                _userRepository.Create(user, password);
-                if (!_userRepository.Create(user, password))
+                var repoErrors = _userRepository.Create(user, password);
+                if (repoErrors == null)
                 {
                     SendConfirmationEmailForNewUser(user);
                     transaction.Complete();
                 }
                 else
                 {
-                    throw new DomainEntityValidationException {ValidationErrors = new List<string>{ "Cant write a user to database." }};
+                    throw new DomainEntityValidationException { ValidationErrors = repoErrors};
                 }
             }
         }
@@ -49,13 +48,14 @@ namespace OMoney.Domain.Services.Users
                 var validationErrors = validator.Validate(userId, code).ToList();
                 if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
 
-                if (_userRepository.ConfirmEmail(userId, code))
+                var repoErrors = _userRepository.ConfirmEmail(userId, code);
+                if (repoErrors == null)
                 {
                     transaction.Complete();
                 }
                 else
                 {
-                    throw new DomainEntityValidationException { ValidationErrors = new List<string>{ "Cant confirm your email. Try again." }};
+                    throw new DomainEntityValidationException { ValidationErrors = repoErrors };
                 }
             }
         }
@@ -99,13 +99,14 @@ namespace OMoney.Domain.Services.Users
                 var validationErrors = validator.Validate(email, oldPassword, newPassword, confirmNewPassword).ToList();
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
-                if (_userRepository.ChangePassword(email, oldPassword, newPassword))
+                var repoErrors = _userRepository.ChangePassword(email, oldPassword, newPassword);
+                if (repoErrors == null)
                 {
                     transaction.Complete();
                 }
                 else
                 {
-                    throw new DomainEntityValidationException { ValidationErrors = new List<string> { "Cant change password. Try again." } };
+                    throw new DomainEntityValidationException { ValidationErrors = repoErrors };
                 }
             }
         }
@@ -118,13 +119,15 @@ namespace OMoney.Domain.Services.Users
                 var validationErrors = validator.Validate(userId, code, newPassword, confirmNewPassword).ToList();
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
-                if (_userRepository.ResetPassword_(userId, code, newPassword))
+                var repoErrors = _userRepository.ResetPassword_(userId, code, newPassword);
+
+                if (repoErrors == null)
                 {
                     transaction.Complete();
                 }
                 else
                 {
-                    throw new DomainEntityValidationException { ValidationErrors = new List<string>{ "Cant reset password. Try again." }};
+                    throw new DomainEntityValidationException { ValidationErrors = repoErrors };
                 }
             }
         }

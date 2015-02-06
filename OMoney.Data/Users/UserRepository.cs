@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity;
@@ -28,16 +29,19 @@ namespace OMoney.Data.Users
         }
 
 
-        public bool Create(User user, string password)
+        public List<string> Create(User user, string password)
         {
             var userDb = new IdentityUser
             {
                 UserName = user.Name,
                 Email = user.Email
             };
-
             var result =_userManager.Create(userDb, password);
-            return result.Succeeded;
+            if (result.Errors.Any())
+            {
+                return result.Errors.ToList();
+            }
+            return null;
 
         }
 
@@ -111,10 +115,14 @@ namespace OMoney.Data.Users
             return null;
         }
 
-        public bool ConfirmEmail(string userId, string code)
+        public List<string> ConfirmEmail(string userId, string code)
         {
             var result = _userManager.ConfirmEmail(userId, code);
-            return result.Succeeded;
+            if (result.Errors.Any())
+            {
+                return result.Errors.ToList();
+            }
+            return null;
         }
 
         public string GeneratePwdToken(string userId)
@@ -128,17 +136,24 @@ namespace OMoney.Data.Users
             return null;
         }
 
-        public bool ChangePassword(string email, string oldPassword, string newPassword)
+        public List<string> ChangePassword(string email, string oldPassword, string newPassword)
         {
             var result = _userManager.ChangePassword(_userManager.FindByEmail(email).Id, oldPassword, newPassword);
-            return result.Succeeded;
-
+            if (result.Errors.Any())
+            {
+                return result.Errors.ToList();
+            }
+            return null;
         }
 
-        public bool ResetPassword_(string userId, string code, string newPassword)
+        public List<string> ResetPassword_(string userId, string code, string newPassword)
         {
             var result = _userManager.ResetPassword(userId, code, newPassword);
-            return result.Succeeded;
+            if (result.Errors.Any())
+            {
+                return result.Errors.ToList();
+            }
+            return null;
         }
 
         public void Dispose()
