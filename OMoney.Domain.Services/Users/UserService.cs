@@ -29,9 +29,15 @@ namespace OMoney.Domain.Services.Users
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
                 _userRepository.Create(user, password);
-                SendConfirmationEmailForNewUser(user);
-
-                transaction.Complete();
+                if (!_userRepository.Create(user, password))
+                {
+                    SendConfirmationEmailForNewUser(user);
+                    transaction.Complete();
+                }
+                else
+                {
+                    throw new DomainEntityValidationException {ValidationErrors = new List<string>{ "Cant write a user to database." }};
+                }
             }
         }
 

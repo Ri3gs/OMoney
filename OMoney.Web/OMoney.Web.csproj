@@ -70,6 +70,7 @@
     <Content Include="app\controllers\profileController.js" />
     <Content Include="app\controllers\resetPasswordController.js" />
     <Content Include="app\controllers\restorePasswordController.js" />
+    <Content Include="app\controllers\testController.js" />
     <Content Include="app\directives\password-check.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\notificationService.js" />
@@ -84,6 +85,7 @@
     <Content Include="app\templates\activation.html" />
     <Content Include="app\templates\home.html" />
     <Content Include="app\templates\changepassword.html" />
+    <Content Include="app\templates\test.html" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

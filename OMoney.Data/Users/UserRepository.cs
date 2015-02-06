@@ -27,7 +27,7 @@ namespace OMoney.Data.Users
         }
 
 
-        public void Create(User user, string password)
+        public bool Create(User user, string password)
         {
             var userDb = new IdentityUser
             {
@@ -35,7 +35,8 @@ namespace OMoney.Data.Users
                 Email = user.Email
             };
 
-            _userManager.Create(userDb, password);
+            var result =_userManager.Create(userDb, password);
+            return result.Succeeded;
 
         }
 

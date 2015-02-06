@@ -46,6 +46,12 @@
             controller: "resetPasswordController",
             templateUrl: "app/templates/resetpassword.html"
         });
+
+        $routeProvider.when("/testview",
+        {
+            controller: "testController",
+            templateUrl: "app/templates/test.html"
+        });
     });
 
     app.run(['authService', function(authService) {
