@@ -13,7 +13,7 @@
             <label class="col-md-4 control-label"
                    for="Password">Пароль</label>
             <div class="col-md-4">
-                <input class="form-control" name="Password" id="Password" type="password" placeholder="Password" data-ng-model="signupViewModel.password" ng-pattern="/^\S*$/" required />
+                <input class="form-control" name="Password" id="Password" type="password" placeholder="Password" data-ng-model="signupViewModel.password" ng-pattern="/^\S*$/" ng-minlength=6 required />
             </div>
             <div ng-messages="signupForm.Password.$error" ng-messages-include="app/templates/messages.html"></div>
         </div>
@@ -22,7 +22,7 @@
             <label class="col-md-4 control-label"
                    for="Confirmpassword">Подтверждение пароля</label>
             <div class="col-md-4">
-                <input class="form-control" name="ConfirmPassword" id="Confirmpassword" type="password" placeholder="Confirm Password" data-ng-model="signupViewModel.confirmPassword" password-check="Password" ng-pattern="/^\S*$/" required />
+                <input class="form-control" name="ConfirmPassword" id="Confirmpassword" type="password" placeholder="Confirm Password" data-ng-model="signupViewModel.confirmPassword" password-check="Password" ng-pattern="/^\S*$/" ng-minlength=6 required />
             </div>
             <div ng-messages="signupForm.ConfirmPassword.$error" ng-messages-include="app/templates/messages.html"></div>
         </div>

@@ -12,7 +12,7 @@
             <div class="form-group">
                 <label for="Password" class="col-md-4 control-label">Пароль</label>
                 <div class="col-md-4">
-                    <input class="form-control" name="Password" id="Password" type="password" placeholder="Пароль" data-ng-model="loginViewModel.password" ng-pattern="/^\S*$/" required />
+                    <input class="form-control" name="Password" id="Password" type="password" placeholder="Пароль" data-ng-model="loginViewModel.password" ng-pattern="/^\S*$/" ng-minlength=6 required />
                 </div>
                 <div ng-messages="loginForm.Password.$error" ng-messages-include="app/templates/messages.html"></div>
             </div>
