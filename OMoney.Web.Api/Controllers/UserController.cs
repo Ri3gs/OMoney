@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Web;
+using System.Web.Http;
 using AutoMapper;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Users;
@@ -55,7 +56,7 @@ namespace OMoney.Web.Api.Controllers
         {
             try
             {
-                _userService.Activate(model.UserId, model.Code);
+                _userService.Activate(HttpUtility.UrlDecode(model.UserId), HttpUtility.UrlDecode(model.Code));
                 return Ok();
             }
             catch (DomainEntityValidationException validationException)
