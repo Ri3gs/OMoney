@@ -70,6 +70,7 @@ namespace OMoney.Web.Api.Controllers
             return BadRequest(ModelState);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("changepassword")]
         public IHttpActionResult ChangePassword(ChangePasswordViewModel model)

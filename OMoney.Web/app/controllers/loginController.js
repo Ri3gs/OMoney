@@ -1,6 +1,6 @@
 ﻿(function () {
     "use strict";
-    angular.module('oMoney').controller('loginController', ['$scope', '$location', 'authService', function($scope, $location, authService) {
+    angular.module('oMoney').controller('loginController', ['$scope', '$location', 'authService', 'notificationService', function ($scope, $location, authService, notificationService) {
         $scope.loginViewModel = {
             email: "",
             password: ""
@@ -11,8 +11,8 @@
         $scope.login = function () {
             authService.login($scope.loginViewModel).then(function(response) {
                 $location.path('/home');
-            }, function(error) {
-                $scope.message = error.error_description;
+            }, function (response) {
+                notificationService.exception({ modelState: { validationErrors: [response.error_description] } });
             });
         }
     }]);

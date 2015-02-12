@@ -29,8 +29,6 @@
         }
 
         var changePassword = function(changePasswordViewModel) {
-            logOut();
-
             return $http.post(serviceBaseUrl + 'api/user/changepassword', changePasswordViewModel).then(function (response) {
                 return response;
             });
@@ -66,6 +64,8 @@
         }
 
         var logOut = function () {
+            localStorageService.remove('authenticationData');
+
             authentication.isAuthenticated = false;
             authentication.userName = "";
         }

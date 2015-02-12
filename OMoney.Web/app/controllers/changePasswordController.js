@@ -14,6 +14,7 @@
         $scope.change = function () {
             authService.changePassword($scope.changePasswordViewModel).then(function (response) {
                 $scope.passwordChanged = true;
+                authService.logOut();
             }, function (response) {
                 notificationService.exception(response.data);
             });

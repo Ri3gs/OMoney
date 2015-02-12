@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("oMoney", ['ngRoute', 'ngMessages', 'LocalStorageModule']);
+    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "LocalStorageModule"]);
 
     app.config(function($routeProvider) {
         $routeProvider.when("/home", {
@@ -54,7 +54,11 @@
         });
     });
 
-    app.run(['authService', function(authService) {
+    app.config(function($httpProvider) {
+        $httpProvider.interceptors.push("authInterceptorService");
+    });
+
+    app.run(["authService", function(authService) {
         authService.authenticate();
     }]);
 }());

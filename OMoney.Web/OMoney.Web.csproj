@@ -72,6 +72,7 @@
     <Content Include="app\controllers\restorePasswordController.js" />
     <Content Include="app\controllers\testController.js" />
     <Content Include="app\directives\password-check.js" />
+    <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\notificationService.js" />
     <Content Include="app\templates\emailconfirmation.html" />
