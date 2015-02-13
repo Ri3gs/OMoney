@@ -24,7 +24,10 @@
 
         $routeProvider.when("/profile", {
             controller: "profileController",
-            templateUrl: "app/templates/profile.html"
+            templateUrl: "app/templates/profile.html",
+            access: {
+                requiresLogin: true
+            }
         });
 
         $routeProvider.when("/emailconfirmation", {
@@ -34,7 +37,10 @@
 
         $routeProvider.when("/changepassword", {
             controller: "changePasswordController",
-            templateUrl: "app/templates/changepassword.html"
+            templateUrl: "app/templates/changepassword.html",
+            access: {
+                requiresLogin: true
+            }
         });
 
         $routeProvider.when("/restorepassword", {
@@ -47,18 +53,23 @@
             templateUrl: "app/templates/resetpassword.html"
         });
 
-        $routeProvider.when("/testview",
-        {
-            controller: "testController",
-            templateUrl: "app/templates/test.html"
-        });
     });
 
     app.config(function($httpProvider) {
         $httpProvider.interceptors.push("authInterceptorService");
     });
 
-    app.run(["authService", function(authService) {
+    app.run(["$rootScope", "$location", "authService", function ($rootScope, $location, authService) {
+
         authService.authenticate();
+
+        $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            if (next.access !== undefined) {
+                if (next.access.requiresLogin === true && !authService.authentication.isAuthenticated) {
+                    $location.path("/login");
+                }
+            }
+        });
+
     }]);
 }());

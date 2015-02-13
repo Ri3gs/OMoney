@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 using OMoney.Domain.Services.Notifications.NotificationMessages;
+using OMoney.Domain.Services.Validation;
 
 namespace OMoney.Domain.Services.Notifications
 {
@@ -13,7 +14,7 @@ namespace OMoney.Domain.Services.Notifications
             //throw new NotImplementedException();
 
             const string sender = "omoneydev@outlook.com";
-            const string password = "df997a4e2a83";
+            const string password = "df997a4e2a831";
             var client = new SmtpClient("smtp-mail.outlook.com")
             {
                 Port = 587,

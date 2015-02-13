@@ -119,7 +119,7 @@ namespace OMoney.Domain.Services.Users
                 var validationErrors = validator.Validate(userId, code, newPassword, confirmNewPassword).ToList();
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
-                var repoErrors = _userRepository.ResetPassword_(userId, code, newPassword);
+                var repoErrors = _userRepository.ResetPassword(userId, code, newPassword);
 
                 if (repoErrors == null)
                 {
@@ -144,6 +144,38 @@ namespace OMoney.Domain.Services.Users
 
                 transaction.Complete();
             }
+        }
+
+        public void SendConfirmationLink(string email)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                var validator = new SendResetLinkValidator(_userRepository);
+                var validationErrors = validator.Validate(email).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
+
+                SendConfirmationEmailForExistingUser(email);
+
+                transaction.Complete();
+            }
+        }
+
+        public bool CheckEmail(string email)
+        {
+            var validator = new SendResetLinkValidator(_userRepository);
+            var validationErrors = validator.Validate(email).ToList();
+            if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
+            return _userRepository.CheckEmail(email);
+        }
+
+        private void SendConfirmationEmailForExistingUser(string email)
+        {
+            var id = _userRepository.GetId(email);
+            var code = _userRepository.GenerateEmailToken(id);
+            var link = _notificationService.BuildEmailConfirmationLink(id, code);
+            var message = _notificationService.BuildConfirmEmailForExistingUserNotificationMessage(link, email);
+
+            _notificationService.SendEmail(message);
         }
 
         private static IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)

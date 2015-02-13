@@ -130,5 +130,36 @@ namespace OMoney.Web.Api.Controllers
 
             return BadRequest(ModelState);
         }
+
+        [HttpGet]
+        [Route("checkemail")]
+        public IHttpActionResult CheckEmail(string email)
+        {
+            if (_userService.CheckEmail(email))
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost]
+        [Route("confirmemail")]
+        public IHttpActionResult ConfirmEmail(RestorePasswordViewModel model)
+        {
+            try
+            {
+                _userService.SendConfirmationLink(model.Email);
+                return Ok();
+            }
+            catch (DomainEntityValidationException validationException)
+            {
+                foreach (var validationError in validationException.ValidationErrors)
+                {
+                    ModelState.AddModelError("validationErrors", validationError);
+                }
+            }
+
+            return BadRequest(ModelState);
+        }
     }
 }

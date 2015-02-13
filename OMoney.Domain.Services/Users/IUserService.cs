@@ -14,5 +14,7 @@ namespace OMoney.Domain.Services.Users
         User FindUser(string email, string password);
 
         void SendResetLink(string email);
+        void SendConfirmationLink(string email);
+        bool CheckEmail(string email);
     }
 }

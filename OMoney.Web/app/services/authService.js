@@ -10,6 +10,19 @@
             userName: ""
         };
 
+
+        var confirmEmailExisting = function (restorePasswordViewModel) {
+            return $http.post(serviceBaseUrl + 'api/user/confirmemail', restorePasswordViewModel).then(function (response) {
+                return response;
+            });
+        }
+
+        var checkEmail = function(email) {
+            return $http.get(serviceBaseUrl + 'api/user/checkemail', { params: { email: email } }).then(function(response) {
+                return response;
+            });
+        }
+
         var confirmEmail = function (emailConfirmationViewModel) {
             return $http.post(serviceBaseUrl + 'api/user/activate', emailConfirmationViewModel).then(function (response) {
                 return response;
@@ -87,6 +100,8 @@
         authServiceFactory.sendRestoreEmail = sendRestoreEmail;
         authServiceFactory.resetPassword = resetPassword;
         authServiceFactory.confirmEmail = confirmEmail;
+        authServiceFactory.checkEmail = checkEmail;
+        authServiceFactory.confirmEmailExisting = confirmEmailExisting;
 
         return authServiceFactory;
     }]);

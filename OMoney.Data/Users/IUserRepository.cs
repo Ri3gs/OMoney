@@ -11,8 +11,8 @@ namespace OMoney.Data.Users
 
         List<string> ConfirmEmail(string userId, string code);
         List<string> ChangePassword(string email, string oldPassword, string newPassword);
-
-        List<string> ResetPassword_(string userId, string code, string newPassword);
+        List<string> ResetPassword(string userId, string code, string newPassword);
+        bool CheckEmail(string email);
         
         User FindUser(string email, string password);
         User FindById(string userId);

@@ -25,6 +25,12 @@ namespace OMoney.Web.Api.Providers
                     context.SetError("invalid_grant", "The user name or password is incorrect.");
                     return;
                 }
+
+                if (!user.IsActive)
+                {
+                    context.SetError("invalid_grant", "The email must be confirmed.");
+                    return;
+                }
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);

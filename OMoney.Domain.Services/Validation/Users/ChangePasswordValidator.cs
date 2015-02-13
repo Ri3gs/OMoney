@@ -33,6 +33,7 @@ namespace OMoney.Domain.Services.Validation.Users
             if (string.IsNullOrWhiteSpace(confirmNewPassword)) yield return "Confirm new password is EMPTY.";
             if (newPassword != confirmNewPassword) yield return "New passwords don't match.";
             if (_userRepository.FindUser(email, oldPassword) == null) yield return "No user assosiated with this email. (or typo in password).";
+            if (!_userRepository.CheckEmail(email)) yield return "Email must be confirmed for this action.";
         }
     }
 }

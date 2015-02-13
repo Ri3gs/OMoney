@@ -68,6 +68,12 @@ namespace OMoney.Data.Users
             return null;
         }
 
+        public bool CheckEmail(string email)
+        {
+            var identityUser = _userManager.FindByEmail(email);
+            return identityUser.EmailConfirmed;
+        }
+
         public User FindUser(string email, string password)
         {
             var identityUser = _userManager.Find(email, password);
@@ -75,7 +81,8 @@ namespace OMoney.Data.Users
             {
                 return new User
                 {
-                    Email = identityUser.Email
+                    Email = identityUser.Email,
+                    IsActive = identityUser.EmailConfirmed
                 };
             }
             return null;
@@ -146,7 +153,7 @@ namespace OMoney.Data.Users
             return null;
         }
 
-        public List<string> ResetPassword_(string userId, string code, string newPassword)
+        public List<string> ResetPassword(string userId, string code, string newPassword)
         {
             var result = _userManager.ResetPassword(userId, code, newPassword);
             if (result.Errors.Any())
