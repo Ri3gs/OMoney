@@ -172,7 +172,7 @@ namespace OMoney.Domain.Services.Users
         {
             var id = _userRepository.GetId(email);
             var code = _userRepository.GenerateEmailToken(id);
-            var link = _notificationService.BuildEmailConfirmationLink(id, code);
+            var link = _notificationService.BuildEmailConfirmationLink(id, code, true);
             var message = _notificationService.BuildConfirmEmailForExistingUserNotificationMessage(link, email);
 
             _notificationService.SendEmail(message);
@@ -197,7 +197,7 @@ namespace OMoney.Domain.Services.Users
         {
             var id = _userRepository.GetId(user.Email);
             var code = _userRepository.GenerateEmailToken(id);
-            var link = _notificationService.BuildEmailConfirmationLink(id, code);
+            var link = _notificationService.BuildEmailConfirmationLink(id, code, false);
             var message = _notificationService.BuildConfirmEmailForNewUserNotificationMessage(link, user.Email);
 
             _notificationService.SendEmail(message);

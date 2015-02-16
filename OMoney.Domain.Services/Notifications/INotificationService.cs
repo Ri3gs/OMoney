@@ -10,7 +10,7 @@ namespace OMoney.Domain.Services.Notifications
         EmailNotificationMessage BuildConfirmEmailForExistingUserNotificationMessage(string link, string email);
         EmailNotificationMessage BuildResetPasswordNotificationMessage(string link, string email);
         
-        string BuildEmailConfirmationLink(string userId, string code);
+        string BuildEmailConfirmationLink(string userId, string code, bool passwordRecovery);
         string BuildPasswordResetLink(string userId, string code);
     }
 }

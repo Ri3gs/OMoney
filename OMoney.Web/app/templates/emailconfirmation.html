@@ -1,4 +1,4 @@
-﻿<div ng-show="!emailConfirmed">
+﻿<div ng-show="!emailConfirmed&&!password">
     <div>Вы в одном шаге от подтверждения адреса электронной почты.</div>
     <div>
         Нашмите
@@ -9,5 +9,10 @@
 </div>
 <div ng-show="emailConfirmed">
     <div>Ваш адрес электронной почты был подтвержден</div>
-    <div>Начните изучать возможности OMoney прямо сейчас! <a href="#/login" class="btn btn-primary">Начать</a></div>
+    <div>Начните изучать возможности OMoney прямо сейчас! <a href="#/login" class="btn btn-primary">Начать</a>
+    </div>
+</div>
+<div ng-show="password">
+    <p>Вам адрес электронной почты был подтвержден.</p>
+    <p>Нажмите сюда чтобы восстановить паоль.</p> <a href="#/restorepassword" class="btn btn-primary">Сюда</a>
 </div>

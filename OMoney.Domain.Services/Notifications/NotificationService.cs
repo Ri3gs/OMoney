@@ -70,9 +70,9 @@ namespace OMoney.Domain.Services.Notifications
             };
         }
 
-        public string BuildEmailConfirmationLink(string userId, string code)
+        public string BuildEmailConfirmationLink(string userId, string code, bool passwordRecovery)
         {
-            return string.Format("http://localhost:4598/#/emailconfirmation?userId={0}&code={1}", HttpUtility.UrlEncode(userId), HttpUtility.UrlEncode(code));
+            return string.Format("http://localhost:4598/#/emailconfirmation?userId={0}&code={1}&passwordrecovery={2}", HttpUtility.UrlEncode(userId), HttpUtility.UrlEncode(code), passwordRecovery);
         }
 
         public string BuildPasswordResetLink(string userId, string code)
