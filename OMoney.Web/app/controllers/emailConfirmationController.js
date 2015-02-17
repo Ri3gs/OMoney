@@ -13,7 +13,7 @@
 
         $scope.continue = function () {
             authService.confirmEmail($scope.emailConfirmationViewModel).then(function (response) {
-                if ($scope.passwordRecovery) {
+                if ($scope.passwordRecovery === "True") {
                     $scope.password = true;
                 } else {
                     $scope.emailConfirmed = true;

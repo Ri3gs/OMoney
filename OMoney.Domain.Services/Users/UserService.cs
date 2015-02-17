@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
 using OMoney.Data.Users;
@@ -9,7 +10,7 @@ using OMoney.Domain.Services.Validation.Users;
 
 namespace OMoney.Domain.Services.Users
 {
-    public class UserService : IUserService
+    public class UserService : IUserService, IDisposable
     {
         private readonly IUserRepository _userRepository;
         private readonly INotificationService _notificationService;
@@ -88,7 +89,11 @@ namespace OMoney.Domain.Services.Users
 
         public User FindUser(string email, string password)
         {
-            return null;
+            var validator = new FindUserValidator();
+            var validationErrors = validator.Validate(email, password).ToList();
+            if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
+
+            return _userRepository.FindUser(email, password);
         }
 
         public void ChangePassword(string email, string oldPassword, string newPassword, string confirmNewPassword)
@@ -201,6 +206,11 @@ namespace OMoney.Domain.Services.Users
             var message = _notificationService.BuildConfirmEmailForNewUserNotificationMessage(link, user.Email);
 
             _notificationService.SendEmail(message);
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }

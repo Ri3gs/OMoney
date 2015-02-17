@@ -70,6 +70,7 @@
     <Compile Include="Validation\Users\ChangePasswordValidator.cs" />
     <Compile Include="Validation\Users\CreateNewUserValidator.cs" />
     <Compile Include="Validation\Users\DeleteUserValidator.cs" />
+    <Compile Include="Validation\Users\FindUserValidator.cs" />
     <Compile Include="Validation\Users\ResetPasswordValidator.cs" />
     <Compile Include="Validation\Users\SendResetLinkValidator.cs" />
     <Compile Include="Validation\Users\UpdateUserValidator.cs" />
