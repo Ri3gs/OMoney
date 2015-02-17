@@ -1,12 +1,7 @@
-﻿using System;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web.UI;
 using Microsoft.Owin.Security.OAuth;
-using Ninject;
 using OMoney.Data.Users;
-using OMoney.Domain.Services.Notifications;
-using OMoney.Domain.Services.Users;
 
 namespace OMoney.Web.Api.Providers
 {

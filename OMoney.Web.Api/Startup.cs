@@ -3,8 +3,11 @@ using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security.OAuth;
 using Ninject;
+using Ninject.Modules;
 using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
+using OMoney.Data.Users;
+using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Users;
 using OMoney.Web.Api;
 using OMoney.Web.Api.Providers;
@@ -15,8 +18,8 @@ namespace OMoney.Web.Api
 {
     public class Startup
     {
-        [Inject]
-        public IUserService UserService { get; set; }
+        //[Inject]
+        //public IUserService UserService { get; set; }
 
         public void Configuration(IAppBuilder app)
         {
@@ -39,5 +42,7 @@ namespace OMoney.Web.Api
             app.UseOAuthAuthorizationServer(oAuthServiceOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
+
+
     }
 }

@@ -20,6 +20,8 @@ namespace OMoney.Domain.Services.Users
             _notificationService = notificationService;
         }
 
+
+
         public void Create(User user, string password, string confrimPassword)
         {
             using (var transaction = new TransactionScope())
@@ -30,7 +32,7 @@ namespace OMoney.Domain.Services.Users
                 var repoErrors = _userRepository.Create(user, password);
                 if (repoErrors == null)
                 {
-                    SendConfirmationEmailForNewUser(user);
+                    _notificationService.SendConfirmationEmailForNewUser(user);
                     transaction.Complete();
                 }
                 else
@@ -136,34 +138,6 @@ namespace OMoney.Domain.Services.Users
             }
         }
 
-        public void SendResetLink(string email)
-        {
-            using (var transaction = new TransactionScope())
-            {
-                var validator = new SendResetLinkValidator(_userRepository);
-                var validationErrors = validator.Validate(email).ToList();
-                if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
-
-                SendResetPasswordLink(email);
-
-                transaction.Complete();
-            }
-        }
-
-        public void SendConfirmationLink(string email)
-        {
-            using (var transaction = new TransactionScope())
-            {
-                var validator = new SendResetLinkValidator(_userRepository);
-                var validationErrors = validator.Validate(email).ToList();
-                if (validationErrors.Any()) throw new DomainEntityValidationException {ValidationErrors = validationErrors};
-
-                SendConfirmationEmailForExistingUser(email);
-
-                transaction.Complete();
-            }
-        }
-
         public bool CheckEmail(string email)
         {
             var validator = new SendResetLinkValidator(_userRepository);
@@ -172,39 +146,9 @@ namespace OMoney.Domain.Services.Users
             return _userRepository.CheckEmail(email);
         }
 
-        private void SendConfirmationEmailForExistingUser(string email)
-        {
-            var id = _userRepository.GetId(email);
-            var code = _userRepository.GenerateEmailToken(id);
-            var link = _notificationService.BuildEmailConfirmationLink(id, code, true);
-            var message = _notificationService.BuildConfirmEmailForExistingUserNotificationMessage(link, email);
-
-            _notificationService.SendEmail(message);
-        }
-
         private static IEnumerable<string> Validate(User user, IDomainEntityValidator<User> validator)
         {
             return validator.Validate(user);
-        }
-
-        private void SendResetPasswordLink(string email)
-        {
-            var id = _userRepository.GetId(email);
-            var code = _userRepository.GeneratePwdToken(id);
-            var link = _notificationService.BuildPasswordResetLink(id, code);
-            var message = _notificationService.BuildResetPasswordNotificationMessage(link, email);
-
-            _notificationService.SendEmail(message);
-        }
-
-        private void SendConfirmationEmailForNewUser(User user)
-        {
-            var id = _userRepository.GetId(user.Email);
-            var code = _userRepository.GenerateEmailToken(id);
-            var link = _notificationService.BuildEmailConfirmationLink(id, code, false);
-            var message = _notificationService.BuildConfirmEmailForNewUserNotificationMessage(link, user.Email);
-
-            _notificationService.SendEmail(message);
         }
     }
 }

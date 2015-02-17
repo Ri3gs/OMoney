@@ -2,6 +2,7 @@
 using System.Web.Http;
 using AutoMapper;
 using OMoney.Domain.Core.Entities;
+using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Users;
 using OMoney.Domain.Services.Validation;
 using OMoney.Web.Api.Models;
@@ -12,10 +13,12 @@ namespace OMoney.Web.Api.Controllers
     public class UserController : ApiController
     {
         private readonly IUserService _userService;
+        private readonly INotificationService _notificationService;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, INotificationService notificationService)
         {
             _userService = userService;
+            _notificationService = notificationService;
         }
         
         [HttpPost]
@@ -97,7 +100,8 @@ namespace OMoney.Web.Api.Controllers
         {
             try
             {
-                _userService.SendResetLink(model.Email);
+                _notificationService.SendResetPasswordEmail(model.Email);
+                //_userService.SendResetLink(model.Email);
                 return Ok();
             }
             catch (DomainEntityValidationException validationException)
@@ -148,7 +152,8 @@ namespace OMoney.Web.Api.Controllers
         {
             try
             {
-                _userService.SendConfirmationLink(model.Email);
+                //_userService.SendConfirmationLink(model.Email);
+                _notificationService.SendConfirmationEmailForExistingUser(model.Email);
                 return Ok();
             }
             catch (DomainEntityValidationException validationException)

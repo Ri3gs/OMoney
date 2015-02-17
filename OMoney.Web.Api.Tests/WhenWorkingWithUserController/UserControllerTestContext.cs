@@ -37,7 +37,7 @@ namespace OMoney.Web.Api.Tests.WhenWorkingWithUserController
             MockNotificationService = new Mock<INotificationService>();
 
             UserService = new UserService(MockUserRepository.Object, MockNotificationService.Object);
-            UserController = new UserController(UserService)
+            UserController = new UserController(UserService, MockNotificationService.Object)
             {
                 Request = new HttpRequestMessage(),
                 Configuration = new HttpConfiguration()
