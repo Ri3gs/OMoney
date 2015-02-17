@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
 using OMoney.Data.Users;
@@ -10,7 +9,7 @@ using OMoney.Domain.Services.Validation.Users;
 
 namespace OMoney.Domain.Services.Users
 {
-    public class UserService : IUserService, IDisposable
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
         private readonly INotificationService _notificationService;
@@ -206,11 +205,6 @@ namespace OMoney.Domain.Services.Users
             var message = _notificationService.BuildConfirmEmailForNewUserNotificationMessage(link, user.Email);
 
             _notificationService.SendEmail(message);
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
         }
     }
 }
