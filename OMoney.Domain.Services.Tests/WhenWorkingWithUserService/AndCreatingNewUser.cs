@@ -36,7 +36,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
             TestContext.UserService.Create(TestContext.ValidNewUser, TestContext.GoodPass, TestContext.GoodPass);
 
             // Assert
-            TestContext.MockNotificationService.Verify(x => x.SendEmail(It.IsAny<EmailNotificationMessage>()), Times.Once);
+            TestContext.MockNotificationService.Verify(x => x.SendConfirmationEmailForNewUser(It.IsAny<User>()), Times.Once);
         }
 
         [Test]
