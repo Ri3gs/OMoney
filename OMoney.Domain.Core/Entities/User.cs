@@ -1,9 +1,11 @@
-﻿namespace OMoney.Domain.Core.Entities
+﻿using System;
+using Microsoft.AspNet.Identity.EntityFramework;
+
+namespace OMoney.Domain.Core.Entities
 {
-    public class User
+    public class User : IdentityUser
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsGold { get; set; }
+        public DateTime GoldExpirationTime { get; set; } 
     }
 }

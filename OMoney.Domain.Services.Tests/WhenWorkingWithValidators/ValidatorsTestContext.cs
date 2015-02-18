@@ -15,18 +15,18 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithValidators
 
         public User ValidUser
         {
-            get { return new User {Email = "test@email.com", IsActive = true}; }
+            get { return new User {Email = "test@email.com"}; }
         }
 
         public User PhantomUser
         {
-            get { return new User {Email = "phantom@gmail.com", IsActive = true}; }
+            get { return new User {Email = "phantom@gmail.com"}; }
         }
 
         public User ValidNewUser {
             get
             {
-                return new User  {Email = "goodemail@email.com", Name = "goodemail@email.com"};
+                return new User  {Email = "goodemail@email.com"};
             }
         }
 

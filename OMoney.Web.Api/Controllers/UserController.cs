@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using System;
 using System.Web.Http;
 using AutoMapper;
 using OMoney.Domain.Core.Entities;
@@ -30,7 +30,8 @@ namespace OMoney.Web.Api.Controllers
             {
                 Mapper.CreateMap<UserViewModel, User>();
                 var user = Mapper.Map<User>(userModel);
-                user.Name = userModel.Email;
+                user.UserName = userModel.Email;
+                user.GoldExpirationTime = DateTime.Now;
                 _userService.Create(user, userModel.Password, userModel.ConfirmPassword);
                 return Ok();
             }
@@ -154,6 +155,46 @@ namespace OMoney.Web.Api.Controllers
             {
                 //_userService.SendConfirmationLink(model.Email);
                 _notificationService.SendConfirmationEmailForExistingUser(model.Email);
+                return Ok();
+            }
+            catch (DomainEntityValidationException validationException)
+            {
+                foreach (var validationError in validationException.ValidationErrors)
+                {
+                    ModelState.AddModelError("validationErrors", validationError);
+                }
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpPost]
+        [Route("givegold")]
+        public IHttpActionResult GiveGold(GiveGoldViewModel model)
+        {
+            try
+            {
+                _userService.UpdateToGold(model.Email);
+                return Ok();
+            }
+            catch (DomainEntityValidationException validationException)
+            {
+                foreach (var validationError in validationException.ValidationErrors)
+                {
+                    ModelState.AddModelError("validationErrors", validationError);
+                }
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpPost]
+        [Route("removegold")]
+        public IHttpActionResult RemoveGold(GiveGoldViewModel model)
+        {
+            try
+            {
+                _userService.RemoveGold(model.Email);
                 return Ok();
             }
             catch (DomainEntityValidationException validationException)

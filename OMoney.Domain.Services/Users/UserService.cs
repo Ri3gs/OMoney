@@ -20,10 +20,9 @@ namespace OMoney.Domain.Services.Users
             _notificationService = notificationService;
         }
 
-
-
         public void Create(User user, string password, string confrimPassword)
         {
+            
             using (var transaction = new TransactionScope())
             {
                 var validationErrors = Validate(user, new CreateNewUserValidator(_userRepository, password, confrimPassword)).ToList();
@@ -83,6 +82,34 @@ namespace OMoney.Domain.Services.Users
                 if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
 
                 _userRepository.Delete(user);
+
+                transaction.Complete();
+            }
+        }
+
+        public void UpdateToGold(string email)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                var validator = new SendResetLinkValidator(_userRepository);
+                var validationErrors = validator.Validate(email).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
+
+                _userRepository.UpdateToGold(email);
+
+                transaction.Complete();
+            }
+        }
+
+        public void RemoveGold(string email)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                var validator = new SendResetLinkValidator(_userRepository);
+                var validationErrors = validator.Validate(email).ToList();
+                if (validationErrors.Any()) throw new DomainEntityValidationException { ValidationErrors = validationErrors };
+
+                _userRepository.RemoveGold(email);
 
                 transaction.Complete();
             }

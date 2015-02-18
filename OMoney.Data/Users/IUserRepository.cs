@@ -8,6 +8,8 @@ namespace OMoney.Data.Users
         List<string> Create(User user, string password);
         void Update(User user);
         void Delete(User user);
+        void UpdateToGold(string email);
+        void RemoveGold(string email);
 
         List<string> ConfirmEmail(string userId, string code);
         List<string> ChangePassword(string email, string oldPassword, string newPassword);

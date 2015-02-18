@@ -10,6 +10,8 @@ namespace OMoney.Domain.Services.Users
         void Delete(User user);
         void ChangePassword(string email, string oldPassword, string newPassword, string confirmNewPassword);
         void ResetPassword(string userId, string code, string newPassword, string confirmNewPassword);
+        void UpdateToGold(string email);
+        void RemoveGold(string email);
 
         User FindUser(string email, string password);
 

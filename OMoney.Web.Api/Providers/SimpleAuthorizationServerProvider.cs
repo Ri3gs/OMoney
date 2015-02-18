@@ -26,7 +26,7 @@ namespace OMoney.Web.Api.Providers
                     return;
                 }
 
-                if (!user.IsActive)
+                if (!user.EmailConfirmed)
                 {
                     context.SetError("invalid_grant", "The email must be confirmed.");
                     return;

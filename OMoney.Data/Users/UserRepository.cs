@@ -15,28 +15,21 @@ namespace OMoney.Data.Users
     {
 
         private readonly AuthContext _authDbContext;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<User> _userManager;
 
         public UserRepository()
         {
             _authDbContext = new AuthContext();
-            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_authDbContext));
+            _userManager = new UserManager<User>(new UserStore<User>(_authDbContext));
 
             var provider = new DpapiDataProtectionProvider("OMoney");
-            _userManager.UserTokenProvider = new DataProtectorTokenProvider<IdentityUser>(provider.Create("EmailConfirmation"));
-
-            
+            _userManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
         }
 
 
         public List<string> Create(User user, string password)
         {
-            var userDb = new IdentityUser
-            {
-                UserName = user.Name,
-                Email = user.Email
-            };
-            var result =_userManager.Create(userDb, password);
+            var result =_userManager.Create(user, password);
             if (result.Errors.Any())
             {
                 return result.Errors.ToList();
@@ -55,15 +48,28 @@ namespace OMoney.Data.Users
             throw new NotImplementedException();
         }
 
+        public void UpdateToGold(string email)
+        {
+            var user = _userManager.FindByEmail(email);
+            user.IsGold = true;
+            user.GoldExpirationTime = DateTime.Now.AddMonths(1);
+            _userManager.Update(user);
+        }
+
+        public void RemoveGold(string email)
+        {
+            var user = _userManager.FindByEmail(email);
+            user.IsGold = false;
+            user.GoldExpirationTime = DateTime.Now;
+            _userManager.Update(user);
+        }
+
         public User GetByEmail(string email)
         {
             var identityUser = _userManager.FindByEmail(email);
             if (identityUser != null)
             {
-                return new User
-                {
-                    Email = identityUser.Email
-                };
+                return identityUser;
             }
             return null;
         }
@@ -77,15 +83,7 @@ namespace OMoney.Data.Users
         public User FindUser(string email, string password)
         {
             var identityUser = _userManager.Find(email, password);
-            if (identityUser != null)
-            {
-                return new User
-                {
-                    Email = identityUser.Email,
-                    IsActive = identityUser.EmailConfirmed
-                };
-            }
-            return null;
+            return identityUser;
         }
 
         public User FindById(string userId)
@@ -93,10 +91,7 @@ namespace OMoney.Data.Users
             var identityUser = _userManager.FindById(userId);
             if (identityUser != null)
             {
-                return new User
-                {
-                    Email = identityUser.Email,
-                };
+                return identityUser;
             }
             return null;
         }

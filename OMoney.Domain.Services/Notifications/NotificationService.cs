@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Transactions;
 using System.Web;
+using System.Web.Configuration;
 using OMoney.Data.Users;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Notifications.NotificationMessages;
@@ -25,10 +26,9 @@ namespace OMoney.Domain.Services.Notifications
         public void SendEmail(EmailNotificationMessage message)
         {
             //throw new NotImplementedException();
-
-            const string sender = "omoneydev@outlook.com";
-            const string password = "df997a4e2a831";
-            var client = new SmtpClient("smtp-mail.outlook.com")
+            var sender = WebConfigurationManager.AppSettings["sender"];
+            var password = WebConfigurationManager.AppSettings["password"];
+            var client = new SmtpClient(WebConfigurationManager.AppSettings["host"])
             {
                 Port = 587,
                 DeliveryMethod = SmtpDeliveryMethod.Network,

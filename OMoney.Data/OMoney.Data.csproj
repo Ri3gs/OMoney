@@ -84,6 +84,14 @@
     <Compile Include="Migrations\201501290750424_testmigration.Designer.cs">
       <DependentUpon>201501290750424_testmigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502181223121_Gold.cs" />
+    <Compile Include="Migrations\201502181223121_Gold.Designer.cs">
+      <DependentUpon>201502181223121_Gold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502181246314_naming_and_activity.cs" />
+    <Compile Include="Migrations\201502181246314_naming_and_activity.Designer.cs">
+      <DependentUpon>201502181246314_naming_and_activity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\IUserRepository.cs" />
@@ -102,6 +110,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501290750424_testmigration.resx">
       <DependentUpon>201501290750424_testmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502181223121_Gold.resx">
+      <DependentUpon>201502181223121_Gold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502181246314_naming_and_activity.resx">
+      <DependentUpon>201502181246314_naming_and_activity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

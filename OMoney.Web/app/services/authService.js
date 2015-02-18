@@ -10,6 +10,17 @@
             userName: ""
         };
 
+        var removeGold = function () {
+            return $http.post(serviceBaseUrl + 'api/user/removegold', { email: authentication.userName }).then(function (response) {
+                return response;
+            });
+        }
+
+        var giveGold = function () {
+            return $http.post(serviceBaseUrl + 'api/user/givegold', { email: authentication.userName }).then(function (response) {
+                return response;
+            });
+        }
 
         var confirmEmailExisting = function (restorePasswordViewModel) {
             return $http.post(serviceBaseUrl + 'api/user/confirmemail', restorePasswordViewModel).then(function (response) {
@@ -102,6 +113,8 @@
         authServiceFactory.confirmEmail = confirmEmail;
         authServiceFactory.checkEmail = checkEmail;
         authServiceFactory.confirmEmailExisting = confirmEmailExisting;
+        authServiceFactory.giveGold = giveGold;
+        authServiceFactory.removeGold = removeGold;
 
         return authServiceFactory;
     }]);

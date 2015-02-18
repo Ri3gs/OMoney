@@ -34,7 +34,7 @@ namespace OMoney.Domain.Services.Tests.WhenWorkingWithUserService
         public User ValidNewUser {
             get
             {
-                return new User { Email = "goodemail@email.com", Name = "goodemail@email.com"};
+                return new User { Email = "goodemail@email.com"};
             }
         }
 
