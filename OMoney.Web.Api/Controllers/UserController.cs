@@ -168,6 +168,7 @@ namespace OMoney.Web.Api.Controllers
             return BadRequest(ModelState);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("givegold")]
         public IHttpActionResult GiveGold(GiveGoldViewModel model)
@@ -188,6 +189,7 @@ namespace OMoney.Web.Api.Controllers
             return BadRequest(ModelState);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("removegold")]
         public IHttpActionResult RemoveGold(GiveGoldViewModel model)
