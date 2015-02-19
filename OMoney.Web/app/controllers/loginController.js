@@ -9,7 +9,7 @@
         $scope.message = "";
 
         $scope.login = function () {
-            authService.login($scope.loginViewModel).then(function(response) {
+            authService.login($scope.loginViewModel).then(function (response) {
                 $location.path('/home');
             }, function (response) {
                 notificationService.exception({ modelState: { validationErrors: [response.error_description] } });

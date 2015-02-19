@@ -67,10 +67,9 @@
         }
 
         var login = function (loginViewModel) {
-            var data = "grant_type=password&UserName=" + loginViewModel.email + "&Password=" + loginViewModel.password;
+            var data = "grant_type=password&UserName=" + encodeURIComponent(loginViewModel.email) + "&Password=" + encodeURIComponent(loginViewModel.password);
 
             var deferred = $q.defer();
-
             $http.post(serviceBaseUrl + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
                 
                 localStorageService.set('authenticationData', { token: response.access_token, email: loginViewModel.email });

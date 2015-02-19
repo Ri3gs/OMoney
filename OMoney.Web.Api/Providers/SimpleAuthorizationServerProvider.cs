@@ -1,5 +1,7 @@
 ﻿using System.Security.Claims;
+using System.Security.Policy;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.Owin.Security.OAuth;
 using OMoney.Data.Users;
 
@@ -15,7 +17,6 @@ namespace OMoney.Web.Api.Providers
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
-
             using (var userRepository = new UserRepository())
             {
                 var user = userRepository.FindUser(context.UserName, context.Password);

@@ -24,6 +24,12 @@ namespace OMoney.Data.Users
 
             var provider = new DpapiDataProtectionProvider("OMoney");
             _userManager.UserTokenProvider = new DataProtectorTokenProvider<User>(provider.Create("EmailConfirmation"));
+            _userManager.UserValidator = new UserValidator<User>(_userManager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = true
+            };
+            _userManager.PasswordValidator = new MinimumLengthValidator(6);
         }
 
 
