@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module("oMoney").controller('emailConfirmationController', ['$scope', '$location', "$routeParams", 'authService', 'notificationService', function ($scope, $location, $routeParams, authService, notificationService) {
+    angular.module("oMoney").controller('emailConfirmationController', ['$scope', '$location', "$routeParams", 'userService', 'notificationService', function ($scope, $location, $routeParams, userService, notificationService) {
         $scope.emailConfirmed = false;
         $scope.password = false;
         $scope.passwordRecovery = $routeParams.passwordrecovery;
@@ -12,7 +12,7 @@
         };
 
         $scope.continue = function () {
-            authService.confirmEmail($scope.emailConfirmationViewModel).then(function (response) {
+            userService.confirmEmail($scope.emailConfirmationViewModel).then(function (response) {
                 if ($scope.passwordRecovery === "True") {
                     $scope.password = true;
                 } else {

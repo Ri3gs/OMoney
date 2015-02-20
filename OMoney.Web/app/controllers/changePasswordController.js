@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module("oMoney").controller('changePasswordController', ['$scope', '$location', 'authService', 'notificationService', function ($scope, $location, authService, notificationService) {
+    angular.module("oMoney").controller('changePasswordController', ['$scope', '$location', 'authService', 'notificationService', 'userService' , function ($scope, $location, authService, notificationService, userService) {
         $scope.passwordChanged = false;
 
         $scope.changePasswordViewModel = {
@@ -12,7 +12,7 @@
         };
 
         $scope.change = function () {
-            authService.changePassword($scope.changePasswordViewModel).then(function (response) {
+            userService.changePassword($scope.changePasswordViewModel).then(function (response) {
                 $scope.passwordChanged = true;
                 authService.logOut();
             }, function (response) {

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module("oMoney").controller('restorePasswordController', ['$scope', '$location', 'authService', 'notificationService', function ($scope, $location, authService, notificationService) {
+    angular.module("oMoney").controller('restorePasswordController', ['$scope', '$location', 'userService', 'notificationService', 'emailNotificationService', function ($scope, $location, userService, notificationService, emailNotificationService) {
         $scope.emailSent = false;
         $scope.emailConfirmSent = false;
 
@@ -10,14 +10,14 @@
         };
 
         $scope.send = function () {
-            authService.checkEmail($scope.restorePasswordViewModel.email).then(function() {
-                authService.sendRestoreEmail($scope.restorePasswordViewModel).then(function (response) {
+            userService.checkEmail($scope.restorePasswordViewModel.email).then(function() {
+                emailNotificationService.sendRestoreEmail($scope.restorePasswordViewModel).then(function (response) {
                     $scope.emailSent = true;
                 }, function (response) {
                     notificationService.exception(response.data);
                 });
             }, function() {
-                authService.confirmEmailExisting($scope.restorePasswordViewModel).then(function (response) {
+                emailNotificationService.confirmEmailExisting($scope.restorePasswordViewModel).then(function (response) {
                     $scope.emailConfirmSent = true;
                 }, function (response) {
                     notificationService.exception(response.data);

@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module("oMoney").controller('resetPasswordController', ['$scope', '$location', "$routeParams", 'authService', 'notificationService', function ($scope, $location, $routeParams, authService, notificationService) {
+    angular.module("oMoney").controller('resetPasswordController', ['$scope', '$location', "$routeParams", 'userService', 'notificationService', function ($scope, $location, $routeParams, userService, notificationService) {
         $scope.passwordChanged = false;
 
         $scope.resetPasswordViewModel = {
@@ -12,7 +12,7 @@
         };
 
         $scope.reset = function () {
-            authService.resetPassword($scope.resetPasswordViewModel).then(function (response) {
+            userService.resetPassword($scope.resetPasswordViewModel).then(function (response) {
                 $scope.passwordChanged = true;
             }, function (response) {
                 notificationService.exception(response.data);

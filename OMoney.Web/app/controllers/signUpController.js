@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module("oMoney").controller('signupController', ['$scope', '$location', 'authService', 'notificationService', function ($scope, $location, authService, notificationService) {
+    angular.module("oMoney").controller('signupController', ['$scope', '$location', 'userService', 'notificationService', function ($scope, $location, userService, notificationService) {
 
         $scope.signupViewModel = {
             email: "",
@@ -10,7 +10,7 @@
         };
 
         $scope.signup = function() {
-            authService.signup($scope.signupViewModel).then(function(response) {
+            userService.signup($scope.signupViewModel).then(function(response) {
                 $location.path("/activation");
             }, function (response) {
                 notificationService.exception(response.data);

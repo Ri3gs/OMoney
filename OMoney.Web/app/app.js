@@ -63,8 +63,8 @@
 
         authService.authenticate();
 
-        $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            if (next.access !== undefined) {
+        $rootScope.$on("$routeChangeStart", function (event, next) {
+            if (next !== undefined && next.access !== undefined) {
                 if (next.access.requiresLogin === true && !authService.authentication.isAuthenticated) {
                     $location.path("/login");
                 }
