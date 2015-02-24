@@ -1,18 +1,27 @@
-﻿<div ng-show="!emailConfirmed&&!password">
-    <div>Вы в одном шаге от подтверждения адреса электронной почты.</div>
-    <div>
-        Нашмите
-        <button class="btn btn-primary" data-ng-click="continue()">
-            Сюда
-        </button> чтобы завершить процесс.
+﻿<div class="c-slider-login">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-md-offset-2 c-form" ng-show="!emailConfirmed&&!password">
+                <p>
+                    Вы в одном шаге от подтверждения адреса электронной почты.
+                    Нашмите
+                    <button class="btn btn-lg btn-warning" data-ng-click="continue()">
+                        Сюда
+                    </button> чтобы завершить процесс.
+                </p>
+            </div>
+            <div class="col-md-7 col-md-offset-2 c-form" ng-show="emailConfirmed">
+                <p>
+                    Ваш адрес электронной почты был подтвержден
+                    Начните изучать возможности OMoney прямо сейчас! <a href="#/login" class="btn btn-lg btn-warning">Начать</a>
+                </p>
+            </div>
+            <div class="col-md-7 col-md-offset-2 c-form" ng-show="password">
+                <p>
+                    Ваш адрес электронной почты был подтвержден.
+                    Нажмите <a href="#/restorepassword" class="btn btn-lg btn-warning">Сюда</a> чтобы восстановить пароль.
+                </p>
+            </div>
+        </div>
     </div>
-</div>
-<div ng-show="emailConfirmed">
-    <div>Ваш адрес электронной почты был подтвержден</div>
-    <div>Начните изучать возможности OMoney прямо сейчас! <a href="#/login" class="btn btn-primary">Начать</a>
-    </div>
-</div>
-<div ng-show="password">
-    <p>Вам адрес электронной почты был подтвержден.</p>
-    <p>Нажмите <a href="#/restorepassword" class="btn btn-primary">Сюда</a> чтобы восстановить паоль.</p>
 </div>

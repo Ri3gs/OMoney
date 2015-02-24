@@ -1,127 +1,108 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>OMoney</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Omoney</title>
 
     <!-- Stylesheets -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/toastr.css" rel="stylesheet" />
     <link href="Content/app.css" rel="stylesheet" />
     <link href="Content/main.css" rel="stylesheet" />
-    <link href="Content/media.css" rel="stylesheet"/>
-    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="oMoney">
-    <div id="wrapper">
-        <header>
-            <nav class="navbar navbar-inverse" data-ng-controller="navigationController">
-                <div class="container">
-                    <a class="navbar-brand" href="#/home">OMoney</a>
-                    <ul class="nav navbar-nav navbar-right" data-ng-show="!authentication.isAuthenticated">
-                        <li>
-                            <a href="#/signup">Зарегистрироваться</a>
-                        </li>
-                        <li>
-                            <a href="#/login">Войти</a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right" data-ng-show="authentication.isAuthenticated">
-                        <li>
-                            <a href="#">Всего: 300</a>
-                        </li>
-                        <li>
-                            <a href="#">Запланировано: 500</a>
-                        </li>
-                        <li>
-                            <a href="#">Потрачено: 200</a>
-                        </li>
-                        <li>
-                            <a href="#">План</a>
-                        </li>
-                        <li>
-                            <a href="#">Календарь</a>
-                        </li>
-                        <li>
-                            <a href="#/changepassword">Изменить пароль</a>
-                        </li>
-                        <li>
-                            <a href="#/profile">Привет, {{authentication.userName}}</a>
-                        </li>
-                        <li>
-                            <a href="#" data-ng-click="logOut()">Выйти</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- header end -->
-
-        <div>
-            <div data-ng-view=""></div>
-        </div>
-
-
-        <footer>
-            <div class="container text-center">
-                <ul class="list-inline">
-                    <li>
-                        ©2015 OMoney
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms of use</a>
-                    </li>
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Support</a>
-                    </li>
-                    <li>
-                        All rights reserved
-                    </li>
-                </ul>
+<div>
+    <div class="c-header" data-ng-controller="navigationController">
+        <div class="container">
+            <div class="c-logo">
+                <a href="#/home">Omoney</a>
             </div>
-        </footer>
-        <!-- footer end -->
+
+            <nav class="c-nav">
+                <ul ng-if="!authentication.isAuthenticated && currentRoute === '/home'">
+                    <li><a href="" ng-click="gotoElement('about')">О нас</a></li>
+                    <li><a href="" ng-click="gotoElement('advantages')">Преимущества</a></li>
+                    <li class="c-active"><a href="" ng-click="gotoElement('people')">Отзывы</a></li>
+                    <li><a href="" ng-click="gotoElement('money')">Тарифы</a></li>
+                    <li><a href="#/login">Войти</a></li>
+                </ul>
+
+                <ul ng-if="authentication.isAuthenticated">
+                    <li><a href="#/changepassword">Изменить пароль</a></li>
+                    <li><a href="#/profile">Привет, {{authentication.userName}}</a></li>
+                    <li><a href="" data-ng-click="logOut()">Выйти</a></li>
+                </ul>
+            </nav>
+
+            <div class="clearfix"></div>
+        </div>
     </div>
 
-    <!-- Libraries -->
-    <script src="scripts/jquery-2.1.3.min.js"></script>
-    <script src="scripts/angular.min.js"></script>
-    <script src="scripts/angular-route.min.js"></script>
-    <script src="scripts/angular-local-storage.min.js"></script>
-    <script src="scripts/angular-messages.js"></script>
-    <script src="scripts/toastr.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
+    <div>
+        <div data-ng-view=""></div>
+    </div>
 
-    <!-- Application script -->
-    <script src="app/app.js"></script>
+    <div class="c-footer">
+        <div class="container">
+            <div class="c-footer-nav">
+                <div class="c-copyright">© 2015 Omoney</div>
 
-    <!-- Services -->
-    <script src="app/services/authService.js"></script>
-    <script src="app/services/userService.js"></script>
-    <script src="app/services/notificationService.js"></script>
-    <script src="app/services/emailNotificationService.js"></script>>
-    <script src="app/services/authInterceptorService.js"></script>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Преимущества</a></li>
+                    <li class="active"><a href="#">Отзывы</a></li>
+                    <li><a href="#">Тарифы</a></li>
+                </ul>
+            </div>
 
-    <!-- Controllers -->
-    <script src="app/controllers/homeController.js"></script>
-    <script src="app/controllers/navigationController.js"></script>
-    <script src="app/controllers/signUpController.js"></script>
-    <script src="app/controllers/activationController.js"></script>
-    <script src="app/controllers/loginController.js"></script>
-    <script src="app/controllers/profileController.js"></script>
-    <script src="app/controllers/changePasswordController.js"></script>
-    <script src="app/controllers/restorePasswordController.js"></script>
-    <script src="app/controllers/resetPasswordController.js"></script>
-    <script src="app/controllers/emailConfirmationController.js"></script>
+            <div class="pull-right">
+                <img src="Content/img/footer_logo.png" alt=""/>
+            </div>
 
-    <!-- Directives -->
-    <script src="app/directives/password-check.js"></script>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- footer end -->
+</div>
+
+<!-- Libraries -->
+<script src="scripts/jquery-2.1.3.min.js"></script>
+<script src="scripts/angular.min.js"></script>
+<script src="scripts/angular-route.min.js"></script>
+<script src="scripts/angular-local-storage.min.js"></script>
+<script src="scripts/angular-messages.js"></script>
+<script src="scripts/toastr.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+
+<!-- Application script -->
+<script src="app/app.js"></script>
+
+<!-- Services -->
+<script src="app/services/authService.js"></script>
+<script src="app/services/userService.js"></script>
+<script src="app/services/notificationService.js"></script>
+<script src="app/services/emailNotificationService.js"></script>>
+<script src="app/services/authInterceptorService.js"></script>
+<script src="app/services/anchorSmoothScrollService.js"></script>
+
+<!-- Controllers -->
+<script src="app/controllers/homeController.js"></script>
+<script src="app/controllers/navigationController.js"></script>
+<script src="app/controllers/activationController.js"></script>
+<script src="app/controllers/loginController.js"></script>
+<script src="app/controllers/profileController.js"></script>
+<script src="app/controllers/changePasswordController.js"></script>
+<script src="app/controllers/restorePasswordController.js"></script>
+<script src="app/controllers/resetPasswordController.js"></script>
+<script src="app/controllers/emailConfirmationController.js"></script>
+
+<!-- Directives -->
+<script src="app/directives/password-check.js"></script>
 
 </body>
 </html>

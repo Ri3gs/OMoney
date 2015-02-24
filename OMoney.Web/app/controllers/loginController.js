@@ -10,7 +10,7 @@
 
         $scope.login = function () {
             authService.login($scope.loginViewModel).then(function (response) {
-                $location.path('/home');
+                $location.path('/profile');
             }, function (response) {
                 notificationService.exception({ modelState: { validationErrors: [response.error_description] } });
             });

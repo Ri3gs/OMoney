@@ -7,11 +7,6 @@
             templateUrl: "app/templates/home.html"
         });
 
-        $routeProvider.when("/signup", {
-            controller: "signupController",
-            templateUrl: "app/templates/signup.html"
-        });
-
         $routeProvider.when("/login", {
             controller: "loginController",
             templateUrl: "app/templates/login.html"
@@ -53,13 +48,17 @@
             templateUrl: "app/templates/resetpassword.html"
         });
 
+        $routeProvider.otherwise({ redirectTo: '/home' });
+
     });
 
     app.config(function($httpProvider) {
         $httpProvider.interceptors.push("authInterceptorService");
     });
 
-    app.run(["$rootScope", "$location", "authService", function ($rootScope, $location, authService) {
+    app.run(["$rootScope", "$location", "$anchorScroll", "authService", function ($rootScope, $location, $anchorScroll, authService) {
+
+        $anchorScroll.yOffset = 50;
 
         authService.authenticate();
 

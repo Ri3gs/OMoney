@@ -1,142 +1,219 @@
-﻿<div class="banner-1">
-    <div class="container text-right">
-        <button type="button" class="btn btn-login-header btn-lg" data-toggle="modal" data-target="#myModal">Sign in</button>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Check me out
-                                </label>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Sign in</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- modal end -->
-    </div>
-    <div class="container">
-        <div class="hero-content row">
-            <div class="col-md-4">
-                <h1>OMoney</h1>
-                <small>Simply as that</small>
-                <p>Easy to manage your money online.</p>
-                <br />
-                <small>Create new account</small>
-                <form>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-6">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="col-md-6" style="padding-left: 1px;">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
-                        </div>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox">Check me out
-                        </label>
-                    </div>
-                </form>
-                <p>
-                    <button type="button" class="btn btn-primary btn-lg">Sign up for free</button>
-                </p>
-            </div>
-            <!-- md-5 end -->
-            <div class="col-md-8">
-                <div class="monitor"></div>
-            </div>
-        </div>
-        <!-- Hero-content end -->
-    </div>
-</div>
-<!-- banner-1 end -->
-<div id="content">
-    <div class="container-fluid highlight-div">
-        <div class="container text-center">
-            <ul class="list-inline">
-                <li>
-                    <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-vk fa-2x"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- highlight-div end -->
+﻿<div class="c-slider" id="signup">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 text-center">
-                <p><img src="/Content/img/icons/essentials-06.png" alt="" class="story-icon"></p>
-                <h2>Easy to use</h2>
-                <h4>Inani zril et eum, nec consul repudiare dissentias te. An primis dissentiunt nam, in sit libris hendrerit, ex electram reformidans neglegentur quo.</h4>
+            <div class="col-md-5 c-form">
+                <p>
+                    <b>Omoney</b> - это сервис финансового<br />
+                    планирования и учета расходов<br />
+                    потребителей.
+                </p>
+
+                <form name="signupForm" role="form" novalidate>
+                    <b>Создай свой аккаунт</b>
+
+                    <input class="form-control" name="Email" id="Email" type="email" placeholder="Введите Ваш Email" data-ng-model="signupViewModel.email" ng-pattern="/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}/" ng-model-options="{ debounce: 600 }" required autofocus />
+                    <div ng-if="signupForm.Email.$dirty" ng-messages="signupForm.Email.$error" ng-messages-include="app/templates/messages.html"></div>
+
+                    <input class="form-control" name="Password" id="Password" type="password" placeholder="Пароль" data-ng-model="signupViewModel.password" ng-pattern="/^\S*$/" ng-minlength=6 ng-model-options="{ debounce: 600 }" required />
+                    <input class="form-control" name="ConfirmPassword" id="Confirmpassword" type="password" placeholder="Повторите пароль" data-ng-model="signupViewModel.confirmPassword" password-check="Password" ng-pattern="/^\S*$/" ng-minlength=6 ng-model-options="{ debounce: 600 }" required/>
+
+                    <div ng-if="signupForm.Password.$dirty" ng-messages="signupForm.Password.$error" ng-messages-include="app/templates/messages.html"></div>
+                    <div ng-if="signupForm.ConfirmPassword.$dirty" ng-messages="signupForm.ConfirmPassword.$error" ng-messages-include="app/templates/messages.html"></div>
+
+                    <button class="btn btn-lg btn-warning btn-block" type="submit" data-ng-click="signup()" ng-disabled="signupForm.$invalid">Зарегистрироваться</button>
+                </form>
             </div>
-            <div class="col-md-4 text-center">
-                <p><img src="/Content/img/icons/essentials-17.png" alt="" class="story-icon"></p>
-                <h2>Totaly free</h2>
-                <h4>Inani zril et eum, nec consul repudiare dissentias te. An primis dissentiunt nam, in sit libris hendrerit, ex electram reformidans neglegentur quo.</h4>
-            </div>
-            <div class="col-md-4 text-center">
-                <p><img src="/Content/img/icons/essentials-22.png" alt="" class="story-icon"></p>
-                <h2>Save more time</h2>
-                <h4>Inani zril et eum, nec consul repudiare dissentias te. An primis dissentiunt nam, in sit libris hendrerit, ex electram reformidans neglegentur quo.</h4>
-            </div>
-        </div>
-    </div>
-    <div class="grey-div">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>use it on any device</h1>
-                    <h3>Inani zril et eum, nec consul repudiare dissentias te. An primis dissentiunt nam, in sit libris hendrerit, ex electram reformidans neglegentur quo.</h3>
-                </div>
-                <div class="col-md-6">
-                    <div class="devices"></div>
-                </div>
+
+            <div class="col-md-7">
+                <div class="c-screen"></div>
             </div>
         </div>
-    </div>
-    <!-- grey-div end -->
-    <div class="container text-center">
-        <br />
-        <br />
-        <h2>Still don't Feel Convinced?</h2>
-        <h2 style="margin-top:0">Just Try it now!</h2>
-        <br />
-        <p>
-            <button type="button" class="btn btn-primary btn-lg"><i class="fa fa-diamond"></i>  Sign up for free</button>
-        </p>
+
+        <div class="c-pager">
+            <a href="#"></a>
+            <a href="#" class="c-active"></a>
+            <a href="#"></a>
+        </div>
     </div>
 </div>
-<!-- body-content end -->
+
+
+<div class="c-about" id="about">
+    <div class="container">
+        <h2 class="c-title">О нас</h2>
+
+        <p class="c-discription">
+            Cервис финансового планирования и учета расходов потребителей.<br />
+            Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи.
+        </p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src="../../Content/img/block11.png" alt="" />
+            </div>
+            <div class="col-md-6">
+                <h3>Заголовок</h3>
+                <p>Он позволяет своим клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи, такие как выплаты по кредитам, ипотеке и пр.</p>
+            </div>
+        </div>
+
+        <div class="row text-right">
+            <div class="col-md-4 pull-right">
+                <img class="img-responsive pull-right" src="../../Content/img/block12.png" alt="" />
+            </div>
+            <div class="col-md-6 pull-right">
+                <h3>Заголовок</h3>
+                <p>Он позволяет своим клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи, такие как выплаты по кредитам, ипотеке и пр.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src="../../Content/img/block13.png" alt="" />
+            </div>
+            <div class="col-md-6">
+                <h3>Заголовок</h3>
+                <p>Он позволяет своим клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи, такие как выплаты по кредитам, ипотеке и пр.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="c-advantages" id="advantages">
+    <div class="container">
+        <h2 class="c-title">Преимущества</h2>
+
+        <p class="c-discription">
+            Cервис финансового планирования и учета расходов потребителей.<br />
+            Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи,<br />
+            такие как выплаты по кредитам, ипотеке и пр.
+        </p>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <img src="../../Content/img/block21.png" alt="" />
+                <h3>Заголовок</h3>
+                <p>Клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных</p>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <img src="../../Content/img/block22.png" alt="" />
+                <h3>Заголовок</h3>
+                <p>Клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных</p>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <img src="../../Content/img/block23.png" alt="" />
+                <h3>Заголовок</h3>
+                <p>Клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных</p>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <img src="../../Content/img/block24.png" alt="" />
+                <h3>Заголовок</h3>
+                <p>Клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="people">
+    <h2 class="c-title">Истории наших клиентов</h2>
+
+    <p class="c-discription">
+        Cервис финансового планирования и учета расходов потребителей.
+    </p>
+
+    <div class="row c-histories">
+        <div class="col-lg-4">
+            <img src="../../Content/img/block31.png" alt="" />
+            <h3>Иван Иванов</h3>
+            <p>Директор ООО "Иванов"</p>
+            <h4>
+                Я стал тратить на<br />
+                1000 грн меньше!
+            </h4>
+        </div>
+
+        <div class="col-lg-4">
+            <img src="../../Content/img/block32.png" alt="" />
+            <h3>Петр Петров</h3>
+            <p>Директор ООО "Иванов"</p>
+            <h4>
+                Я выплатил кредит на<br />
+                машину вовремя!
+            </h4>
+        </div>
+
+        <div class="col-lg-4">
+            <img src="../../Content/img/block33.png" alt="" />
+            <h3>Ольга Соколова</h3>
+            <p>Директор ООО "Иванов"</p>
+            <h4>
+                Теперь муж точно не<br />
+                найдет мою заначку!
+            </h4>
+        </div>
+
+        <p class="text-center"><a class="btn btn-lg btn-success" href="#" role="button">Еще истории</a></p>
+    </div>
+</div>
+
+<div class="c-tariffs" id="money">
+    <div class="container">
+        <h2 class="c-title">Тарифы</h2>
+
+        <p class="c-discription">
+            Cервис финансового планирования и учета расходов потребителей.<br />
+            Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <strong>Стартовый</strong><br />
+                        <small>Бесплатно</small>
+                    </th>
+                    <th>
+                        <strong>Премиум</strong><br />
+                        <small>
+                            2.99$/месяц или<br />
+                            <span>35.88$</span> 19.99$/год
+                        </small>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10 категорий</td>
+                    <td><span>Сколько угодно</span> категорий</td>
+                </tr>
+                <tr>
+                    <td>3 счета</td>
+                    <td><span>Сколько угодно</span> счетов</td>
+                </tr>
+                <tr>
+                    <td>1 валюта</td>
+                    <td><span>Сколько угодно</span> валют</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Планирование бюджета</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Импорт данных</td>
+                </tr>
+                <tr>
+                    <td>Реклама</td>
+                    <td>Нет рекламы</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-lg btn-success" href="#" role="button">Взять</a></td>
+                    <td><a class="btn btn-lg btn-success" href="#" role="button">Купить</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
