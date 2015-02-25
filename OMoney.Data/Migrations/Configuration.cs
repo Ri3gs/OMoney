@@ -1,5 +1,3 @@
-using Microsoft.AspNet.Identity.EntityFramework;
-
 namespace OMoney.Data.Migrations
 {
     using System;
@@ -7,14 +5,14 @@ namespace OMoney.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OMoney.Data.Context.AuthContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OMoney.Data.Context.DomainDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(OMoney.Data.Context.AuthContext context)
+        protected override void Seed(OMoney.Data.Context.DomainDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -28,8 +26,6 @@ namespace OMoney.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-           
         }
     }
 }

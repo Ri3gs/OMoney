@@ -14,12 +14,12 @@ namespace OMoney.Data.Users
     public class UserRepository : IUserRepository, IDisposable
     {
 
-        private readonly AuthContext _authDbContext;
+        private readonly DomainDbContext _authDbContext;
         private readonly UserManager<User> _userManager;
 
         public UserRepository()
         {
-            _authDbContext = new AuthContext();
+            _authDbContext = new DomainDbContext();
             _userManager = new UserManager<User>(new UserStore<User>(_authDbContext));
 
             var provider = new DpapiDataProtectionProvider("OMoney");
