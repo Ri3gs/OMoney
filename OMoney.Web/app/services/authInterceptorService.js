@@ -13,6 +13,7 @@
 
             if (authData) {
                 config.headers.Authorization = 'Bearer ' + authData.token;
+                config.headers.userName = authData.email;
             }
 
             return config;

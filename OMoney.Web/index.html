@@ -33,6 +33,7 @@
                 </ul>
 
                 <ul ng-if="authentication.isAuthenticated">
+                    <li><a href="#/accounts">Счета</a></li>
                     <li><a href="#/changepassword">Изменить пароль</a></li>
                     <li><a href="#/profile">Привет, {{authentication.userName}}</a></li>
                     <li><a href="" data-ng-click="logOut()">Выйти</a></li>
@@ -89,6 +90,7 @@
 <script src="app/services/emailNotificationService.js"></script>>
 <script src="app/services/authInterceptorService.js"></script>
 <script src="app/services/anchorSmoothScrollService.js"></script>
+<script src="app/services/accountsService.js"></script>
 
 <!-- Controllers -->
 <script src="app/controllers/homeController.js"></script>
@@ -100,7 +102,9 @@
 <script src="app/controllers/restorePasswordController.js"></script>
 <script src="app/controllers/resetPasswordController.js"></script>
 <script src="app/controllers/emailConfirmationController.js"></script>
-
+<script src="app/controllers/accountController.js"></script>
+    <script src="app/controllers/createAccountController.js"></script>
+    <script src="app/controllers/editAccountController.js"></script>
 <!-- Directives -->
 <script src="app/directives/password-check.js"></script>
 

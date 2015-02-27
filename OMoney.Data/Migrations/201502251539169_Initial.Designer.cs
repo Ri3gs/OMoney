@@ -13,7 +13,7 @@ namespace OMoney.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201502241706181_Initial"; }
+            get { return "201502251539169_Initial"; }
         }
         
         string IMigrationMetadata.Source

@@ -48,6 +48,44 @@
             templateUrl: "app/templates/resetpassword.html"
         });
 
+        $routeProvider.when("/accounts", {
+            controller: "accountController",
+            templateUrl: "app/templates/accounts.html",
+            access: {
+                requiresLogin: true
+            },
+            resolve : {
+                accounts: function (accountsService) {
+                    return accountsService.getAccounts().then(function (data) {
+                        return data.data;
+                    });
+                }
+            }
+        });
+
+        $routeProvider.when("/createaccount", {
+            controller: "createAccountController",
+            templateUrl: "app/templates/createAccount.html",
+            access: {
+                requiresLogin: true
+            }
+        });
+
+        $routeProvider.when("/editaccount", {
+            controller: "editAccountController",
+            templateUrl: "app/templates/editAccount.html",
+            access: {
+                requiresLogin: true
+            },
+            resolve : {
+                account: function ($route, accountsService) {
+                    return accountsService.getAccount($route.current.params.id).then(function (data) {
+                        return data.data;
+                    });
+                }
+            }
+        });
+
         $routeProvider.otherwise({ redirectTo: '/home' });
 
     });
@@ -56,7 +94,7 @@
         $httpProvider.interceptors.push("authInterceptorService");
     });
 
-    app.run(["$rootScope", "$location", "$anchorScroll", "authService", function ($rootScope, $location, $anchorScroll, authService) {
+    app.run(["$rootScope", "$location", "$anchorScroll", "authService", "accountsService", function ($rootScope, $location, $anchorScroll, authService, accountsService) {
 
         $anchorScroll.yOffset = 50;
 

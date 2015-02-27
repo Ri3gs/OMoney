@@ -10,6 +10,9 @@ namespace OMoney.Data.Configuration
             ToTable("AspNetUsers");
             HasKey(x => x.Id);
             Property(x => x.UserName).IsRequired().HasColumnName("UserName").HasColumnType("nvarchar").HasMaxLength(256);
+            Ignore(x => x.Claims);
+            Ignore(x => x.Logins);
+            Ignore(x => x.Roles);
         }
     }
 }

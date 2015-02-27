@@ -21,7 +21,6 @@
             return $location.path();
         }, function () {
             $scope.currentRoute = $location.path();
-            console.log("nav: (location.path) " + $scope.currentRoute);
         });
 
         $scope.gotoAnchor = function (element) {

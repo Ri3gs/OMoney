@@ -5,14 +5,14 @@ namespace OMoney.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OMoney.Data.Context.DomainDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OMoney.Data.Context.AuthContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(OMoney.Data.Context.DomainDbContext context)
+        protected override void Seed(OMoney.Data.Context.AuthContext context)
         {
             //  This method will be called after migrating to the latest version.
 

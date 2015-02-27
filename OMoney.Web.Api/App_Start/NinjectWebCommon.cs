@@ -17,11 +17,13 @@ namespace OMoney.Web.Api
         }
     }
 
-    public class UserServiceModule : NinjectModule
+    public class ServiceModule : NinjectModule
     {
         public override void Load()
         {
             Bind<IUserService>().To<UserService>();
+            Bind<IAccountService>().To<AccountService>();
+            Bind<IAccountRepository>().To<AccountRepository>();
             Bind<IUserRepository>().To<UserRepository>();
             Bind<INotificationService>().To<NotificationService>();
         }

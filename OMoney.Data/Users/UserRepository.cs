@@ -14,12 +14,12 @@ namespace OMoney.Data.Users
     public class UserRepository : IUserRepository, IDisposable
     {
 
-        private readonly DomainDbContext _authDbContext;
+        private readonly AuthContext _authDbContext;
         private readonly UserManager<User> _userManager;
 
         public UserRepository()
         {
-            _authDbContext = new DomainDbContext();
+            _authDbContext = new AuthContext();
             _userManager = new UserManager<User>(new UserStore<User>(_authDbContext));
 
             var provider = new DpapiDataProtectionProvider("OMoney");
@@ -46,7 +46,7 @@ namespace OMoney.Data.Users
 
         public void Update(User user)
         {
-            throw new NotImplementedException();
+            _userManager.Update(user);
         }
 
         public void Delete(User user)
