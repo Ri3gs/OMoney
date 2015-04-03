@@ -109,6 +109,7 @@
     <Content Include="Content\img\block32.png" />
     <Content Include="Content\img\block33.png" />
     <Content Include="Content\img\footer_logo.png" />
+    <Content Include="Content\img\Logo-Final.jpg" />
     <Content Include="Content\img\pager.png" />
     <Content Include="Content\img\pager_active.png" />
     <Content Include="Content\img\screen.png" />
@@ -135,6 +136,7 @@
     <Content Include="scripts\angular-messages.min.js.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <None Include="Properties\PublishProfiles\Demo.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
