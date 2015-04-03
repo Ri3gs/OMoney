@@ -20,8 +20,10 @@
     <div class="c-header" data-ng-controller="navigationController">
         <div class="container">
             <div class="c-logo">
-                <img src="../../Content/img/Logo-Final.jpg" width="294" height="96" alt="" />
-            </div>
+                <a href="/">
+                <img src="../../Content/img/Logo-Final.jpg" width="294" height="96" alt=""/>
+                </a>
+        </div>
 
             <nav class="c-nav">
                 <ul ng-if="!authentication.isAuthenticated && currentRoute === '/home'">
