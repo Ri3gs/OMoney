@@ -105,8 +105,20 @@ body {
     width: 100%;
     min-height: 569px;
     margin: 0px auto;
-    background: url('img/slider.jpg') repeat center top;
+    // background: url('img/slider.jpg') repeat center top;
     display: table;
+}
+
+.one {
+    background: url('img/11.jpg') repeat center top;
+}
+
+.two {
+    background: url('img/12.jpg') repeat center top;
+}
+ 
+.three {
+    background: url('img/13.jpg') repeat center top;
 }
 
 .c-slider .container {

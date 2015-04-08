@@ -93,6 +93,9 @@
     <Content Include="app\templates\activation.html" />
     <Content Include="app\templates\home.html" />
     <Content Include="app\templates\changepassword.html" />
+    <Content Include="Content\img\11.jpg" />
+    <Content Include="Content\img\12.jpg" />
+    <Content Include="Content\img\13.jpg" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

@@ -1,4 +1,53 @@
-﻿<div class="c-slider" id="signup">
+﻿<script type="text/javascript">
+    var sliderNum = 0;
+
+    function removeClass(className) {
+        document.getElementById("signup").className =
+            document.getElementById("signup").className.replace
+            (/(?:^|\s)/ + className + /(?!\S)/g, '');
+    }
+
+    function changeImage() {
+        //alert('fuck');
+        document.getElementById("signup").className =
+            document.getElementById("signup").className.replace
+            (/(?:^|\s)one(?!\S)/g, '');
+        document.getElementById("signup").className =
+            document.getElementById("signup").className.replace
+            (/(?:^|\s)two(?!\S)/g, '');
+        document.getElementById("signup").className =
+            document.getElementById("signup").className.replace
+            (/(?:^|\s)three(?!\S)/g, '');
+
+        /*removeClass('one');
+        removeClass('two');
+        removeClass('three');*/
+        switch (sliderNum) {
+        case 0:
+            document.getElementById("signup").className += " one";
+            sliderNum = 1;
+            break;
+        case 1:
+            document.getElementById("signup").className += " two";
+            sliderNum = 2;
+            break;
+        case 2:
+            document.getElementById("signup").className += " three";
+            sliderNum = 0;
+            break;
+        default:
+        }
+    }
+
+    $(document).ready(function() {
+        //$('.carousel').carousel({ interval: 7000 });
+        //alert('fuck222');
+        window.setInterval(function() {
+            changeImage();
+        }, 5000);
+    });
+</script>
+<div class="c-slider one" id="signup">
     <div class="container">
         <div class="row">
             <div class="col-md-5 c-form">
@@ -15,7 +64,7 @@
                     <div ng-if="signupForm.Email.$dirty" ng-messages="signupForm.Email.$error" ng-messages-include="app/templates/messages.html"></div>
 
                     <input class="form-control" name="Password" id="Password" type="password" placeholder="Пароль" data-ng-model="signupViewModel.password" ng-pattern="/^\S*$/" ng-minlength=6 ng-model-options="{ debounce: 600 }" required />
-                    <input class="form-control" name="ConfirmPassword" id="Confirmpassword" type="password" placeholder="Повторите пароль" data-ng-model="signupViewModel.confirmPassword" password-check="Password" ng-pattern="/^\S*$/" ng-minlength=6 ng-model-options="{ debounce: 600 }" required/>
+                    <input class="form-control" name="ConfirmPassword" id="Confirmpassword" type="password" placeholder="Повторите пароль" data-ng-model="signupViewModel.confirmPassword" password-check="Password" ng-pattern="/^\S*$/" ng-minlength=6 ng-model-options="{ debounce: 600 }" required />
 
                     <div ng-if="signupForm.Password.$dirty" ng-messages="signupForm.Password.$error" ng-messages-include="app/templates/messages.html"></div>
                     <div ng-if="signupForm.ConfirmPassword.$dirty" ng-messages="signupForm.ConfirmPassword.$error" ng-messages-include="app/templates/messages.html"></div>
@@ -25,7 +74,27 @@
             </div>
 
             <div class="col-md-7">
-                <div class="c-screen"></div>
+                <div class="c-screen carousel" id="myCarousel">
+                    
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="Content/img/screen.png" />
+                            </div>
+                            <div class="item">
+                                <img src="Content/img/11.jpg" />
+                            </div>
+                            <div class="item">
+                                <img src="Content/img/12.img" />
+                            </div>
+                        </div>
+                    
+
+                </div>
             </div>
         </div>
 
