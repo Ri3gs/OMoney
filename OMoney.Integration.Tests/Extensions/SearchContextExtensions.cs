@@ -16,7 +16,25 @@ namespace OMoney.Integration.Tests.Extensions
             }
         }
 
-        //FindInputField
+        //ForceClick
+
+        public static void ForceClick(this IWebElement element)
+        {
+            for (int second = 0; second < WaitForInSeconds; second++)
+            {
+                try
+                {
+                    element.Click();
+                    return;
+                }
+                catch (InvalidOperationException)
+                {
+                    Thread.Sleep(1000);
+                }
+            }
+        }
+
+        //FindInputField no Home Page
 
         public static IWebElement FindInputFieldForEmailOnHomeLogin(this ISearchContext element)
         {
@@ -31,11 +49,19 @@ namespace OMoney.Integration.Tests.Extensions
             return element.FindElementByXPath("//*[@id='Confirmpassword']");
         }
 
+
         //FindButtons
 
         public static IWebElement FindSignUpButtonOnHomeLogin(this ISearchContext element)
         {
             return element.WaitForElement(By.XPath(String.Format("//*[@id='signup']/div/div[1]/div[1]"))); 
+            
+        }
+
+        public static IWebElement FindeLoginButton(this ISearchContext element)
+        {
+            return element.WaitForElement(By.XPath(String.Format("/html/body/div/div[2]")));
+            ///html/body/div/div[2]/div/div/div/div/div/form/button
         }
 
         //public static IWebElement FindTodayButton(this ISearchContext element)
@@ -111,6 +137,7 @@ namespace OMoney.Integration.Tests.Extensions
         {
             return element.WaitForElement(By.XPath(String.Format("//span[text()='{0}']", textValue)));
         }
+
         public static IWebElement WaitForElement(this ISearchContext webDriver, By by, Func<IList<IWebElement>, bool> func = null)
         {
             for (int second = 0; second < WaitForInSeconds; second++)
@@ -129,6 +156,7 @@ namespace OMoney.Integration.Tests.Extensions
             }
             return null;
         }
+       
         public static IWebElement EnterField(this IWebElement element, string value)
         {
             Thread.Sleep(500);
