@@ -71,6 +71,9 @@
     <Compile Include="BaseIntegrationTest.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Extensions\SearchContextExtensions.cs" />
+    <Compile Include="MainApplication\Flows\Bills\BillsSearchExtensions.cs" />
+    <Compile Include="MainApplication\Flows\Bills\BillsFlowContext.cs" />
+    <Compile Include="MainApplication\Flows\Bills\CreateAccountScenario.cs" />
     <Compile Include="MainApplication\Flows\Login\AndSuccessfulLoginGoldUser.cs" />
     <Compile Include="MainApplication\Flows\MainApplicationFlowContext.cs" />
     <Compile Include="MainApplication\MainApplicationExtensions.cs" />

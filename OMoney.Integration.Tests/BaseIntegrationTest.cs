@@ -2,6 +2,7 @@
 using System.Drawing;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Support.UI;
 
@@ -9,8 +10,8 @@ namespace OMoney.Integration.Tests
 {
     public class BaseIntegrationTest
     {
-        //public static IWebDriver Driver = new ChromeDriver();
-        public static IWebDriver Driver = new PhantomJSDriver();
+        public static IWebDriver Driver = new ChromeDriver();
+        //public static IWebDriver Driver = new PhantomJSDriver();
         public WebDriverWait Wait;
 
 

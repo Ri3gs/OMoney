@@ -41,6 +41,39 @@ namespace OMoney.Integration.Tests.MainApplication.Flows
         }
 
 
+        public const string Name = "1";
+        public const string Amount = "1";
+
+        public MainApplicationFlowContext CreatNewBill()
+        {
+            WebDriver
+                .FindCreateNewOneButton()
+                .Click();
+            return this;
+        }
+
+        public MainApplicationFlowContext InputName()
+        {
+            WebDriver
+                .FindInputBillName()
+                .SendKeys(Name);
+            return this;
+        }
+        public MainApplicationFlowContext InputAmount()
+        {
+            WebDriver
+                .FindInputBillAmount()
+                .SendKeys(Amount);
+            return this;
+        }
+        public MainApplicationFlowContext SubmitBill()
+        {
+            WebDriver
+                .FindCreatBill()
+                .Click();
+            return this;
+        }
+
         //public MainApplicationFlowContext PressArchiveButton()
         //{
         //    WebDriver.FindArchiveButton().Click();

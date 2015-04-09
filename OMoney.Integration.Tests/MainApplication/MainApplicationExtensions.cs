@@ -24,10 +24,12 @@ namespace OMoney.Integration.Tests.MainApplication
         {
             return webDriver.NavigateTo("/#/home#signup");
         }
-        //public static IWebDriver NavigateToNextWeek(this IWebDriver webDriver)
-        //{
-        //    return webDriver.NavigateTo("/#/nextweek");
-        //}
+
+        public static IWebDriver NavigateToAccounts(this IWebDriver webDriver)
+        {
+            return webDriver.NavigateTo("/#/accounts");
+        }
+
         private static IWebDriver NavigateTo(this IWebDriver webDriver, string route)
         {
             string navigationUrl = Config.MainApplicationBaseUrl + route;
@@ -38,5 +40,8 @@ namespace OMoney.Integration.Tests.MainApplication
 
             return webDriver;
         }
+
+
+
     }
 }
