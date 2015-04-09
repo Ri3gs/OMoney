@@ -23,7 +23,7 @@
 	}
 	
 	.c-slider .c-pager {
-		display: none;
+		display: none;	    
 	}
 }
 
@@ -131,6 +131,26 @@ body {
 	width: 18px;
 	height: 19px;
 	background: url('img/pager_active.png') no-repeat center top;
+}
+
+/*carousel*/
+  .carousel-indicators li {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin: 4px auto;
+  text-indent: -999px;
+  cursor: pointer;
+  background: url('img/pager.png') no-repeat center top;
+  background-position: center;
+}
+.carousel-indicators .active {
+  width: 18px;
+	height: 19px;
+  margin: 0;
+  
+  background: url('img/pager_active.png') no-repeat center top;
+  background-position: center;
 }
 
 
