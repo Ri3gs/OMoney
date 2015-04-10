@@ -13,7 +13,7 @@ namespace OMoney.Integration.Tests.Attributes
         public override void Login(IWebDriver driver)
         {
             Thread.Sleep(1000);
-            driver.NavigateToLogin();
+            driver.NavigateToLoginPage();
             driver.WaitForElement(By.XPath("//*[@id='Email']")).Clear();
             driver.WaitForElement(By.XPath("//*[@id='Email']")).SendKeys("gold@mail.com");
             driver.WaitForElement(By.XPath("//*[@id='Password']")).Clear();

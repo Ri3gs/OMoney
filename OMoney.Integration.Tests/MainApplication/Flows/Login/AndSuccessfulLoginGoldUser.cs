@@ -10,8 +10,8 @@ namespace OMoney.Integration.Tests.MainApplication.Flows.Login
         [GoldUserAttributes]
         public void LoginnigGoldUser()
         {
-            Driver.NavigateToLogin()
-                .CreateFlow();
+            //Driver.NavigateToLogin()
+            //    .CreateFlow();
             //.EditeEmailFieldForNewUserOnHomeLogin()
             //.EditePasslFieldForNewUserOnHomeLogin()
             //.EditeConfirmPassFieldForNewUserOnHomeLogin()

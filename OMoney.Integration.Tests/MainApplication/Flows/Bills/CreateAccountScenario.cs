@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OMoney.Integration.Tests.Attributes;
+using OMoney.Integration.Tests.Extensions;
 
 namespace OMoney.Integration.Tests.MainApplication.Flows.Bills
 {
