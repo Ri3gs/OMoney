@@ -58,12 +58,44 @@ namespace OMoney.Integration.Tests.Extensions
             
         }
 
+
         public static IWebElement FindeLoginButton(this ISearchContext element)
         {
             return element.WaitForElement(By.XPath(String.Format("/html/body/div/div[2]")));
-            ///html/body/div/div[2]/div/div/div/div/div/form/button
+            
+        }
+        public static IWebElement FindButtonById(this ISearchContext element, string id)
+        {
+            return element.WaitForElement(By.XPath(String.Format("//button[@id='{0}']", id)));
+        }
+        public static IWebElement FindButtonByText(this ISearchContext element, string text)
+        {
+            return element.WaitForElement(By.XPath(String.Format("//button[contains(text(),'{0}')]", text)));
+        }
+        public static IWebElement FindButtonByTextInDiv(this ISearchContext element, string text)
+        {
+            return element.WaitForElement(By.XPath(String.Format(".//div//button[contains(text(),'{0}')]", text)));
         }
 
+
+        public static IWebElement FindCreateNewOneButton(this ISearchContext element)
+        {
+            return element.WaitForElement(By.XPath(String.Format("//a[contains(@href, '#/createaccount')]")));
+
+        }
+
+        public static IWebElement FindInputBillName(this ISearchContext element)
+        {
+            return element.WaitForElement(By.XPath("//input[@id='Name']"));
+        }
+        public static IWebElement FindInputBillAmount(this ISearchContext element)
+        {
+            return element.WaitForElement(By.XPath("//input[@id='Amount']"));
+        }
+        public static IWebElement FindCreatBill(this ISearchContext element)
+        {
+            return element.WaitForElement(By.XPath("//button[@type='submit']"));
+        }
         //public static IWebElement FindTodayButton(this ISearchContext element)
         //{
         //    return element.FindElementByXPath("//*[@id='nav-accordion']/li[2]/a");
@@ -142,6 +174,7 @@ namespace OMoney.Integration.Tests.Extensions
         {
             for (int second = 0; second < WaitForInSeconds; second++)
             {
+                Thread.Sleep(1000);
                 var el = webDriver.FindElements(by).Where(x => x.Displayed);
 
                 if (null == func && el.Count() > 0)
