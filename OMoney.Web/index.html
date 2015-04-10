@@ -36,9 +36,16 @@
 
                 <ul ng-if="authentication.isAuthenticated">
                     <li><a href="#/accounts">Счета</a></li>
-                    <li><a href="#/changepassword">Изменить пароль</a></li>
-                    <li><a href="#/profile">Привет, {{authentication.userName}}</a></li>
-                    <li><a href="" data-ng-click="logOut()">Выйти</a></li>
+                    <li><a href="#/accounts">Планы</a></li>
+                    <li><a href="#/accounts">Календарь</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Привет, {{authentication.userName}} <b class="caret"></b></a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#/profile">Профиль</a></li>
+                            <li><a href="#/changepassword">Изменить пароль</a></li>
+                            <li><a href="" data-ng-click="logOut()">Выйти</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 

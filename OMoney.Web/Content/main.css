@@ -546,6 +546,10 @@ h2.c-title {
     display: table;
 }
 
+.dropdown-menu {
+    width: 80%;
+}
+
 /*.c-logo-login {
     width: 100%;
     text-align: center;
