@@ -102,11 +102,11 @@ body {
 
 
 .c-slider {
-	width: 100%;
-	min-height: 569px;
-	margin: 0px auto;
-	background: url('img/slider.jpg') repeat center top;
-	display: table;
+    width: 100%;
+    min-height: 569px;
+    margin: 0px auto;
+    background: url('img/slider.jpg') repeat center top;
+    display: table;
 }
 
 .c-slider .container {
@@ -502,17 +502,17 @@ h2.c-title {
 }
 
 .c-login-a {
-	font-size: 18px;
+    font-size: 18px;
 	color: #fff;
 }
 
 .c-login-a:hover {
-	font-size: 18px;
+    font-size: 18px;
 	color: #fff;
 }
 
 .c-login-ul {
-	list-style: none;
+    list-style: none;
 }
 
 
@@ -559,20 +559,20 @@ h2.c-title {
 }
 
 .c-slider-login {
-	width: 100%;
-	min-height: 691px;
-	margin: 0px auto;
-	background: url('img/slider.jpg') repeat center top;
-	display: table;
+    width: 100%;
+    min-height: 691px;
+    margin: 0px auto;
+    background: url('img/slider.jpg') repeat center top;
+    display: table;
 }
 
 .dropdown-menu {
-	width: 80%;
+    width: 80%;
 }
 
 /*.c-logo-login {
-	width: 100%;
-	text-align: center;
+    width: 100%;
+    text-align: center;
 	float: left;
 	line-height: 82px;
 	padding-top: 4px;

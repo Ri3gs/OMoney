@@ -140,9 +140,6 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\Demo.pubxml" />
-    <Content Include="scripts\toastr.min.js.map">
-      <DependentUpon>toastr.min.js</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

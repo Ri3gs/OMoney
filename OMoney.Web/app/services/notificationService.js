@@ -26,7 +26,7 @@
                     for (var i = 0; i < error.modelState.validationErrors.length; i++) {
                         message += error.modelState.validationErrors[i] + "<br />";
                     }
-                    toastr.error('Пользователь с таким именем уже существует.', 'Валидация');
+                    toastr.error(message, 'Валидация');
                 } else {
                     toastr.error(error.message, 'Ошибка');
                 }
