@@ -29,7 +29,7 @@ namespace OMoney.Domain.Services.Validation.Users
             if (user != null && string.IsNullOrWhiteSpace(_password)) yield return "Password is EMPTY.";
             if (user != null && string.IsNullOrWhiteSpace(_confirmPassword)) yield return "Password Confirm is EMPTY.";
             if (user != null && _password != _confirmPassword) yield return "Password and Confirm Password does not match.";
-            if (user != null && _userRepository.GetByEmail(user.Email) != null) yield return "User with this email already exists.";
+            if (user != null && _userRepository.GetByEmail(user.Email) != null) yield return "Пользователь с таким именем уже существует.";
             if (user != null && !_rgxEmail.IsMatch(user.Email)) yield return "Email is incorrect.";
             if (!_rgxPwd.IsMatch(_password)) yield return "Password is incorrect";
             if (!_rgxPwd.IsMatch(_confirmPassword)) yield return "Confirm password is incorrect";
