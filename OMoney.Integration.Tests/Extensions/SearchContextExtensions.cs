@@ -16,23 +16,9 @@ namespace OMoney.Integration.Tests.Extensions
             }
         }
 
-        //ForceClick
+        
 
-        public static void ForceClick(this IWebElement element)
-        {
-            for (int second = 0; second < WaitForInSeconds; second++)
-            {
-                try
-                {
-                    element.Click();
-                    return;
-                }
-                catch (InvalidOperationException)
-                {
-                    Thread.Sleep(1000);
-                }
-            }
-        }
+       
 
         //FindInputField no Home Page
 
@@ -68,7 +54,7 @@ namespace OMoney.Integration.Tests.Extensions
         {
             return element.WaitForElement(By.XPath(String.Format("//button[@id='{0}']", id)));
         }
-        public static IWebElement FindButtonByText(this ISearchContext element, string text)
+        public static IWebElement FindButtonByTextold(this ISearchContext element, string text)
         {
             return element.WaitForElement(By.XPath(String.Format("//button[contains(text(),'{0}')]", text)));
         }
@@ -170,6 +156,29 @@ namespace OMoney.Integration.Tests.Extensions
             return element.WaitForElement(By.XPath(String.Format("//span[text()='{0}']", textValue)));
         }
 
+        //Start
+
+        public static IWebElement FindButtonByText(this ISearchContext element, string text)
+        {
+            return element.WaitForElement(By.XPath(String.Format("//button[@type='{0}']", text)));
+        }
+       
+       
+        public static void ForceClick(this IWebElement element)
+        {
+            for (int second = 0; second < WaitForInSeconds; second++)
+            {
+                try
+                {
+                    element.Click();
+                    return;
+                }
+                catch (InvalidOperationException)
+                {
+                    Thread.Sleep(1000);
+                }
+            }
+        }
         public static IWebElement WaitForElement(this ISearchContext webDriver, By by, Func<IList<IWebElement>, bool> func = null)
         {
             for (int second = 0; second < WaitForInSeconds; second++)

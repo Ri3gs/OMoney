@@ -75,8 +75,6 @@
     <Compile Include="Extensions\CommonExtensions.cs" />
     <Compile Include="Extensions\NavigationExtensions.cs" />
     <Compile Include="Extensions\SearchContextExtensions.cs" />
-    <Compile Include="MainApplication\Flows\Bills\BillsSearchExtensions.cs" />
-    <Compile Include="MainApplication\Flows\Bills\BillsFlowContext.cs" />
     <Compile Include="MainApplication\Flows\Bills\CreateAccountScenario.cs" />
     <Compile Include="MainApplication\Flows\Login\AndSuccessfulLoginGoldUser.cs" />
     <Compile Include="MainApplication\Flows\MainApplicationFlowContext.cs" />
@@ -85,15 +83,7 @@
     <Compile Include="WhenWorkingWithLoginPage\AndLoginDataIsCorrect.cs" />
     <Compile Include="WhenWorkingWithLoginPage\AndLoginDataIsIncorrect.cs" />
     <Compile Include="WhenWorkingWithLoginPage\AndLoginFormIsEmpty.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_1 .cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_2.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_3.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_4.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_5.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_6.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_7.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\AndUsingFirefox_TC_8.cs" />
-    <Compile Include="WhenWorkingWithSignupForm\old.cs" />
+    <Compile Include="WhenWorkingWithLoginPage\SearchContextLoginPageExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

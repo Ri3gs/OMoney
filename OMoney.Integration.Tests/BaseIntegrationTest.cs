@@ -19,7 +19,7 @@ namespace OMoney.Integration.Tests
         public void SetupTest()
         {
            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(20));
-           Driver.Manage().Window.Size = new Size(1280, 720);
+           //Driver.Manage().Window.Size = new Size(1280, 720);
            // Driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 1));
            // Driver.Manage().Window.Maximize();
 
