@@ -71,6 +71,8 @@
     <Compile Include="BaseIntegrationTest.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Contexts\BaseTestContext.cs" />
+    <Compile Include="Contexts\LoginPageTestContext.cs" />
+    <Compile Include="Extensions\CommonExtensions.cs" />
     <Compile Include="Extensions\NavigationExtensions.cs" />
     <Compile Include="Extensions\SearchContextExtensions.cs" />
     <Compile Include="MainApplication\Flows\Bills\BillsSearchExtensions.cs" />
