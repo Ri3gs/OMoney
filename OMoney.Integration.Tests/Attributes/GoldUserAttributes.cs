@@ -2,7 +2,6 @@
 using System.Threading;
 using OMoney.Integration.Tests.Configuration;
 using OMoney.Integration.Tests.Extensions;
-using OMoney.Integration.Tests.MainApplication;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 

@@ -19,12 +19,10 @@ namespace OMoney.Integration.Tests.Extensions
         {
             return webDriver.NavigateTo("/#/home#signup");
         }
-
         public static IWebDriver NavigateToAccounts(this IWebDriver webDriver)
         {
             return webDriver.NavigateTo("/#/accounts");
         }
-
         private static IWebDriver NavigateTo(this IWebDriver webDriver, string route)
         {
             string navigationUrl = Config.MainApplicationBaseUrl + route;
