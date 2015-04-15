@@ -7,7 +7,6 @@ namespace OMoney.Integration.Tests.Configuration
         public static string MainApplicationBaseUrl
         {
             get { return ConfigurationManager.AppSettings["MainApplicationBaseUrl"]; }
-
         }
     }
 }
