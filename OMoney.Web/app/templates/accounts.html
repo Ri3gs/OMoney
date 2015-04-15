@@ -1,30 +1,32 @@
-﻿<div class="c-slider-login">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 col-md-offset-3 c-form">
-                <p>
-                    <b>Счета</b>
-                </p>
-                <table class="table" ng-if="accounts.length>0">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Amount</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="account in accounts">
-                        <td>{{account.name}}</td>
-                        <td>{{account.amount}}</td>
-                        <td><a class="btn btn-lg btn-warning" ng-href="#/editaccount?id={{account.id}}" role="button">Edit</a></td>
-                        <td><a class="btn btn-lg btn-warning" href="#" ng-click="delete(account.id)" role="button">Delete</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <a class="btn btn-lg btn-warning" href="#/createaccount" role="button">Create New One</a>
-            </div>
-        </div>
+﻿<div class="container">
+    <h2 class="c-title">Счета</h2>
+
+    <p class="c-discription">
+        Cервис финансового планирования и учета расходов потребителей.<br/>
+        Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи.
+    </p>
+
+    <table class="c-accounts table-striped" ng-if="accounts.length>0">
+        <tr ng-repeat="account in accounts">
+            <td>
+                <img src="../../Content/img/card.png" />
+            </td>
+            <td>
+                <b>{{account.name}}</b>
+                <p>Комментарий к счету</p>
+            </td>
+            <td>{{account.amount}}</td>
+            <td>
+                <a class="btn btn-lg btn-success" ng-href="#/editaccount?id={{account.id}}" role="button">Редактировать</a>
+                <span><a href="#" ng-click="delete(account.id)">Удалить</a></span>
+            </td>
+        </tr>
+
+
+    </table>
+
+    <div class="c-accounts-buttons">
+        <!--<a class="btn btn-lg btn-success" href="#" role="button">Перевод денег</a>-->
+        <a class="btn btn-lg btn-warning" href="#/createaccount" role="button">Добавить счет</a>
     </div>
 </div>
