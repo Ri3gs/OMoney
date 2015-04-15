@@ -133,12 +133,12 @@ namespace OMoney.Domain.Services.Notifications
 
         public string BuildEmailConfirmationLink(string userId, string code, bool passwordRecovery)
         {
-            return string.Format("http://localhost:4598/#/emailconfirmation?userId={0}&code={1}&passwordrecovery={2}", HttpUtility.UrlEncode(userId), HttpUtility.UrlEncode(code), passwordRecovery);
+            return string.Format("http://0d15cbbab0aa4f5b86d84ec037ca0382.omoney.com.ua/#/emailconfirmation?userId={0}&code={1}&passwordrecovery={2}", HttpUtility.UrlEncode(userId), HttpUtility.UrlEncode(code), passwordRecovery);
         }
 
         public string BuildPasswordResetLink(string userId, string code)
         {
-            return string.Format("http://localhost:4598/#/resetpassword?userId={0}&code={1}", HttpUtility.UrlEncode(userId), HttpUtility.UrlEncode(code));
+            return string.Format("http://0d15cbbab0aa4f5b86d84ec037ca0382.omoney.com.ua/#/resetpassword?userId={0}&code={1}", HttpUtility.UrlEncode(userId), HttpUtility.UrlEncode(code));
         }
     }
 }

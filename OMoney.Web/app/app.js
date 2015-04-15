@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "LocalStorageModule"]);
+    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "LocalStorageModule", "ui.bootstrap"]);
 
     app.config(function($routeProvider) {
         $routeProvider.when("/home", {
@@ -60,14 +60,6 @@
                         return data.data;
                     });
                 }
-            }
-        });
-
-        $routeProvider.when("/createaccount", {
-            controller: "createAccountController",
-            templateUrl: "app/templates/createAccount.html",
-            access: {
-                requiresLogin: true
             }
         });
 
