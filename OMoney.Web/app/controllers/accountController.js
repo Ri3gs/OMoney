@@ -3,8 +3,23 @@
     angular.module('oMoney').controller('accountController', ['$scope', '$location', '$modal', '$route', 'accounts', 'accountsService', 'notificationService', function($scope, $location, $modal, $route, accounts, accountsService, notificationService) {
             $scope.accounts = accounts;
             $scope.deleteAccountViewModel = {};
+            $scope.editAccountViewModel = {};
 
-            $scope.delete = function(id) {
+            $scope.editaccount = function (account) {
+
+                var modalInstance = $modal.open({
+                    templateUrl: 'app/templates/editAccountModal.html',
+                    controller: 'editAccountModalController',
+                    size: 'lg',
+                    resolve: {
+                        account: function () {
+                            return account;
+                        }
+                    }
+                });
+            }
+
+            $scope.delete = function (id) {
                 
                 var modalInstance = $modal.open({
                     templateUrl: 'app/templates/deleteAccountModal.html',

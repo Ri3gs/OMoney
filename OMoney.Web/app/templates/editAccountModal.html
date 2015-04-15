@@ -1,0 +1,19 @@
+﻿<div class="c-slider-login">
+    <div class="container" ng-show="!wasCreated">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 c-form-login">
+                <form name="editAccountForm" novalidate>
+                    <b>Редактировать счет</b>
+                    <input class="form-control" name="Name" id="Name" type="text" placeholder="Введите новое имя" data-ng-model="editAccountViewModel.Name" ng-pattern="/[a-zA-Z0-9]+/" ng-model-options="{ debounce: 600 }" required autofocus />
+                    <div ng-if="editAccountForm.Name.$dirty" ng-messages="editAccountForm.Name.$error" ng-messages-include="app/templates/messages.html"></div>
+
+                    <input class="form-control" name="Amount" id="Amount" placeholder="Введите новую сумму" data-ng-model="editAccountViewModel.Amount" ng-pattern="/[0-9.]+/" ng-model-options="{ debounce: 600 }" required />
+                    <div ng-if="editAccountForm.Amount.$dirty" ng-messages="editAccountForm.Amount.$error" ng-messages-include="app/templates/messages.html"></div>
+
+                    <button class="btn btn-lg btn-warning btn-block" type="submit" data-ng-click="update()" data-ng-disabled="editAccountForm.$invalid">Обновить счет</button>
+                    <a class="btn btn-lg btn-warning btn-block" href="" role="button" ng-click="cancel()">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
