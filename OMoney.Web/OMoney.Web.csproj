@@ -64,7 +64,9 @@
     <Content Include="app\controllers\accountController.js" />
     <Content Include="app\controllers\activationController.js" />
     <Content Include="app\controllers\changePasswordController.js" />
+    <Content Include="app\controllers\deleteAccountModalController.js" />
     <Content Include="app\controllers\editAccountController.js" />
+    <Content Include="app\controllers\editAccountModalController.js" />
     <Content Include="app\controllers\emailConfirmationController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\loginController.js" />
@@ -82,7 +84,9 @@
     <Content Include="app\services\notificationService.js" />
     <Content Include="app\services\userService.js" />
     <Content Include="app\templates\accounts.html" />
+    <Content Include="app\templates\deleteAccountModal.html" />
     <Content Include="app\templates\editAccount.html" />
+    <Content Include="app\templates\editAccountModal.html" />
     <Content Include="app\templates\emailconfirmation.html" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\createAccountModal.html" />

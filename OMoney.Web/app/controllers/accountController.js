@@ -1,15 +1,35 @@
 ﻿(function () {
     'use strict';
-    angular.module('oMoney').controller('accountController', ['$scope', '$location', '$modal', 'accounts', 'accountsService', 'notificationService', function($scope, $location, $modal, accounts, accountsService, notificationService) {
+    angular.module('oMoney').controller('accountController', ['$scope', '$location', '$modal', '$route', 'accounts', 'accountsService', 'notificationService', function($scope, $location, $modal, $route, accounts, accountsService, notificationService) {
             $scope.accounts = accounts;
             $scope.deleteAccountViewModel = {};
+            $scope.editAccountViewModel = {};
 
-            $scope.delete = function(id) {
-                $scope.deleteAccountViewModel.id = id;
-                accountsService.deleteAccount($scope.deleteAccountViewModel).then(function(response) {
-                    $location.path("/accounts");
-                }, function(response) {
-                    notificationService.exception(response.data);
+            $scope.editaccount = function (account) {
+
+                var modalInstance = $modal.open({
+                    templateUrl: 'app/templates/editAccountModal.html',
+                    controller: 'editAccountModalController',
+                    size: 'lg',
+                    resolve: {
+                        account: function () {
+                            return account;
+                        }
+                    }
+                });
+            }
+
+            $scope.delete = function (id) {
+                
+                var modalInstance = $modal.open({
+                    templateUrl: 'app/templates/deleteAccountModal.html',
+                    controller: 'deleteAccountModalController',
+                    size: 'lg',
+                    resolve: {
+                         id: function () {
+                             return id;
+                         }
+                    }
                 });
             }
 
@@ -20,12 +40,6 @@
                     templateUrl: 'app/templates/createAccountModal.html',
                     controller: 'createAccountModalController',
                     size: 'lg'
-                });
-
-                modalInstance.result.then(function() {
-                    console.log("OK");
-                }, function() {
-                    console.log("CLOSED");
                 });
             }
 
