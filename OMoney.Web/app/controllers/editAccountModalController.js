@@ -4,18 +4,14 @@
 
         $scope.editAccountViewModel = {
             Name: account.name,
-            Amount: account.amount
+            Amount: account.amount,
+            id: account.id,
+            email: authService.authentication.userName
         };
 
-        $scope.update = function () {
-            $scope.editAccountViewModel.id = account.id;
-            $scope.editAccountViewModel.email = authService.authentication.userName;
-            accountsService.updateAccount($scope.editAccountViewModel).then(function (response) {
-                $modalInstance.close();
-                $route.reload();
-            }, function (response) {
-                notificationService.exception(response.data);
-            });
+
+        $scope.update = function() {
+            $modalInstance.close($scope.editAccountViewModel);
         }
 
         $scope.cancel = function () {

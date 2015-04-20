@@ -1,6 +1,7 @@
 ﻿(function() {
     "use strict";
-    angular.module('oMoney').controller('homeController', ['$scope', '$location', 'userService', 'notificationService', function($scope, $location, userService, notificationService) {
+    angular.module('oMoney').controller('homeController', ['$scope', '$location', 'userService', 'notificationService', 'authService', function ($scope, $location, userService, notificationService, authService) {
+        $scope.authentication = authService.authentication;
         $scope.signupViewModel = {
             email: "",
             password: "",

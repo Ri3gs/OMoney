@@ -9,7 +9,7 @@
                     потребителей.
                 </p>
 
-                <form name="signupForm" role="form" novalidate>
+                <form ng-if="!authentication.isAuthenticated" name="signupForm" role="form" novalidate>
                     <b>Создай свой аккаунт</b>
 
                     <input class="form-control" name="Email" id="Email" type="email" placeholder="Введите Ваш Email" data-ng-model="signupViewModel.email" ng-pattern="/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}/" ng-model-options="{ debounce: 600 }" required autofocus />
