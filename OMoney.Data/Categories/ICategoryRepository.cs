@@ -10,5 +10,6 @@ namespace OMoney.Data.Categories
         void Delete(Category category);
 
         List<Category> GetCategories(Plan plan);
+        Category FindByid(int id);
     }
 }

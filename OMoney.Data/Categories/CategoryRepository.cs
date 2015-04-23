@@ -29,6 +29,7 @@ namespace OMoney.Data.Categories
         public void Delete(Category category)
         {
             _domainDbContext.Categories.Remove(category);
+            _domainDbContext.SaveChanges();
         }
 
         public List<Category> GetCategories(Plan plan)
@@ -37,6 +38,16 @@ namespace OMoney.Data.Categories
             if (categories.Any())
             {
                 return categories.ToList();
+            }
+            return null;
+        }
+
+        public Category FindByid(int id)
+        {
+            var category = _domainDbContext.Categories.Find(id);
+            if (category != null)
+            {
+                return category;
             }
             return null;
         }

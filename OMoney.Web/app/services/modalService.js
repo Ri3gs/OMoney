@@ -109,11 +109,57 @@
             });
         }
 
+        var editCategoryModal = function (category) {
+            var modalInstance = $modal.open({
+                templateUrl: 'app/templates/editCategoryModal.html',
+                controller: 'editCategoryModalController',
+                resolve: {
+                    category: function() {
+                        return category;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (category) {
+                categoryService.updateCategory(category).then(function () {
+                    $route.reload();
+                }, function (response) {
+                    notificationService.exception(response);
+                });
+            }, function () {
+                console.log("Edit cat modal dismissed.");
+            });
+        }
+
+        var editItemModal = function (item) {
+            var modalInstance = $modal.open({
+                templateUrl: 'app/templates/editItemModal.html',
+                controller: 'editItemModalController',
+                resolve: {
+                    item: function() {
+                        return item;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (item) {
+                itemService.updateItem(item).then(function () {
+                    $route.reload();
+                }, function (response) {
+                    notificationService.exception(response);
+                });
+            }, function () {
+                console.log("Edit item modal dismissed.");
+            });
+        }
+
         modalServiceFactory.openAccountModal = openAccountModal;
         modalServiceFactory.deleteAccountModal = deleteAccountModal;
         modalServiceFactory.openPlanModal = openPlanModal;
         modalServiceFactory.createCategoryModal = createCategoryModal;
         modalServiceFactory.createItemModal = createItemModal;
+        modalServiceFactory.editCategoryModal = editCategoryModal;
+        modalServiceFactory.editItemModal = editItemModal;
 
         return modalServiceFactory;
     }]);

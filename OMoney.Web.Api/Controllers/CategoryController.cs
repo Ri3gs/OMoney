@@ -25,5 +25,23 @@ namespace OMoney.Web.Api.Controllers
             _categoryService.Create(category);
             return Ok();
         }
+
+        [HttpPost]
+        [Route("update")]
+        public IHttpActionResult Update(UpdateCategoryViewModel model)
+        {
+            Mapper.CreateMap<UpdateCategoryViewModel, Category>();
+            var category = Mapper.Map<Category>(model);
+            _categoryService.Update(category);
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("delete")]
+        public IHttpActionResult Delete(int id)
+        {
+            _categoryService.Delete(id);
+            return Ok();
+        }
     }
 }

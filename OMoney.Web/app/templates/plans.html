@@ -103,12 +103,30 @@
             </tr>
 
             <tr ng-repeat="cat in currentPlan.categories.$values">
-                <td>{{cat.name}}</td>
+                <td>
+                    {{cat.name}}
+                    <a class="btn btn-default" ng-click="editCategory(cat)">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a class="btn btn-default" ng-click="deleteCategory(cat)">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </a>
+                </td>
                 <td>
                     <ol>
-                        <li ng-repeat="item in cat.items.$values">{{item.name}}</li>
+                        <li ng-repeat="item in cat.items.$values">
+                            {{item.name}}
+                            <a class="btn btn-default" ng-click="editItem(item)">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
+                            <a class="btn btn-default" ng-click="deleteItem(item)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </a>
+                        </li>
                     </ol>
-                    <a class="btn btn-lg btn-default" role="button" ng-click="createItem(cat.id)">Add item</a>
+                    <a class="btn btn-lg btn-default" role="button" ng-click="createItem(cat.id)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </a>
                 </td>
                 <td>{{cat.planned}} (гривна)</td>
                 <td>{{cat.spent}} (гривна)</td>
@@ -126,6 +144,7 @@
         </table>
     </div>
     <a class="btn btn-lg btn-default" role="button" ng-click="createPlan()">Add new monthly plan</a>
+    <a class="btn btn-lg btn-default" role="button" ng-click="deletePlan(currentPlan)">Delete current plan</a>
 
     <div class="c-plan-indicator">
         <h3>Индикатор расходов</h3>

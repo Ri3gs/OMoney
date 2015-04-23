@@ -11,7 +11,21 @@
             });
         };
 
+        var updateItem = function (item) {
+            return $http.post(serviceBaseUrl + 'update', item).then(function (response) {
+                return response;
+            });
+        };
+
+        var deleteItem = function (item) {
+            return $http.get(serviceBaseUrl + 'delete', { params: { id: item.id } }).then(function (response) {
+                return response;
+            });
+        };
+
         itemServiceFactory.createItem = createItem;
+        itemServiceFactory.deleteItem = deleteItem;
+        itemServiceFactory.updateItem = updateItem;
 
         return itemServiceFactory;
     }]);

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using OMoney.Data.Context;
 using OMoney.Domain.Core.Entities;
 
@@ -22,17 +22,33 @@ namespace OMoney.Data.CatItems
 
         public void Update(CatItem item)
         {
-            throw new System.NotImplementedException();
+            _domainDbContext.SaveChanges();
         }
 
         public void Delete(CatItem item)
         {
-            throw new System.NotImplementedException();
+            _domainDbContext.CatItems.Remove(item);
+            _domainDbContext.SaveChanges();
         }
 
-        public List<Category> GetItems(Category category)
+        public List<CatItem> GetItems(Category category)
         {
-            throw new System.NotImplementedException();
+            var items = _domainDbContext.CatItems.Where(i => i.CategoryId == category.Id);
+            if (items.Any())
+            {
+                return items.ToList();
+            }
+            return null;
+        }
+
+        public CatItem FindById(int id)
+        {
+            var item = _domainDbContext.CatItems.Find(id);
+            if (item != null)
+            {
+                return item;
+            }
+            return null;
         }
     }
 }

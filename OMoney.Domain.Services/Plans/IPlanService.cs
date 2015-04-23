@@ -8,6 +8,7 @@ namespace OMoney.Domain.Services.Plans
         void Create(Plan plan);
         void Update(Plan plan);
         void Delete(Plan plan);
+        void Delete(int id);
 
         List<Plan> GetPlans(User user);
         Plan FindById(int id);

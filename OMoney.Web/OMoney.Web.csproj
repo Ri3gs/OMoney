@@ -68,6 +68,8 @@
     <Content Include="app\controllers\createItemModalController.js" />
     <Content Include="app\controllers\createPlanModalController.js" />
     <Content Include="app\controllers\editAccountModalController.js" />
+    <Content Include="app\controllers\editCategoryModalController.js" />
+    <Content Include="app\controllers\editItemModalController.js" />
     <Content Include="app\controllers\emailConfirmationController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\loginController.js" />
@@ -94,6 +96,8 @@
     <Content Include="app\templates\createPlanModal.html" />
     <Content Include="app\templates\deleteAccountModal.html" />
     <Content Include="app\templates\editAccountModal.html" />
+    <Content Include="app\templates\editCategoryModal.html" />
+    <Content Include="app\templates\editItemModal.html" />
     <Content Include="app\templates\emailconfirmation.html" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\plans.html" />

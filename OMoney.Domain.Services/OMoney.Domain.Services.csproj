@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="Categories\CategoryService.cs" />
     <Compile Include="Categories\ICategoryService.cs" />
+    <Compile Include="CatItems\CatItemsService.cs" />
+    <Compile Include="CatItems\ICatItemsService.cs" />
     <Compile Include="Notifications\NotificationMessages\EmailNotificationMessage.cs" />
     <Compile Include="Notifications\INotificationService.cs" />
     <Compile Include="Notifications\NotificationService.cs" />

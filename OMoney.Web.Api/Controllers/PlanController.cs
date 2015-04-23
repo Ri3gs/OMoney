@@ -36,5 +36,13 @@ namespace OMoney.Web.Api.Controllers
             var plans = _planService.GetPlans(user);
             return Ok(plans);
         }
+
+        [HttpGet]
+        [Route("delete")]
+        public IHttpActionResult Delete(int id)
+        {
+            _planService.Delete(id);
+            return Ok();
+        }
     }
 }

@@ -6,6 +6,7 @@ using OMoney.Data.CatItems;
 using OMoney.Data.Plans;
 using OMoney.Data.Users;
 using OMoney.Domain.Services.Categories;
+using OMoney.Domain.Services.CatItems;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Plans;
 using OMoney.Domain.Services.Users;
@@ -36,6 +37,7 @@ namespace OMoney.Web.Api
             Bind<ICategoryRepository>().To<CategoryRepository>();
             Bind<ICategoryService>().To<CategoryService>();
             Bind<ICatItemRepository>().To<CatItemRepository>();
+            Bind<ICatItemsService>().To<CatItemsService>();
         }
     }
 }

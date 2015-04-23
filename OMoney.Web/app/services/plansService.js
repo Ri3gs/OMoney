@@ -11,14 +11,21 @@
             });
         };
 
+        var deletePlan = function (plan) {
+            return $http.get(serviceBaseUrl + 'delete', { params: { id: plan.id } }).then(function (response) {
+                return response;
+            });
+        };
+
         var getAll = function() {
-            return $http.get(serviceBaseUrl + 'getall', { params: { email: authService.authentication.userName } }).then(function(response) {
+            return $http.get(serviceBaseUrl + 'getall', { params: { email: authService.authentication.userName } }).then(function (response) {
                 return response;
             });
         }
 
         plansServiceFactory.createPlan = createPlan;
         plansServiceFactory.getAll = getAll;
+        plansServiceFactory.deletePlan = deletePlan;
 
         return plansServiceFactory;
     }]);
