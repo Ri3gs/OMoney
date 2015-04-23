@@ -14,6 +14,7 @@ namespace OMoney.Domain.Services.Users
         void RemoveGold(string email);
 
         User FindUser(string email, string password);
+        User GetByEmail(string email);
 
         bool CheckEmail(string email);
     }

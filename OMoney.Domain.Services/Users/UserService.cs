@@ -124,6 +124,11 @@ namespace OMoney.Domain.Services.Users
             return _userRepository.FindUser(email, password);
         }
 
+        public User GetByEmail(string email)
+        {
+            return _userRepository.GetByEmail(email);
+        }
+
         public void ChangePassword(string email, string oldPassword, string newPassword, string confirmNewPassword)
         {
             using (var transaction = new TransactionScope())

@@ -5,11 +5,32 @@
                 <form name="editAccountForm" novalidate>
                     <b ng-if="editAccountViewModel.id != undefined || editAccountViewModel.id != null">Редактировать счет</b>
                     <b ng-if="editAccountViewModel.id == undefined || editAccountViewModel.id == null">Создать новый счет</b>
-                    <input class="form-control" name="Name" id="Name" type="text" placeholder="Введите новое имя" data-ng-model="editAccountViewModel.Name" ng-pattern="/[a-zA-Z0-9]+/" ng-model-options="{ debounce: 600 }" required autofocus />
+                    <br/>
+                    <label for="Name">Название счета</label>
+                    <input class="form-control" name="Name" id="Name" type="text" placeholder="Введите новое имя" data-ng-model="editAccountViewModel.Name" ng-pattern="/[a-zA-ZА-Яа-я0-9]+/" ng-model-options="{ debounce: 600 }" required autofocus />
                     <div ng-if="editAccountForm.Name.$dirty" ng-messages="editAccountForm.Name.$error" ng-messages-include="app/templates/messages.html"></div>
 
+                    <label for="Amount">Баланс счета</label>
                     <input class="form-control" name="Amount" id="Amount" placeholder="Введите новую сумму" data-ng-model="editAccountViewModel.Amount" ng-pattern="/[0-9.]+/" ng-model-options="{ debounce: 600 }" required />
                     <div ng-if="editAccountForm.Amount.$dirty" ng-messages="editAccountForm.Amount.$error" ng-messages-include="app/templates/messages.html"></div>
+
+                    <label for="Comments">Комментарии к счету</label>
+                    <input class="form-control" name="Comments" id="Comments" type="text" placeholder="Введите комментарий к счету" data-ng-model="editAccountViewModel.Comments" ng-pattern="/[a-zA-ZА-Яа-я0-9]+/" ng-model-options="{ debounce: 600 }" autofocus />
+                    <div ng-if="editAccountForm.Comments.$dirty" ng-messages="editAccountForm.Comments.$error" ng-messages-include="app/templates/messages.html"></div>
+
+                    <label for="AccountType">Тип счета</label>
+                    <select class="form-control" id="AccountType" ng-model="editAccountViewModel.AccountType" required>
+                        <option value="1">Кредитная карта</option>
+                        <option value="2">Банковский счет</option>
+                        <option value="3">Наличные</option>
+                    </select>
+
+                    <label for="AccountCurrency">Валюта</label>
+                    <select class="form-control" id="AccountCurrency" ng-model="editAccountViewModel.AccountCurrency" required>
+                        <option value="1">Гривна</option>
+                        <option value="2">Доллар</option>
+                        <option value="3">Евро</option>
+                    </select>
 
                     <button class="btn btn-lg btn-warning btn-block" type="submit" ng-if="editAccountViewModel.id != undefined || editAccountViewModel.id != null" data-ng-click="update()" data-ng-disabled="editAccountForm.$invalid">Обновить счет</button>
                     <button class="btn btn-lg btn-warning btn-block" type="submit" ng-if="editAccountViewModel.id == undefined || editAccountViewModel.id == null" data-ng-click="update()" data-ng-disabled="editAccountForm.$invalid">Создать счет</button>

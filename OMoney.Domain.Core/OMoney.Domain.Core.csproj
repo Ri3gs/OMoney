@@ -46,6 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\AccountCurrency.cs" />
+    <Compile Include="Entities\AccountType.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\CatItem.cs" />
+    <Compile Include="Entities\ShopItem.cs" />
+    <Compile Include="Entities\Plan.cs" />
+    <Compile Include="Entities\ShopingList.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

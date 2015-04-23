@@ -647,3 +647,276 @@ table.c-accounts td a.btn {
 	margin-left: 25px;
 	background: #ffb845;
 }
+
+
+/*PLAN PAGE STYLES*/
+
+.c-plan-stat {
+	margin-bottom: 64px;
+}
+
+.c-plan-stat span {
+	width: 36px;
+	text-align: center;
+}
+
+.c-plan-stat-top {
+	height: 25px;
+	position: relative;
+}
+
+.c-plan-stat-top span {
+	font-size: 18px;
+	font-weight: 600;
+	position: absolute;
+}
+
+.c-plan-stat-medium {
+	width: 100%;
+	height: 6px;
+	margin: 37px 0;
+	background: #cccccc;
+	position: relative;
+}
+
+.c-plan-stat-medium span {
+	position: absolute;
+	top: -8px;
+}
+
+.c-plan-stat-bottom {
+	height: 40px;
+	position: relative;
+}
+
+.c-plan-stat-bottom span {
+	font-weight: 700;
+	font-size: 14px;
+	color: #72b854;
+	position: absolute;
+}
+
+.c-plan-stat-top span:nth-child(1), .c-plan-stat-medium span:nth-child(1), .c-plan-stat-bottom span:nth-child(1) {
+	left: 0;
+}
+
+.c-plan-stat-top span:nth-child(2), .c-plan-stat-medium span:nth-child(2), .c-plan-stat-bottom span:nth-child(2) {
+	left: 6%;
+}
+
+.c-plan-stat-top span:nth-child(3), .c-plan-stat-medium span:nth-child(3), .c-plan-stat-bottom span:nth-child(3) {
+	left: 16%;
+}
+
+.c-plan-stat-top span:nth-child(4), .c-plan-stat-medium span:nth-child(4), .c-plan-stat-bottom span:nth-child(4) {
+	left: 26%;
+}
+
+.c-plan-stat-top span:nth-child(5), .c-plan-stat-medium span:nth-child(5), .c-plan-stat-bottom span:nth-child(5) {
+	left: 36%;
+}
+
+.c-plan-stat-top span:nth-child(6), .c-plan-stat-medium span:nth-child(6), .c-plan-stat-bottom span:nth-child(6) {
+	left: 46%;
+}
+
+.c-plan-stat-top span:nth-child(7), .c-plan-stat-medium span:nth-child(7), .c-plan-stat-bottom span:nth-child(7) {
+	left: 79%;
+}
+
+.c-plan-stat-top span:nth-child(8), .c-plan-stat-medium span:nth-child(8), .c-plan-stat-bottom span:nth-child(8) {
+	right: 0;
+}
+
+.c-plan-stat-buttons {
+	margin-bottom: 100px;
+	text-align: center;
+}
+
+.c-plan-stat-buttons a.btn {
+	background: #525252;
+	border: 0;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.c-plan-stat-buttons a.c-active {
+	padding: 6px 12px;
+	background: none;
+	border: 4px solid #72b854;
+	color: #72b854;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.c-plan {
+	
+}
+
+.c-plan-nav {
+	width: 30%;
+	height: 44px;
+	line-height: 44px;
+	margin: 0 auto;
+	margin-bottom: 25px;
+	position: relative;
+}
+
+.c-plan-nav-title {
+	width: 100%;
+	text-align: center;
+	font-size: 21px;
+	font-weight: 700;
+	position: absolute;
+}
+
+.c-plan-nav-prev, .c-plan-nav-next {
+	width: 44px;
+	height: 44px;
+	background-color: #72b854;
+	background-repeat: no-repeat;
+	background-position: center;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	border-radius: 50%;
+	behavior: url(border-radius.htc);
+	position: absolute;
+	cursor: pointer;
+}
+
+.c-plan-nav-prev:hover, .c-plan-nav-next:hover {
+	background-color: #e3f1dd;
+}
+
+.c-plan-nav-prev {
+    background-image: url('img/prev.png');
+    left: 0;
+}
+
+.c-plan-nav-next {
+	background-image: url('img/next.png');
+	right: 0;
+}
+
+.c-plan {
+	margin-bottom: 144px;
+}
+
+.c-plan table {
+	width: 100%;
+	font-size: 18px;
+}
+
+.c-plan table th, .c-plan table td {
+	padding: 20px 26px;
+	vertical-align: top;
+}
+
+.c-plan table th {
+	background: #f9f9f9;
+}
+
+.c-plan table th div {
+	float: left;
+	text-align: center;
+}
+
+.c-plan table th strong {
+	font-size: 21px;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.c-plan table th:last-child strong {
+	color: #72b854;
+}
+
+.c-plan table th a {
+	font-size: 18px;
+	font-style: italic;
+	color: #f6ac35;
+	text-decoration: underline;
+	font-weight: normal;
+	display: block;
+}
+
+.c-plan table td:first-child {
+	font-weight: 700;
+}
+
+.c-plan table td:last-child {
+	color: #72b854;
+}
+
+.c-plan table tr:last-child td {
+	padding-top: 46px;
+	padding-bottom: 46px;
+	background: #72b854;
+	vertical-align: center;
+	font-weight: 700;
+	color: #fff;
+}
+
+.c-plan-indicator {
+	margin-bottom: 84px;
+	text-align: center;
+}
+
+.c-plan-indicator h3 {
+	margin-bottom: 64px;
+	font-size: 21px;
+	font-weight: 700;
+}
+
+.c-plan-indicator p {
+	margin-top: 20px;
+	color: #8c8c8c;
+	font-size: 18px;
+	font-style: italic;
+}
+
+.c-explication {
+	margin-top: 32px;
+}
+
+.c-explication span {
+	margin: 0 31px;
+	line-height: 64px;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.c-explication span img {
+	margin-right: 20px;
+}
+
+.c-plan th.c-active {
+	background: #fff;
+	border-top: 1px solid #dfdfdf;
+	border-left: 1px solid #dfdfdf;
+	border-right: 1px solid #dfdfdf;
+}
+
+.c-plan table.c-shops-table th {
+	border-bottom: 1px solid #dfdfdf;
+	text-align: center;
+}
+
+.c-plan table.c-shops-table th:first-child, .c-plan table.c-shops-table th:nth-child(2) {
+	border-bottom: 0;
+	text-align: left;
+}
+
+.c-plan table.c-shops-table th a {
+	font-style: normal;
+	color: #72b854;
+	font-size: 18px;
+}
+
+.c-plan td.c-active {
+	border-left: 1px solid #dfdfdf;
+	border-right: 1px solid #dfdfdf;
+	border-bottom: 1px solid #dfdfdf;
+}

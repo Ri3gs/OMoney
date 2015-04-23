@@ -9,15 +9,17 @@
     <table class="c-accounts table-striped" ng-if="accounts.length>0">
         <tr ng-repeat="account in accounts">
             <td>
-                <img src="../../Content/img/card.png" />
+                <img ng-if="account.accountType == 1" src="../../Content/img/card.png" title="CreditCard"/>
+                <img ng-if="account.accountType == 2" src="../../Content/img/account.png" title="BankAccount" />
+                <img ng-if="account.accountType == 3" src="../../Content/img/uah.png" title="Cash"/>
             </td>
             <td>
-                <b>{{account.name}}</b>
-                <p>Комментарий к счету</p>
+                <b>{{account.name}} ({{currencies[account.accountCurrency - 1]}})</b>
+                <p>{{account.comments}}</p>
             </td>
-            <td>{{account.amount}}</td>
+            <td>{{account.amount}} ({{currencies[account.accountCurrency - 1]}})</td>
             <td>
-                <a class="btn btn-lg btn-success" a-href="" ng-click="editaccount(account)" role="button">Редактировать</a>
+                <a href="" class="btn btn-lg btn-success" ng-click="editaccount(account)" role="button">Редактировать</a>
                 <span><a href="" ng-click="delete(account)">Удалить</a></span>
             </td>
         </tr>

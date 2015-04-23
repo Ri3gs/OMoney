@@ -32,6 +32,8 @@ namespace OMoney.Domain.Services.Users
                 {
                     var user = _userRepository.GetByEmail(email);
                     account.UserId = user.Id;
+                    account.CreatedAt = DateTime.Now;
+                    account.UpdatedAt = DateTime.Now;
                     _accountRepository.CreateAccount(account);
                 }
                 catch (Exception exception)
@@ -76,6 +78,11 @@ namespace OMoney.Domain.Services.Users
                     var accountDb = _accountRepository.FindById(account.Id);
                     accountDb.Amount = account.Amount;
                     accountDb.Name = account.Name;
+                    accountDb.Comments = account.Comments;
+                    accountDb.UpdatedAt = DateTime.Now;
+                    accountDb.AccountCurrency = account.AccountCurrency;
+                    accountDb.AccountType = account.AccountType;
+
                     _accountRepository.UpdateAccount(accountDb);
                 }
                 catch (Exception exception)

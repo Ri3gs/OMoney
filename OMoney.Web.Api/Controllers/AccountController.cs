@@ -8,7 +8,7 @@ using OMoney.Web.Api.Models;
 
 namespace OMoney.Web.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {

@@ -36,10 +36,10 @@
 
                 <ul ng-if="authentication.isAuthenticated">
                     <li><a href="#/accounts">Счета</a></li>
-                    <li><a href="#/accounts">Планы</a></li>
+                    <li><a href="#/plans">Планы</a></li>
                     <li><a href="#/accounts">Календарь</a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Привет, {{authentication.userName}} <b class="caret"></b></a>
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Привет, {{authentication.userName}} <b class="caret"></b></a>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="#/profile">Профиль</a></li>
                             <li><a href="#/changepassword">Изменить пароль</a></li>
@@ -102,6 +102,9 @@
 <script src="app/services/anchorSmoothScrollService.js"></script>
 <script src="app/services/accountsService.js"></script>
 <script src="app/services/modalService.js"></script>
+<script src="app/services/plansService.js"></script>
+<script src="app/services/categoryService.js"></script>
+<script src="app/services/itemService.js"></script>
 
 <!-- Controllers -->
 <script src="app/controllers/homeController.js"></script>
@@ -115,6 +118,10 @@
 <script src="app/controllers/emailConfirmationController.js"></script>
 <script src="app/controllers/accountController.js"></script>
 <script src="app/controllers/editAccountModalController.js"></script>
+<script src="app/controllers/plansController.js"></script>
+<script src="app/controllers/createPlanModalController.js"></script>
+<script src="app/controllers/createCategoryModalController.js"></script>
+<script src="app/controllers/createItemModalController.js"></script>
 
 <!-- Directives -->
 <script src="app/directives/password-check.js"></script>

@@ -5,12 +5,15 @@
         $scope.editAccountViewModel = {
             Name: account.name,
             Amount: account.amount,
+            Comments: account.comments,
+            AccountType: account.accountType,
+            AccountCurrency: account.accountCurrency,
             id: account.id,
             email: authService.authentication.userName
         };
 
 
-        $scope.update = function() {
+        $scope.update = function () {
             $modalInstance.close($scope.editAccountViewModel);
         }
 

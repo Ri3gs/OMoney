@@ -78,6 +78,21 @@
             }
         });
 
+        $routeProvider.when("/plans", {
+            controller: "plansController",
+            templateUrl: "app/templates/plans.html",
+            access: {
+                requiresLogin: true
+            },
+            resolve: {
+                plans: function(plansService) {
+                    return plansService.getAll().then(function(data) {
+                        return data.data;
+                    });
+                }
+            }
+        });
+
         $routeProvider.otherwise({ redirectTo: '/home' });
 
     });
