@@ -6,7 +6,11 @@
         $scope.currentPlan = {};
         $scope.currentIndex = 0;
 
-        $scope.plans = plans.$values;
+        if (plans != null) {
+            $scope.plans = plans.$values;
+        } else {
+            $scope.plans = [];
+        }
 
         $scope.plans.forEach(function (plan) {
             var date = new Date(plan.month);

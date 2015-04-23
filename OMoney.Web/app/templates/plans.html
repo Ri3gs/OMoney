@@ -72,7 +72,7 @@
         <a class="btn btn-lg btn-default" href="#" role="button">За год</a>
     </div>
 
-    <div class="c-plan">
+    <div class="c-plan" ng-if="plans.length > 0">
         <div class="c-plan-nav">
             <div class="c-plan-nav-title">{{currentPlan.month | date : 'MMMM'}}</div>
 
