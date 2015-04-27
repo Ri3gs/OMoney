@@ -1,12 +1,12 @@
 ﻿    <div class="container">
                 <form name="editCategoryForm">
-                    <label for="Name">Cat name</label>
+                    <label for="Name">Название категории</label>
                     <input name="Name" id="Name" type="text" placeholder="Enter cat name" data-ng-model="newCategory.Name"/>
                     <br/>
-                    <label for="Planned">Planned</label>
+                    <label for="Planned">Запланировано</label>
                     <input name="Planned" id="Planned" placeholder="planned money" data-ng-model="newCategory.Planned"/>
                     <br/>
-                    <label for="Spent">Spent</label>
+                    <label for="Spent">Потрачено</label>
                     <input name="Spent" id="Spent" placeholder="actually spent money" data-ng-model="newCategory.Spent"/>
                     <br/>
                     <label for="Currency">Currency</label>
@@ -16,7 +16,7 @@
                         <option value="3">Евро</option>
                     </select>
                     <br/>
-                    <button class="btn btn-lg btn-warning" type="submit" ng-click="create()">Create cat</button>
+                    <button class="btn btn-lg btn-warning" type="submit" ng-click="create()">Создать</button>
                     <a class="btn btn-lg btn-warning" href="" role="button" ng-click="$dismiss()">Отмена</a>
                 </form>
             </div>

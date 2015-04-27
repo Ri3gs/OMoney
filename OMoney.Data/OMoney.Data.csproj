@@ -84,22 +84,20 @@
     <Compile Include="CatItems\CatItemRepository.cs" />
     <Compile Include="CatItems\ICatItemRepository.cs" />
     <Compile Include="Configuration\AccountConfiguration.cs" />
+    <Compile Include="Configuration\CategoriesConfiguration.cs" />
+    <Compile Include="Configuration\CatItemConfiguration.cs" />
     <Compile Include="Configuration\PlanConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
     <Compile Include="Context\ApplicationDbContext.cs" />
     <Compile Include="Context\AuthContext.cs" />
     <Compile Include="Context\DomainDbContext.cs" />
-    <Compile Include="Migrations\201502251539169_Initial.cs" />
-    <Compile Include="Migrations\201502251539169_Initial.Designer.cs">
-      <DependentUpon>201502251539169_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201504271136319_Initial.cs" />
+    <Compile Include="Migrations\201504271136319_Initial.Designer.cs">
+      <DependentUpon>201504271136319_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201504200907183_Account_changes.cs" />
-    <Compile Include="Migrations\201504200907183_Account_changes.Designer.cs">
-      <DependentUpon>201504200907183_Account_changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504201418337_Plans-Categories-ShopingLists.cs" />
-    <Compile Include="Migrations\201504201418337_Plans-Categories-ShopingLists.Designer.cs">
-      <DependentUpon>201504201418337_Plans-Categories-ShopingLists.cs</DependentUpon>
+    <Compile Include="Migrations\201504271141551_Initial two.cs" />
+    <Compile Include="Migrations\201504271141551_Initial two.Designer.cs">
+      <DependentUpon>201504271141551_Initial two.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Plans\IPlanRepository.cs" />
@@ -121,17 +119,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502251539169_Initial.resx">
-      <DependentUpon>201502251539169_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504271136319_Initial.resx">
+      <DependentUpon>201504271136319_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504200907183_Account_changes.resx">
-      <DependentUpon>201504200907183_Account_changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504201418337_Plans-Categories-ShopingLists.resx">
-      <DependentUpon>201504201418337_Plans-Categories-ShopingLists.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504271141551_Initial two.resx">
+      <DependentUpon>201504271141551_Initial two.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

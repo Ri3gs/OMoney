@@ -9,9 +9,9 @@
     <table class="c-accounts table-striped" ng-if="accounts.length>0">
         <tr ng-repeat="account in accounts">
             <td>
-                <img ng-if="account.accountType == 1" src="../../Content/img/card.png" title="CreditCard"/>
-                <img ng-if="account.accountType == 2" src="../../Content/img/account.png" title="BankAccount" />
-                <img ng-if="account.accountType == 3" src="../../Content/img/uah.png" title="Cash"/>
+                <img ng-if="account.accountType == 1" src="../../Content/img/card.png" title="Кредитка"/>
+                <img ng-if="account.accountType == 2" src="../../Content/img/account.png" title="Банковский счет" />
+                <img ng-if="account.accountType == 3" src="../../Content/img/uah.png" title="Наличные"/>
             </td>
             <td>
                 <b>{{account.name}} ({{currencies[account.accountCurrency - 1]}})</b>

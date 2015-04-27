@@ -1,9 +1,16 @@
-﻿<div class="container">
-    <form name="editCategoryForm">
-        <label for="Name">Item name</label>
-        <input name="Name" id="Name" type="text" placeholder="Enter item name" data-ng-model="newItem.Name" />
-        <br />
-        <button class="btn btn-lg btn-warning" type="submit" ng-click="create()">Create item</button>
-        <a class="btn btn-lg btn-warning" href="" role="button" ng-click="$dismiss()">Отмена</a>
-    </form>
-</div>
+﻿        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Создать покупку</h4>
+            </div>
+            <div class="modal-body">
+                <form name="editCategoryForm">
+                    <label for="Name">Название покупки:</label>
+                    <input name="Name" id="Name" type="text" placeholder="Название покупки" data-ng-model="newItem.Name" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="$dismiss()">Отмена</button>
+                <button type="button" class="btn btn-primary" ng-click="create()">Создать</button>
+            </div>
+        </div><!-- /.modal-content -->

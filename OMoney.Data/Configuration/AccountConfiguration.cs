@@ -13,6 +13,11 @@ namespace OMoney.Data.Configuration
             Property(a => a.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(a => a.Name).IsRequired().HasColumnName("Name").HasColumnType("nvarchar").HasMaxLength(255);
             Property(a => a.Amount).IsRequired().HasColumnName("Amount");
+            Property(a => a.Comments).IsOptional().HasColumnName("Comments");
+            Property(a => a.CreatedAt).IsRequired().HasColumnName("CreatedAt");
+            Property(a => a.UpdatedAt).IsRequired().HasColumnName("UpdatedAt");
+            Property(a => a.AccountCurrency).IsRequired().HasColumnName("AccountCurrency");
+            Property(a => a.AccountType).IsRequired().HasColumnName("AccountType");
 
             HasRequired(a => a.User).WithMany(u => u.Accounts).HasForeignKey(a => a.UserId).WillCascadeOnDelete(true);
         }

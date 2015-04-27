@@ -22,12 +22,7 @@ namespace OMoney.Data.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new UserConfiguration());
-            modelBuilder.Configurations.Add(new AccountConfiguration());
-            modelBuilder.Configurations.Add(new PlanConfiguration());
-            //modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
-            //modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
-            //modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
+            modelBuilder.Ignore<IdentityUserClaim>();
             modelBuilder.Ignore<IdentityUserLogin>();
             modelBuilder.Ignore<IdentityUserRole>();
             modelBuilder.Ignore<IdentityRole>();

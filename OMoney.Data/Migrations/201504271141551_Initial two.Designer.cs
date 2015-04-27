@@ -7,13 +7,13 @@ namespace OMoney.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class Account_changes : IMigrationMetadata
+    public sealed partial class Initialtwo : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Account_changes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initialtwo));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504200907183_Account_changes"; }
+            get { return "201504271141551_Initial two"; }
         }
         
         string IMigrationMetadata.Source
