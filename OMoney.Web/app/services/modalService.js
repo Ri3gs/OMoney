@@ -143,11 +143,35 @@
             });
 
             modalInstance.result.then(function (item) {
-                itemService.updateItem(item).then(function () {
-                    $route.reload();
-                }, function (response) {
-                    notificationService.exception(response);
-                });
+                if (item.sold != undefined && item.sold) {
+                    itemService.sellItem(item).then(function () {
+                        $route.reload();
+                    }, function (response) {
+                        notificationService.exception(response);
+                    });
+                } else {
+                    if (item.buyed != undefined && item.buyed) {
+                        itemService.editBuyedItem(item).then(function () {
+                            $route.reload();
+                        }, function (response) {
+                            notificationService.exception(response);
+                        });
+                    } else {
+                        if (item.Buyed != undefined && item.Buyed) {
+                            itemService.editAndBuyItem(item).then(function () {
+                                $route.reload();
+                            }, function (response) {
+                                notificationService.exception(response);
+                            });
+                        } else {
+                            itemService.editItem(item).then(function () {
+                                $route.reload();
+                            }, function (response) {
+                                notificationService.exception(response);
+                            });
+                        }
+                    }
+                }
             }, function () {
                 console.log("Edit item modal dismissed.");
             });

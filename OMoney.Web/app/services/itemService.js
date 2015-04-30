@@ -11,8 +11,32 @@
             });
         };
 
-        var updateItem = function (item) {
-            return $http.post(serviceBaseUrl + 'update', item).then(function (response) {
+        var editBuyedItem = function (item) {
+            return $http.post(serviceBaseUrl + 'editbuyed', item).then(function (response) {
+                return response;
+            });
+        };
+
+        var editItem = function (item) {
+            return $http.post(serviceBaseUrl + 'edit', item).then(function (response) {
+                return response;
+            });
+        };
+
+        var editAndBuyItem = function (item) {
+            return $http.post(serviceBaseUrl + 'editandbuy', item).then(function (response) {
+                return response;
+            });
+        };
+
+        var buyItem = function (item) {
+            return $http.post(serviceBaseUrl + 'buy', item).then(function (response) {
+                return response;
+            });
+        };
+
+        var sellItem = function (item) {
+            return $http.post(serviceBaseUrl + 'sell', item).then(function (response) {
                 return response;
             });
         };
@@ -25,7 +49,11 @@
 
         itemServiceFactory.createItem = createItem;
         itemServiceFactory.deleteItem = deleteItem;
-        itemServiceFactory.updateItem = updateItem;
+        itemServiceFactory.editBuyedItem = editBuyedItem;
+        itemServiceFactory.editItem = editItem;
+        itemServiceFactory.editAndBuyItem = editAndBuyItem;
+        itemServiceFactory.buyItem = buyItem;
+        itemServiceFactory.sellItem = sellItem;
 
         return itemServiceFactory;
     }]);

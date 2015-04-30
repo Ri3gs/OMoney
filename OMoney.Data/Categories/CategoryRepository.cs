@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using OMoney.Data.Context;
@@ -23,6 +24,13 @@ namespace OMoney.Data.Categories
 
         public void Update(Category category)
         {
+            var oldCategory = _domainDbContext.Categories.Find(category.Id);
+            oldCategory.Currency = category.Currency;
+            oldCategory.Name = category.Name;
+            oldCategory.Planned = category.Planned;
+            oldCategory.Spent = category.Spent;
+            oldCategory.UpdatedAt = DateTime.Now;
+            oldCategory.CatItemsTotalPrice = category.CatItemsTotalPrice;
             _domainDbContext.SaveChanges();
         }
 

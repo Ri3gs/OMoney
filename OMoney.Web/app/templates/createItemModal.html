@@ -6,7 +6,13 @@
             <div class="modal-body">
                 <form name="editCategoryForm">
                     <label for="Name">Название покупки:</label>
-                    <input name="Name" id="Name" type="text" placeholder="Название покупки" data-ng-model="newItem.Name" />
+                    <input name="Name" id="Name" type="text" placeholder="Название покупки" data-ng-model="newItem.Name"/>
+                    <br/>
+                    <label for="Price">Цена покупки:</label>
+                    <input name="Price" id="Price" type="number" placeholder="Цена покупки" data-ng-model="newItem.Price"/>
+                    <br/>
+                    <input type="radio" name="Buyed" value="true" ng-model="newItem.Buyed"/>Куплено <br/>
+                    <input type="radio" name="Buyed" value="false" ng-model="newItem.Buyed" />Не куплено <br/>
                 </form>
             </div>
             <div class="modal-footer">

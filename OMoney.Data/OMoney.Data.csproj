@@ -106,6 +106,14 @@
     <Compile Include="Migrations\201504271141551_Initial two.Designer.cs">
       <DependentUpon>201504271141551_Initial two.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504291216353_ItemsPriceUpdate.cs" />
+    <Compile Include="Migrations\201504291216353_ItemsPriceUpdate.Designer.cs">
+      <DependentUpon>201504291216353_ItemsPriceUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504291347340_AllNotNull.cs" />
+    <Compile Include="Migrations\201504291347340_AllNotNull.Designer.cs">
+      <DependentUpon>201504291347340_AllNotNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Plans\IPlanRepository.cs" />
     <Compile Include="Plans\PlanRepository.cs" />
@@ -131,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504271141551_Initial two.resx">
       <DependentUpon>201504271141551_Initial two.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504291216353_ItemsPriceUpdate.resx">
+      <DependentUpon>201504291216353_ItemsPriceUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504291347340_AllNotNull.resx">
+      <DependentUpon>201504291347340_AllNotNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,8 @@ namespace OMoney.Domain.Core.Entities
         public string Name { get; set; }
         public decimal Planned { get; set; }
         public decimal Spent { get; set; }
+        public decimal CatItemsTotalPrice { get; set; }
+
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public AccountCurrency Currency { get; set; }

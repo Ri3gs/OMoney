@@ -7,10 +7,12 @@
             planned: category.planned,
             spent: category.spent,
             currency: category.currency,
-            name: category.name
+            name: category.name,
+            catItemsTotalPrice: category.catItemsTotalPrice
         };
 
         $scope.create = function () {
+            console.log(category);
             $modalInstance.close($scope.category);
         }
 

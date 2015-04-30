@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('oMoney').controller('plansController', ['$scope', '$route', 'modalService', 'plansService', 'categoryService', 'itemService', 'plans', function ($scope, $route, modalService, plansService, categoryService, itemService, plans) {
+    angular.module('oMoney').controller('plansController', ['$scope', '$route', 'modalService', 'plansService', 'categoryService', 'itemService', 'notificationService', 'plans', function ($scope, $route, modalService, plansService, categoryService, itemService, notificationService, plans) {
 
         $scope.currentDate = new Date();
         $scope.currentPlan = {};
@@ -102,6 +102,14 @@
 
         $scope.editItem = function(item) {
             modalService.editItemModal(item);
+        }
+
+        $scope.buyItem = function(item) {
+            itemService.buyItem(item).then(function () {
+                $route.reload();
+            }, function (response) {
+                notificationService.exception(response);
+            });
         }
 
     }]);

@@ -1,9 +1,21 @@
-﻿<div class="container">
-    <form name="editItemForm">
-        <label for="Name">Название покупки</label>
-        <input name="Name" id="Name" type="text" placeholder="Название покупки" data-ng-model="item.name" />
-        <br />
-        <button class="btn btn-lg btn-warning" type="submit" ng-click="create()">Обновить</button>
-        <a class="btn btn-lg btn-warning" href="" role="button" ng-click="$dismiss()">Отмена</a>
-    </form>
-</div>
+﻿<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Редактировать покупку</h4>
+    </div>
+    <div class="modal-body">
+        <form name="editItemForm">
+            <label for="Name">Название покупки:</label>
+            <input name="Name" id="Name" type="text" placeholder="Название покупки" data-ng-model="item.Name" />
+            <br />
+            <label for="Price">Цена покупки:</label>
+            <input name="Price" id="Price" type="number" placeholder="Цена покупки" data-ng-model="item.Price" />
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$dismiss()">Отмена</button>
+        <button type="button" class="btn btn-primary" ng-click="create()">Сохранить</button>
+        <button type="button" class="btn btn-primary" ng-click="editAndBuy()" ng-disabled="item.buyed">Сохранить и купить</button>
+        <button type="button" class="btn btn-primary" ng-click="sell()" ng-disabled="!item.buyed">Продать!</button>
+    </div>
+</div><!-- /.modal-content -->

@@ -12,6 +12,9 @@ namespace OMoney.Data.Configuration
             HasKey(i => i.Id);
             Property(i => i.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(i => i.Name).IsRequired().HasColumnName("Name").HasColumnType("nvarchar").HasMaxLength(255);
+            Property(i => i.Price).IsRequired().HasColumnName("Price");
+            Property(i => i.Buyed).IsRequired().HasColumnName("Buyed").HasColumnType("bit");
+            Property(i => i.BuyedTime).IsOptional().HasColumnName("BuyedTime");
 
             HasRequired(i => i.Category).WithMany(c => c.Items).HasForeignKey(i => i.CategoryId).WillCascadeOnDelete(true);
         }

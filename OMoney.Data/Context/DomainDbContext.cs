@@ -22,6 +22,11 @@ namespace OMoney.Data.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new AccountConfiguration());
+            modelBuilder.Configurations.Add(new PlanConfiguration());
+            modelBuilder.Configurations.Add(new CategoriesConfiguration());
+            modelBuilder.Configurations.Add(new CatItemConfiguration());
             modelBuilder.Ignore<IdentityUserClaim>();
             modelBuilder.Ignore<IdentityUserLogin>();
             modelBuilder.Ignore<IdentityUserRole>();

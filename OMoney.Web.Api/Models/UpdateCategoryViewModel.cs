@@ -8,6 +8,7 @@ namespace OMoney.Web.Api.Models
         public AccountCurrency Currency { get; set; }
         public decimal Planned { get; set; }
         public decimal Spent { get; set; }
+        public decimal CatItemsTotalPrice { get; set; }
         public string Name { get; set; }
     }
 }
