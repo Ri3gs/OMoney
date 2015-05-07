@@ -20,7 +20,7 @@ namespace OMoney.Integration.Tests.Contexts
                 .SendKeys(Login);
             return this;
         }
-        public LoginPageTestContext EnterPass()
+        public LoginPageTestContext EnterPassword()
         {
            WebDriver
                .FindPasswordField()
@@ -38,7 +38,7 @@ namespace OMoney.Integration.Tests.Contexts
         {
             return this;
         }
-        public LoginPageTestContext EnsureRediractionToProfile()
+        public LoginPageTestContext EnsureRedirectToProfilePage()
         {
             Thread.Sleep(3000);
             Assert.AreEqual(WebDriver.Url, Config.MainApplicationBaseUrl + "/#/profile");

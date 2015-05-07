@@ -24,7 +24,7 @@ namespace OMoney.Integration.Tests.Extensions
             return searchContext.FindButtonByText("submit");
         }
         #endregion
-        #region Function
+        #region Functions
         public static int WaitForInSeconds
         {
             get

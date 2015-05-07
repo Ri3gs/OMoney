@@ -71,7 +71,6 @@
   <ItemGroup>
     <Compile Include="Attributes\BaseAttributes.cs" />
     <Compile Include="Attributes\GoldUserAttributes.cs" />
-    <Compile Include="BaseFlowContext.cs" />
     <Compile Include="BaseIntegrationTest.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Contexts\BaseTestContext.cs" />

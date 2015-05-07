@@ -13,9 +13,9 @@ namespace OMoney.Integration.Tests.WhenWorkingWithLoginPage
                 .NavigateToLoginPage()
                 .CreateLoginPageTestContext()
                 .EnterLogin()
-                .EnterPass()
+                .EnterPassword()
                 .ClickOnLoginButton()
-                .EnsureRediractionToProfile();
+                .EnsureRedirectToProfilePage();
                 
         }
 
