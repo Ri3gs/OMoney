@@ -127,6 +127,7 @@ namespace OMoney.Domain.Services.CatItems
                 category.CatItemsTotalPrice += item.Price - oldItem.Price;
                 category.Spent += item.Price - oldItem.Price;
                 _categoryRepository.Update(category);
+                oldItem.Price = item.Price;
             }
 
             _catItemRepository.Update(oldItem);
