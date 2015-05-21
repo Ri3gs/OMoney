@@ -4,13 +4,13 @@
         <div class="row">
             <div class="col-md-5 c-form">
                 <p>
-                    <b>Omoney</b> - это сервис финансового<br />
-                    планирования и учета расходов<br />
-                    потребителей.
+                    <b>Omoney</b>{{"home.text1" | translate}}<br />
+                    {{"home.text2" | translate}}<br />
+                    {{"home.text3" | translate}}
                 </p>
 
                 <form ng-if="!authentication.isAuthenticated" name="signupForm" role="form" novalidate>
-                    <b>Создай свой аккаунт</b>
+                    <b>{{"home.create_account" | translate}}</b>
 
                     <input class="form-control" name="Email" id="Email" type="email" placeholder="Введите Ваш Email" data-ng-model="signupViewModel.email" ng-pattern="/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}/" ng-model-options="{ debounce: 600 }" required autofocus />
                     <div ng-if="signupForm.Email.$dirty" ng-messages="signupForm.Email.$error" ng-messages-include="app/templates/messages.html"></div>
@@ -21,7 +21,7 @@
                     <div ng-if="signupForm.Password.$dirty" ng-messages="signupForm.Password.$error" ng-messages-include="app/templates/messages.html"></div>
                     <div ng-if="signupForm.ConfirmPassword.$dirty" ng-messages="signupForm.ConfirmPassword.$error" ng-messages-include="app/templates/messages.html"></div>
 
-                    <button class="btn btn-lg btn-warning btn-block" type="submit" data-ng-click="signup()" ng-disabled="signupForm.$invalid">Зарегистрироваться</button>
+                    <button class="btn btn-lg btn-warning btn-block" type="submit" data-ng-click="signup()" ng-disabled="signupForm.$invalid">{{"home.reg" | translate}}</button>
                 </form>
             </div>
 
@@ -69,11 +69,11 @@
 
 <div class="c-about" id="about">
     <div class="container">
-        <h2 class="c-title">О нас</h2>
+        <h2 class="c-title">{{"home.about" | translate}}</h2>
 
         <p class="c-discription">
-            Cервис финансового планирования и учета расходов потребителей.<br />
-            Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи.
+            {{"common.text1" | translate}}<br />
+            {{"common.text2" | translate}}
         </p>
 
         <div class="row">
@@ -81,8 +81,8 @@
                 <img class="img-responsive" src="../../Content/img/block11.png" alt="" />
             </div>
             <div class="col-md-6">
-                <h3>Заголовок</h3>
-                <p>Он позволяет своим клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи, такие как выплаты по кредитам, ипотеке и пр.</p>
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text3" | translate}}</p>
             </div>
         </div>
 
@@ -91,8 +91,8 @@
                 <img class="img-responsive pull-right" src="../../Content/img/block12.png" alt="" />
             </div>
             <div class="col-md-6 pull-right">
-                <h3>Заголовок</h3>
-                <p>Он позволяет своим клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи, такие как выплаты по кредитам, ипотеке и пр.</p>
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text3" | translate}}</p>
             </div>
         </div>
 
@@ -101,8 +101,8 @@
                 <img class="img-responsive" src="../../Content/img/block13.png" alt="" />
             </div>
             <div class="col-md-6">
-                <h3>Заголовок</h3>
-                <p>Он позволяет своим клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи, такие как выплаты по кредитам, ипотеке и пр.</p>
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text3" | translate}}</p>
             </div>
         </div>
     </div>
@@ -110,137 +110,150 @@
 
 <div class="c-advantages" id="advantages">
     <div class="container">
-        <h2 class="c-title">Преимущества</h2>
+        <h2 class="c-title">{{"home.advantages" | translate}}</h2>
 
         <p class="c-discription">
-            Cервис финансового планирования и учета расходов потребителей.<br />
-            Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи,<br />
-            такие как выплаты по кредитам, ипотеке и пр.
+            {{"common.text1" | translate}}<br />
+            {{"common.text2" | translate}}<br />
+            {{"common.text2.cont" | translate}}
         </p>
 
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <img src="../../Content/img/block21.png" alt="" />
-                <h3>Заголовок</h3>
-                <p>Клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных</p>
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text4" | translate}}</p>
             </div>
 
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <img src="../../Content/img/block22.png" alt="" />
-                <h3>Заголовок</h3>
-                <p>Клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных</p>
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text4" | translate}}</p>
             </div>
 
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <img src="../../Content/img/block23.png" alt="" />
-                <h3>Заголовок</h3>
-                <p>Клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных</p>
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text4" | translate}}</p>
             </div>
 
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <img src="../../Content/img/block24.png" alt="" />
-                <h3>Заголовок</h3>
-                <p>Клиентам планировать свои месячные траты, такие как расходы на продукты, одежду, коммунальные платежи, составлять списки покупок на месяц и пр. Вести учет потраченных</p>
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text4" | translate}}</p>
             </div>
         </div>
     </div>
 </div>
 
 <div class="container" id="people">
-    <h2 class="c-title">Истории наших клиентов</h2>
+    <h2 class="c-title">{{"home.stories" | translate}}</h2>
 
     <p class="c-discription">
-        Cервис финансового планирования и учета расходов потребителей.
+        {{"common.text1" | translate}}
     </p>
 
     <div class="row c-histories">
         <div class="col-lg-4">
             <img src="../../Content/img/block31.png" alt="" />
-            <h3>Иван Иванов</h3>
-            <p>Директор ООО "Иванов"</p>
+            <h3>{{"home.stories.ivan" | translate}}</h3>
+            <p>{{"home.stories.ivan.dir" | translate}}</p>
             <h4>
-                Я стал тратить на<br />
-                1000 грн меньше!
+                {{"home.stories.ivan.story1" | translate}}<br />
+                {{"home.stories.ivan.story2" | translate}}
             </h4>
         </div>
 
         <div class="col-lg-4">
             <img src="../../Content/img/block32.png" alt="" />
-            <h3>Петр Петров</h3>
-            <p>Директор ООО "Иванов"</p>
+            <h3>{{"home.stories.petr" | translate}}</h3>
+            <p>{{"home.stories.petr.dir" | translate}}</p>
             <h4>
-                Я выплатил кредит на<br />
-                машину вовремя!
+                {{"home.stories.petr.story1" | translate}}<br />
+                {{"home.stories.petr.story2" | translate}}
             </h4>
         </div>
 
         <div class="col-lg-4">
             <img src="../../Content/img/block33.png" alt="" />
-            <h3>Ольга Соколова</h3>
-            <p>Директор ООО "Иванов"</p>
+            <h3>{{"home.stories.olga" | translate}}</h3>
+            <p>{{"home.stories.olga.dir" | translate}}</p>
             <h4>
-                Теперь муж точно не<br />
-                найдет мою заначку!
+                {{"home.stories.olga.story1" | translate}}<br />
+                {{"home.stories.olga.story2" | translate}}
             </h4>
         </div>
 
-        <p class="text-center"><a class="btn btn-lg btn-success" href="#" role="button">Еще истории</a></p>
+        <p class="text-center"><a class="btn btn-lg btn-success" href="#" role="button">{{"home.stories.more" | translate}}</a></p>
     </div>
 </div>
 
 <div class="c-tariffs" id="money">
     <div class="container">
-        <h2 class="c-title">Тарифы</h2>
+        <h2 class="c-title">{{"home.stories.prices" | translate}}</h2>
 
         <p class="c-discription">
-            Cервис финансового планирования и учета расходов потребителей.<br />
-            Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи.
+            {{"common.text1" | translate}}<br />
+            {{"common.text2" | translate}}
         </p>
 
         <table>
             <thead>
                 <tr>
                     <th>
-                        <strong>Стартовый</strong><br />
-                        <small>Бесплатно</small>
+                        <strong>{{"home.prices.start" | translate}}</strong><br />
+                        <small>{{"home.prices.free" | translate}}</small>
                     </th>
                     <th>
-                        <strong>Премиум</strong><br />
+                        <strong>{{"home.prices.premium" | translate}}</strong><br />
                         <small>
-                            2.99$/месяц или<br />
-                            <span>35.88$</span> 19.99$/год
+                            {{"home.prices.price1" | translate}}<br />
+                            <span>{{"home.prices.price2" | translate}}</span>
+                            {{"home.prices.price3" | translate}}
                         </small>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>10 категорий</td>
-                    <td><span>Сколько угодно</span> категорий</td>
+                    <td>{{"home.prices.cat" | translate}}</td>
+                    <td><span>{{"home.prices.as_many" | translate}}</span>
+                        {{"home.prices.categories" | translate}}
+                    </td>
                 </tr>
                 <tr>
-                    <td>3 счета</td>
-                    <td><span>Сколько угодно</span> счетов</td>
+                    <td>{{"home.prices.three_accounts" | translate}}</td>
+                    <td>
+                        <span>
+                        {{"home.prices.as_many" | translate}}
+                        </span>
+                        {{"home.prices.accounts" | translate}}
+                    </td>
                 </tr>
                 <tr>
-                    <td>1 валюта</td>
-                    <td><span>Сколько угодно</span> валют</td>
+                    <td>{{"home.prices.one_currency" | translate}}</td>
+                    <td>
+                        <span>
+                            {{"home.prices.as_many" | translate}}
+                        </span>
+                         {{"home.prices.currencies" | translate}}
+                    </td>
                 </tr>
                 <tr>
                     <td>-</td>
-                    <td>Планирование бюджета</td>
+                    <td>{{"home.prices.budget_planning" | translate}}</td>
                 </tr>
                 <tr>
                     <td>-</td>
-                    <td>Импорт данных</td>
+                    <td>{{"home.prices.import" | translate}}</td>
                 </tr>
                 <tr>
-                    <td>Реклама</td>
-                    <td>Нет рекламы</td>
+                    <td>{{"home.prices.ads" | translate}}</td>
+                    <td>{{"home.prices.no_ads" | translate}}</td>
                 </tr>
                 <tr>
-                    <td><a class="btn btn-lg btn-success" href="#" role="button">Взять</a></td>
-                    <td><a class="btn btn-lg btn-success" href="#" role="button">Купить</a></td>
+                    <td><a class="btn btn-lg btn-success" href="#" role="button">{{"home.prices.take" | translate}}</a></td>
+                    <td><a class="btn btn-lg btn-success" href="#" role="button">{{"home.prices.buy" | translate}}</a></td>
                 </tr>
             </tbody>
         </table>

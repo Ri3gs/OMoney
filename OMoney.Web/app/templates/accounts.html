@@ -1,9 +1,9 @@
 ﻿<div class="container">
-    <h2 class="c-title">Счета</h2>
+    <h2 class="c-title">{{"accounts.title" | translate}}</h2>
 
     <p class="c-discription">
-        Cервис финансового планирования и учета расходов потребителей.<br/>
-        Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи.
+        {{"accounts.description.text1" | translate}}<br/>
+        {{"accounts.description.text2" | translate}}
     </p>
 
     <table class="c-accounts table-striped" ng-if="accounts.length>0">
@@ -19,8 +19,8 @@
             </td>
             <td>{{account.amount}} ({{currencies[account.accountCurrency - 1]}})</td>
             <td>
-                <a href="" class="btn btn-lg btn-success" ng-click="editaccount(account)" role="button">Редактировать</a>
-                <span><a href="" ng-click="delete(account)">Удалить</a></span>
+                <a href="" class="btn btn-lg btn-success" ng-click="editaccount(account)" role="button">{{"accounts.edit" | translate}}</a>
+                <span><a href="" ng-click="delete(account)">{{"accounts.delete" | translate}}</a></span>
             </td>
         </tr>
 
@@ -28,6 +28,6 @@
     </table>
 
     <div class="c-accounts-buttons">
-        <a class="btn btn-lg btn-warning" href="" ng-click="open()" role="button">Добавить счет</a>
+        <a class="btn btn-lg btn-warning" href="" ng-click="open()" role="button">{{"accounts.add_account" | translate}}</a>
     </div>
 </div>
