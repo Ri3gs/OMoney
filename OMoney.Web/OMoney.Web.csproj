@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\common\appSettings.js" />
     <Content Include="app\controllers\accountController.js" />
     <Content Include="app\controllers\activationController.js" />
     <Content Include="app\controllers\changePasswordController.js" />

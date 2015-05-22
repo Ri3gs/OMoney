@@ -1,10 +1,12 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Users;
 
 namespace OMoney.Web.Api.Controllers
 {
     [Authorize]
+    [EnableCors("http://localhost:4598", "*", "*")]
     public class AccountController : ApiController
     {
         private readonly IAccountService _accountService;

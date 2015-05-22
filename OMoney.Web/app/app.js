@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "ngCookies", "LocalStorageModule", "ui.bootstrap", "pascalprecht.translate", "tmh.dynamicLocale"]);
+    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "ngCookies", "ngResource", "LocalStorageModule", "ui.bootstrap", "pascalprecht.translate", "tmh.dynamicLocale"]);
 
     app.config(function($routeProvider) {
         $routeProvider.when("/home", {
@@ -104,7 +104,7 @@
 
     app.config(function($translateProvider) {
         $translateProvider.useStaticFilesLoader({
-            prefix: 'app/resources/locale-', // path to translations files
+            prefix: 'app/localization/locale-', // path to translations files
             suffix: '.json' // suffix, currently- extension of the translations
         });
         $translateProvider.preferredLanguage('en_US'); // is applied on first load
