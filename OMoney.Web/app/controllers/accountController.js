@@ -10,15 +10,6 @@
             alert("Bad");
         });
 
-
-        accountsResource.query(function(data) {
-            vm.accounts = data;
-        });
-
-        vm.print = function() {
-            console.log(vm.accounts);
-        }
-
         //$scope.currencies = ['гривна', 'доллар', 'евро'];
         //$scope.accounts = accounts.$values;
 
