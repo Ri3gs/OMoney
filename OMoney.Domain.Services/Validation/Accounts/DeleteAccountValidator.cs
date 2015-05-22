@@ -21,14 +21,14 @@ namespace OMoney.Domain.Services.Validation.Accounts
         public IEnumerable<string> Validate(int id, string email)
         {
             if (id < 0) yield return "Id cant be like that.";
-            if (_accountRepository.FindById(id) == null) yield return "There is no such account.";
+            //if (_accountRepository.FindById(id) == null) yield return "There is no such account.";
             if (email == null) yield return "Email is NULL.";
             if (email != null && string.IsNullOrWhiteSpace(email)) yield return "Email is EMPTY.";
             if (email != null && _userRepository.GetByEmail(email) == null) yield return "User does not exist.";
             if (email != null && !_rgx.IsMatch(email)) yield return "Email is incorrect.";
-            if (email != null && _userRepository.GetByEmail(email) != null && _accountRepository.FindById(id) != null)
+            //if (email != null && _userRepository.GetByEmail(email) != null && _accountRepository.FindById(id) != null)
             {
-                if (_userRepository.FindById(_accountRepository.FindById(id).UserId).Email != email) yield return "You can't delete this account, you !@#";
+                //if (_userRepository.FindById(_accountRepository.FindById(id).UserId).Email != email) yield return "You can't delete this account, you !@#";
             }
         }
 

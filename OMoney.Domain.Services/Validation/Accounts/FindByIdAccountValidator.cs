@@ -26,8 +26,8 @@ namespace OMoney.Domain.Services.Validation.Accounts
             if (!string.IsNullOrWhiteSpace(email) & _rgx.IsMatch(email))
             {
                 if (_userRepository.GetByEmail(email) == null) yield return "User must exist";
-                if (_accountRepository.FindById(id) == null) yield return "Account must exist";
-                if (_accountRepository.FindById(id) != null && _accountRepository.FindById(id).UserId != _userRepository.GetId(email))
+                //if (_accountRepository.FindById(id) == null) yield return "Account must exist";
+                //if (_accountRepository.FindById(id) != null && _accountRepository.FindById(id).UserId != _userRepository.GetId(email))
                     yield return "You can't view other people accs.";
                 if (!_userRepository.CheckEmail(email)) yield return "Email must be confirmed.";
             }

@@ -22,7 +22,7 @@ namespace OMoney.Domain.Services.Validation.Accounts
         public IEnumerable<string> Validate(Account account, string email)
         {
             if (account == null) yield return "Account is null.";
-            if (account != null && _accountRepository.FindById(account.Id) == null) yield return "There is no such account.";
+            //if (account != null && _accountRepository.FindById(account.Id) == null) yield return "There is no such account.";
 
             if (account != null && account.Id <= 0) yield return "Id cant be like that.";
             if (account != null && account.Amount < 0) yield return "Amount cant be < 0.";
@@ -38,10 +38,10 @@ namespace OMoney.Domain.Services.Validation.Accounts
                 if (_userRepository.GetByEmail(email) == null) yield return "User must exist";
                 if (!_userRepository.CheckEmail(email)) yield return "Email must be confirmed.";
             }
-            if (account != null && (email != null && _userRepository.GetByEmail(email) != null && _accountRepository.FindById(account.Id) != null))
-            {
-                if (_userRepository.FindById(_accountRepository.FindById(account.Id).UserId).Email != email) yield return "You can't update this account, you !@#";
-            }
+            //if (account != null && (email != null && _userRepository.GetByEmail(email) != null && _accountRepository.FindById(account.Id) != null))
+            //{
+            //    //if (_userRepository.FindById(_accountRepository.FindById(account.Id).UserId).Email != email) yield return "You can't update this account, you !@#";
+            //}
         }
     }
 }

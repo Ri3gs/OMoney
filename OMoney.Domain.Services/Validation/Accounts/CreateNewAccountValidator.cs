@@ -24,9 +24,9 @@ namespace OMoney.Domain.Services.Validation.Accounts
             if (string.IsNullOrWhiteSpace(email)) yield return "Email is empty.";
             if (_userRepository.GetByEmail(email) == null) yield return "User must exist";
             if (!_userRepository.CheckEmail(email)) yield return "Email must be confirmed.";
-            var count = _accountRepository.GetAccounts(_userRepository.GetByEmail(email)).Count;
-            if (!_userRepository.GetByEmail(email).IsGold && count == 3)
-                yield return "Upgrade to premium for more than 3 accounts.";
+            //var count = _accountRepository.GetAccounts(_userRepository.GetByEmail(email)).Count;
+            //if (!_userRepository.GetByEmail(email).IsGold && count == 3)
+            //    yield return "Upgrade to premium for more than 3 accounts.";
         }
     }
 }
