@@ -80,6 +80,7 @@
     <Content Include="app\controllers\restorePasswordController.js" />
     <Content Include="app\directives\LanguageSelectDirective.js" />
     <Content Include="app\directives\password-check.js" />
+    <Content Include="app\resources\accountsResource.js" />
     <Content Include="app\services\accountsService.js" />
     <Content Include="app\services\anchorSmoothScrollService.js" />
     <Content Include="app\services\authInterceptorService.js" />
@@ -190,8 +191,8 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="scripts\angular-cookies.min.js.map" />
-    <Content Include="app\resources\locale-en_US.json" />
-    <Content Include="app\resources\locale-ru_RU.json" />
+    <Content Include="app\localization\locale-en_US.json" />
+    <Content Include="app\localization\locale-ru_RU.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
