@@ -1,9 +1,9 @@
 ﻿<div class="container">
-    <h2 class="c-title">Финансовый план</h2>
+    <h2 class="c-title">{{"plans.title" | translate}}</h2>
 
     <p class="c-discription">
-        Cервис финансового планирования и учета расходов потребителей.<br />
-        Вести учет потраченных денег по каждой из категорий, а также добавлять в планы периодические платежи.
+        {{"plans.text1" | translate}}<br />
+        {{"plans.text2" | translate}}
     </p>
 
     <div class="c-plan-stat">
@@ -66,10 +66,10 @@
     </div>
 
     <div class="c-plan-stat-buttons">
-        <a class="btn btn-lg btn-default c-active" href="#" role="button">За декабрь</a>
-        <a class="btn btn-lg btn-default" href="#" role="button">За квартал</a>
-        <a class="btn btn-lg btn-default" href="#" role="button">За полугодие</a>
-        <a class="btn btn-lg btn-default" href="#" role="button">За год</a>
+        <a class="btn btn-lg btn-default c-active" href="#" role="button">{{"plans.forcurrentmonth" | translate}}</a>
+        <a class="btn btn-lg btn-default" href="#" role="button">{{"plans.forquarter" | translate}}</a>
+        <a class="btn btn-lg btn-default" href="#" role="button">{{"plans.forhalf" | translate}}</a>
+        <a class="btn btn-lg btn-default" href="#" role="button">{{"plans.foryear" | translate}}</a>
     </div>
 
     <div class="c-plan" ng-if="plans.length > 0">
@@ -84,21 +84,21 @@
             <tr>
                 <th>
                     <div>
-                        <strong>Категории</strong>
-                        <a href="#">Изменить</a>
+                        <strong>{{"plans.category" | translate}}</strong>
+                        <!--<a href="">Изменить</a>-->
                     </div>
                 </th>
                 <th>
                     <div>
-                        <strong>Покупки</strong>
-                        <a href="#">Изменить</a>
+                        <strong>{{"plans.purchases" | translate}}</strong>
+                        <!--<a href="">Изменить</a>-->
                     </div>
                 </th>
                 <th>
-                    <strong>Запланированно</strong>
+                    <strong>{{"plans.planned" | translate}}</strong>
                 </th>
                 <th>
-                    <strong>Оплачено</strong>
+                    <strong>{{"plans.spent" | translate}}</strong>
                 </th>
             </tr>
 
@@ -137,29 +137,29 @@
             </tr>
             <tr>
                 <td>
-                    <a class="btn btn-lg btn-default" role="button" ng-click="createCategory()">Создать категорию</a>
+                    <a class="btn btn-lg btn-default" role="button" ng-click="createCategory()">{{"plans.createcat" | translate}}</a>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">Итого:</td>
+                <td colspan="2">{{"plans.total" | translate}}:</td>
                 <td>800 (гривна)</td>
                 <td>540 (гривна)</td>
             </tr>
         </table>
     </div>
-    <a class="btn btn-lg btn-default" role="button" ng-click="createPlan()">Добавить месячный план</a>
-    <a class="btn btn-lg btn-default" role="button" ng-click="deletePlan(currentPlan)">Удалить текущий план</a>
+    <a class="btn btn-lg btn-default" role="button" ng-click="createPlan()">{{"plans.create_plan" | translate}}</a>
+    <a class="btn btn-lg btn-default" role="button" ng-click="deletePlan(currentPlan)">{{"plans.delete_plan" | translate}}</a>
 
     <div class="c-plan-indicator">
-        <h3>Индикатор расходов</h3>
+        <h3>{{"plans.indicator" | translate}}</h3>
 
         <img src="../../Content/img/chart.png" alt="" />
-        <p>Всего денег на счетах: 1714 грн (100%)</p>
+        <p>{{"plans.total_accounts_money" | translate}}: 1714 грн (100%)</p>
 
         <div class="c-explication">
-            <span><img src="../../Content/img/green_point.png" alt="" /> Остаток на счетах</span>
-            <span><img src="../../Content/img/blue_point.png" alt="" /> Расход запланированных денег</span><br />
-            <span><img src="../../Content/img/orange_point.png" alt="" /> Неизрасходованные запланированные деньги</span>
+            <span><img src="../../Content/img/green_point.png" alt="" /> {{"plans.total_accounts_left" | translate}}</span>
+            <span><img src="../../Content/img/blue_point.png" alt="" /> {{"plans.total_accounts_expenses" | translate}}</span><br />
+            <span><img src="../../Content/img/orange_point.png" alt="" /> {{"plans.total_accounts_money" | translate}}</span>
         </div>
     </div>
 </div>

@@ -1,22 +1,22 @@
 ﻿<div class="container">
     <form name="editCategoryForm">
-        <label for="Name">Название категории</label>
+        <label for="Name">{{"common.category_name" | translate}}</label>
         <input name="Name" id="Name" type="text" placeholder="Введите название категории" data-ng-model="category.name" />
         <br />
-        <label for="Planned">Запланировано</label>
+        <label for="Planned">{{"common.planned" | translate}}</label>
         <input name="Planned" id="Planned" placeholder="Запланировано" data-ng-model="category.planned" />
         <br />
-        <label for="Spent">Потрачено</label>
+        <label for="Spent">{{"common.spent" | translate}}</label>
         <input name="Spent" id="Spent" placeholder="Потрачено" data-ng-model="category.spent" />
         <br />
-        <label for="Currency">Валюта</label>
+        <label for="Currency">{{"common.currency" | translate}}</label>
         <select id="Currency" ng-model="category.currency" required>
-            <option value="1">Гривна</option>
-            <option value="2">Доллар</option>
-            <option value="3">Евро</option>
+            <option value="1">{{"common.hryvnia" | translate}}</option>
+            <option value="2">{{"common.dollar" | translate}}</option>
+            <option value="3">{{"common.euro" | translate}}</option>
         </select>
         <br />
-        <button class="btn btn-lg btn-warning" type="submit" ng-click="create()">Обновить</button>
-        <a class="btn btn-lg btn-warning" href="" role="button" ng-click="$dismiss()">Отмена</a>
+        <button class="btn btn-lg btn-warning" type="submit" ng-click="create()">{{"common.refresh" | translate}}</button>
+        <a class="btn btn-lg btn-warning" href="" role="button" ng-click="$dismiss()">{{"common.cancel" | translate}}</a>
     </form>
 </div>

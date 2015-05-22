@@ -16,34 +16,35 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="oMoney">
+    <div ng-translate-language-select></div>
 <div>
     <div class="c-header" data-ng-controller="navigationController">
         <div class="container">
             <div class="c-logo">
                 <a href="#/">
-                <img src="../../Content/img/Logo-Final.jpg" width="294" height="96" alt=""/>
+                    <img src="../../Content/img/Logo-Final.jpg" width="294" height="96" alt=""/>
                 </a>
-        </div>
+            </div>
 
             <nav class="c-nav">
                 <ul ng-if="!authentication.isAuthenticated && currentRoute === '/home'">
-                    <li><a href="" ng-click="gotoElement('about')">О нас</a></li>
-                    <li><a href="" ng-click="gotoElement('advantages')">Преимущества</a></li>
-                    <li><a href="" ng-click="gotoElement('people')">Отзывы</a></li>
-                    <li><a href="" ng-click="gotoElement('money')">Тарифы</a></li>
-                    <li><a href="#/login">Войти</a></li>
+                    <li><a href="" ng-click="gotoElement('about')">{{"index.nav.about" | translate}}</a></li>
+                    <li><a href="" ng-click="gotoElement('advantages')">{{"index.nav.advantages" | translate}}</a></li>
+                    <li><a href="" ng-click="gotoElement('people')">{{"index.nav.reviews" | translate}}</a></li>
+                    <li><a href="" ng-click="gotoElement('money')">{{"index.nav.prices" | translate}}</a></li>
+                    <li><a href="#/login">{{"index.nav.login" | translate}}</a></li>
                 </ul>
 
                 <ul ng-if="authentication.isAuthenticated">
-                    <li><a href="#/accounts">Счета</a></li>
-                    <li><a href="#/plans">Планы</a></li>
-                    <li><a href="#/accounts">Календарь</a></li>
+                    <li><a href="#/accounts">{{"index.nav.accounts" | translate}}</a></li>
+                    <li><a href="#/plans">{{"index.nav.plans" | translate}}</a></li>
+                    <li><a href="#/accounts">{{"index.nav.calendar" | translate}}</a></li>
                     <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Привет, {{authentication.userName}} <b class="caret"></b></a>
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">{{"index.nav.hello" | translate}}, {{authentication.userName}} <b class="caret"></b></a>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="#/profile">Профиль</a></li>
-                            <li><a href="#/changepassword">Изменить пароль</a></li>
-                            <li><a href="" data-ng-click="logOut()">Выйти</a></li>
+                            <li><a href="#/profile">{{"index.nav.profile" | translate}}</a></li>
+                            <li><a href="#/changepassword">{{"index.nav.change_pass" | translate}}</a></li>
+                            <li><a href="" data-ng-click="logOut()">{{"index.nav.logout" | translate}}</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -63,10 +64,10 @@
                 <div class="c-copyright">© 2015 Omoney</div>
 
                 <ul>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Преимущества</a></li>
-                    <li class="active"><a href="#">Отзывы</a></li>
-                    <li><a href="#">Тарифы</a></li>
+                    <li><a href="">{{"index.nav.about" | translate}}</a></li>
+                    <li><a href="">{{"index.nav.advantages" | translate}}</a></li>
+                    <li><a href="">{{"index.nav.reviews" | translate}}</a></li>
+                    <li><a href="">{{"index.nav.prices" | translate}}</a></li>
                 </ul>
             </div>
 
@@ -86,10 +87,16 @@
 <script src="scripts/angular-route.min.js"></script>
 <script src="scripts/angular-local-storage.min.js"></script>
 <script src="scripts/angular-messages.js"></script>
+<script src="scripts/angular-cookies.min.js"></script>
 <script src="scripts/toastr.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
 <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-
+<script src="scripts/angular-translate.min.js"></script>
+<script src="scripts/angular-translate-handler-log.js"></script>
+<script src="scripts/angular-translate-loader-static-files.js"></script>
+<script src="scripts/angular-translate-storage-cookie.js"></script>
+<script src="scripts/angular-translate-storage-local.js"></script>
+<script src="scripts/tmhDynamicLocale.js"></script>
 <!-- Application script -->
 <script src="app/app.js"></script>
 
@@ -105,7 +112,7 @@
 <script src="app/services/plansService.js"></script>
 <script src="app/services/categoryService.js"></script>
 <script src="app/services/itemService.js"></script>
-
+<script src="app/services/LocaleService.js"></script>
 <!-- Controllers -->
 <script src="app/controllers/homeController.js"></script>
 <script src="app/controllers/navigationController.js"></script>
@@ -122,10 +129,10 @@
 <script src="app/controllers/createPlanModalController.js"></script>
 <script src="app/controllers/createCategoryModalController.js"></script>
 <script src="app/controllers/createItemModalController.js"></script>
-    <script src="app/controllers/editCategoryModalController.js"></script>
-    <script src="app/controllers/editItemModalController.js"></script>
+<script src="app/controllers/editCategoryModalController.js"></script>
+<script src="app/controllers/editItemModalController.js"></script>
 <!-- Directives -->
 <script src="app/directives/password-check.js"></script>
-
+<script src="app/directives/LanguageSelectDirective.js"></script>
 </body>
 </html>

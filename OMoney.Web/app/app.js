@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "LocalStorageModule", "ui.bootstrap"]);
+    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "ngCookies", "LocalStorageModule", "ui.bootstrap", "pascalprecht.translate", "tmh.dynamicLocale"]);
 
     app.config(function($routeProvider) {
         $routeProvider.when("/home", {
@@ -99,6 +99,27 @@
 
     app.config(function($httpProvider) {
         $httpProvider.interceptors.push("authInterceptorService");
+    });
+
+    app.config(function($translateProvider) {
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'app/resources/locale-', // path to translations files
+            suffix: '.json' // suffix, currently- extension of the translations
+        });
+        $translateProvider.preferredLanguage('en_US'); // is applied on first load
+        $translateProvider.useLocalStorage(); // saves selected language to localStorage
+    });
+
+    app.config(function(tmhDynamicLocaleProvider) {
+        tmhDynamicLocaleProvider.localeLocationPattern('scripts/i18n/angular-locale_{{locale}}.js');
+    });
+
+    app.constant('LOCALES', {
+        'locales': {
+            'ru_RU': 'Русский',
+            'en_US': 'English'
+        },
+        'preferredLocale': 'en_US'
     });
 
     app.run(["$rootScope", "$location", "$anchorScroll", "authService", "accountsService", function ($rootScope, $location, $anchorScroll, authService, accountsService) {
