@@ -1,22 +1,29 @@
-﻿(function () {
+﻿(function (module) {
     'use strict';
-    angular.module('oMoney').controller('accountController', ['$scope', '$location', '$modal', '$route', 'accounts', 'modalService', function ($scope, $location, $modal, $route, accounts, modalService) {
-        $scope.currencies = ['гривна', 'доллар', 'евро'];
-        $scope.accounts = accounts.$values;
+    module.controller('accountController', ['accountsService', function (accountsService) {
 
-        console.log($scope.accounts);
+        var vm = this;
 
-            $scope.editaccount = function (account) {
-                modalService.openAccountModal(account);
-            }
+        accountsService.get(function(data) {
+            vm.accounts = data;
+        });
 
-            $scope.delete = function (account) {
-                modalService.deleteAccountModal(account);
-            }
+        //$scope.currencies = ['гривна', 'доллар', 'евро'];
+        //$scope.accounts = accounts.$values;
 
-            $scope.open = function() {
-                modalService.openAccountModal({});
-            }
+        //console.log($scope.accounts);
 
-        }]);
-}());
+        //    $scope.editaccount = function (account) {
+        //        modalService.openAccountModal(account);
+        //    }
+
+        //    $scope.delete = function (account) {
+        //        modalService.deleteAccountModal(account);
+        //    }
+
+        //    $scope.open = function() {
+        //        modalService.openAccountModal({});
+        //    }
+
+    }]);
+}(angular.module('oMoney')));

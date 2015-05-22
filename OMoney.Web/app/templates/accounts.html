@@ -5,13 +5,16 @@
         {{"accounts.description.text1" | translate}}<br/>
         {{"accounts.description.text2" | translate}}
     </p>
-
-    <table class="c-accounts table-striped" ng-if="accounts.length>0">
-        <tr ng-repeat="account in accounts">
+    
+    <div data-ng-if="!vm.accounts.$resolved">
+        <h2>Loading...</h2>
+    </div>
+    <table class="c-accounts table-striped" ng-if="vm.accounts.$resolved">
+        <tr ng-repeat="account in vm.accounts">
             <td>
-                <img ng-if="account.accountType == 1" src="../../Content/img/card.png" title="Кредитка"/>
+                <img ng-if="account.accountType == 1" src="../../Content/img/card.png" title="Кредитка" />
                 <img ng-if="account.accountType == 2" src="../../Content/img/account.png" title="Банковский счет" />
-                <img ng-if="account.accountType == 3" src="../../Content/img/uah.png" title="Наличные"/>
+                <img ng-if="account.accountType == 3" src="../../Content/img/uah.png" title="Наличные" />
             </td>
             <td>
                 <b>{{account.name}} ({{currencies[account.accountCurrency - 1]}})</b>

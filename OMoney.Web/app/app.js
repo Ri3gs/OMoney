@@ -50,17 +50,18 @@
 
         $routeProvider.when("/accounts", {
             controller: "accountController",
-            templateUrl: "app/templates/accounts.html",
-            access: {
-                requiresLogin: true
-            },
-            resolve : {
-                accounts: function (accountsService) {
-                    return accountsService.getAccounts().then(function (data) {
-                        return data.data;
-                    });
-                }
-            }
+            controllerAs: "vm",
+            templateUrl: "app/templates/accounts.html"
+            //access: {
+            //    requiresLogin: true
+            //},
+            //resolve : {
+            //    accounts: function (accountsService) {
+            //        return accountsService.getAccounts().then(function (data) {
+            //            return data.data;
+            //        });
+            //    }
+            //}
         });
 
         $routeProvider.when("/editaccount", {
