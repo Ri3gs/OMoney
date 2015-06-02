@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
-using OMoney.Data.Users;
+using OMoney.Data.Repositories;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Validation;

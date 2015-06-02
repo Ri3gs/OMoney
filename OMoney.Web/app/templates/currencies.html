@@ -1,0 +1,50 @@
+﻿    
+<div class="container">
+    <h2 class="c-title">{{"currencies.title" | translate}}</h2>
+
+    <div ng-if="!vm.currencies.$resolved">
+        <h2>{{"common.loading" | translate}}...</h2>
+    </div>
+
+    <div ng-if="vm.currencies.$resolved">
+        <table class="c-accounts table-striped">
+            <tr ng-repeat="currency in vm.currencies">
+                <td>
+                    <label ng-if="rowform.$visible">{{"currencies.code" | translate}}</label>
+                    <span editable-text="currency.code" e-name="code" e-form="rowform" e-required>
+                                    {{ currency.code || 'empty' }}
+                                </span>
+                </td>
+                <td>
+                    <label ng-if="rowform.$visible">{{"currencies.name" | translate}}</label>
+                    <span editable-text="currency.name" e-name="name" e-form="rowform" e-required>
+                                    {{ currency.name || 'empty' }}
+                                </span>
+                </td>
+                <td style="white-space: nowrap">
+                    <form editable-form name="rowform" ng-show="rowform.$visible"
+                          class="form-buttons form-inline" shown="currency.id === undefined"
+                          oncancel="vm.cancel($index)" onaftersave="vm.saveCurrency($data, $index)">
+                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                            {{"common.save" | translate}}
+                        </button>
+                        <span>
+                                        <a href="" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()">
+                                            {{"common.cancel" | translate}}
+                                        </a>
+                                    </span>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-primary" ng-click="rowform.$show()">{{"common.edit" | translate}}</button>
+                        <span><a href="" ng-click="vm.deleteCurrency($index)">{{"common.delete" | translate}}</a></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="c-accounts-buttons">
+            <a class="btn btn-lg btn-warning" ng-click="vm.addCurrency()">{{"currencies.create" | translate}}</a>
+        </div>
+    </div>
+
+</div>

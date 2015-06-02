@@ -19,6 +19,7 @@ namespace OMoney.Data.Context
         public DbSet<ShopingList> ShopingLists { get; set; }
         public DbSet<ShopItem> ShopItems { get; set; }
         public DbSet<CatItem> CatItems { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,6 +28,7 @@ namespace OMoney.Data.Context
             modelBuilder.Configurations.Add(new PlanConfiguration());
             modelBuilder.Configurations.Add(new CategoriesConfiguration());
             modelBuilder.Configurations.Add(new CatItemConfiguration());
+            modelBuilder.Configurations.Add(new CurrencyConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

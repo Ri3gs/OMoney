@@ -68,6 +68,7 @@
     <Content Include="app\controllers\createCategoryModalController.js" />
     <Content Include="app\controllers\createItemModalController.js" />
     <Content Include="app\controllers\createPlanModalController.js" />
+    <Content Include="app\controllers\currencyController.js" />
     <Content Include="app\controllers\editAccountModalController.js" />
     <Content Include="app\controllers\editCategoryModalController.js" />
     <Content Include="app\controllers\editItemModalController.js" />
@@ -82,11 +83,13 @@
     <Content Include="app\directives\LanguageSelectDirective.js" />
     <Content Include="app\directives\password-check.js" />
     <Content Include="app\resources\accountsResource.js" />
+    <Content Include="app\resources\currencyResource.js" />
     <Content Include="app\services\accountsService.js" />
     <Content Include="app\services\anchorSmoothScrollService.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\categoryService.js" />
+    <Content Include="app\services\currencyService.js" />
     <Content Include="app\services\emailNotificationService.js" />
     <Content Include="app\services\itemService.js" />
     <Content Include="app\services\LocaleService.js" />
@@ -98,6 +101,7 @@
     <Content Include="app\templates\createCategoryModal.html" />
     <Content Include="app\templates\createItemModal.html" />
     <Content Include="app\templates\createPlanModal.html" />
+    <Content Include="app\templates\currencies.html" />
     <Content Include="app\templates\deleteAccountModal.html" />
     <Content Include="app\templates\editAccountModal.html" />
     <Content Include="app\templates\editCategoryModal.html" />
@@ -146,9 +150,12 @@
     <Content Include="Content\img\screen.png" />
     <Content Include="Content\img\slider.jpg" />
     <Content Include="Content\img\uah.png" />
+    <Content Include="Content\img\up-arrow.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="Content\xeditable.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Icon.png" />
     <Content Include="scripts\angular-animate.js" />
@@ -955,6 +962,8 @@
     <Content Include="scripts\tmhDynamicLocale.js" />
     <Content Include="scripts\toastr.js" />
     <Content Include="scripts\toastr.min.js" />
+    <Content Include="scripts\xeditable.js" />
+    <Content Include="scripts\xeditable.min.js" />
     <Content Include="Web.config" />
     <Content Include="scripts\jquery-2.1.3.min.map" />
   </ItemGroup>

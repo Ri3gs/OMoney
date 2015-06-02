@@ -587,7 +587,7 @@ h2.c-title {
 
 
 table.c-accounts {
-	margin: 92px auto;
+	margin: 46px auto;
 	margin-bottom: 56px;
 }
 
@@ -626,16 +626,23 @@ table.c-accounts td a.btn {
 	font-weight: 700;
 }
 
+table.c-accounts td button.btn {
+	padding: 20px 43px;
+	background: #72b854;
+	border: 0;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
 
 
 .c-accounts-buttons {
 	margin-right: 34px;
-	margin-bottom: 200px;
 	text-align: right;
 }
 
 .c-accounts-buttons a.btn-success, .c-accounts-buttons a.btn-warning {
-	padding: 20px 64px;
+	padding: 20px 43px;
 	background: #72b854;
 	border: 0;
 	font-size: 18px;
@@ -920,3 +927,27 @@ table.c-accounts td a.btn {
 	border-right: 1px solid #dfdfdf;
 	border-bottom: 1px solid #dfdfdf;
 }
+
+
+a.back-to-top {
+    display: none;
+    width: 60px;
+    height: 60px;
+    text-indent: -9999px;
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background: #72B854 url('img/up-arrow.png') no-repeat center 43%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+a:hover.back-to-top {
+	background-color: rgba(114, 184, 84, 0.7);
+}
+
+
+.myGrid {
+    
+  }

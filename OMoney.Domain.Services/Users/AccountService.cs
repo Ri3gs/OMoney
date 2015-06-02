@@ -1,5 +1,6 @@
-﻿using System.Linq;
-using OMoney.Data.Users;
+﻿using System;
+using System.Linq;
+using OMoney.Data.Repositories;
 using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Domain.Services.Users
@@ -13,28 +14,35 @@ namespace OMoney.Domain.Services.Users
             _accountRepository = accountRepository;
         }
 
-        public IQueryable<Account> Get()
+        public IQueryable<Account> Get(User user)
         {
+            // TODO: validation for user
             return _accountRepository.Get();
         }
 
-        public Account Get(int id)
+        public Account Get(int id, User user)
         {
+            // TODO: validation for user
             return _accountRepository.Get(id);
         }
 
-        public Account Create(Account account)
+        public Account Create(Account account, User user)
         {
+            account.CreatedAt = DateTime.Now;
+            account.UpdatedAt = DateTime.Now;
+            account.UserId = user.Id;
             return _accountRepository.Create(account);
         }
 
-        public Account Update(Account account)
+        public Account Update(Account account, User user)
         {
+            account.UpdatedAt = DateTime.Now;
             return _accountRepository.Update(account);
         }
 
-        public void Delete(Account account)
+        public void Delete(int id, User user)
         {
+            var account = _accountRepository.Get(id);
             _accountRepository.Delete(account);
         }
 

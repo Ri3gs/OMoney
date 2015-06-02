@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "ngCookies", "ngResource", "LocalStorageModule", "ui.bootstrap", "pascalprecht.translate", "tmh.dynamicLocale"]);
+    var app = angular.module("oMoney", ["ngRoute", "ngMessages", "ngCookies", "ngResource", "LocalStorageModule", "ui.bootstrap", "pascalprecht.translate", "tmh.dynamicLocale", "xeditable"]);
 
     app.config(function($routeProvider) {
         $routeProvider.when("/home", {
@@ -23,6 +23,12 @@
             access: {
                 requiresLogin: true
             }
+        });
+
+        $routeProvider.when("/currencies", {
+            controller: "currencyController",
+            controllerAs: "vm",
+            templateUrl: "app/templates/currencies.html"
         });
 
         $routeProvider.when("/emailconfirmation", {
@@ -123,19 +129,22 @@
         'preferredLocale': 'en_US'
     });
 
-    app.run(["$rootScope", "$location", "$anchorScroll", "authService", "accountsService", function ($rootScope, $location, $anchorScroll, authService, accountsService) {
+    app.run(["$rootScope", "$location", "$anchorScroll", "authService", "editableOptions",
+        function ($rootScope, $location, $anchorScroll, authService, editableOptions) {
 
-        $anchorScroll.yOffset = 50;
+            $anchorScroll.yOffset = 50;
 
-        authService.authenticate();
+            editableOptions.theme = 'bs3';
 
-        $rootScope.$on("$routeChangeStart", function (event, next) {
-            if (next !== undefined && next.access !== undefined) {
-                if (next.access.requiresLogin === true && !authService.authentication.isAuthenticated) {
-                    $location.path("/login");
+            authService.authenticate();
+
+            $rootScope.$on("$routeChangeStart", function (event, next) {
+                if (next !== undefined && next.access !== undefined) {
+                    if (next.access.requiresLogin === true && !authService.authentication.isAuthenticated) {
+                        $location.path("/login");
+                    }
                 }
-            }
-        });
+            });
 
     }]);
 }());

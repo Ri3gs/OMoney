@@ -1,5 +1,6 @@
 ﻿(function (module) {
     'use strict';
+
     module.factory('accountsResource', ['$resource', 'appSettings', accountsResource]);
 
     function accountsResource($resource, appSettings) {

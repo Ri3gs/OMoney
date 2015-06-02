@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using OMoney.Domain.Core.Entities;
 
-namespace OMoney.Data.Users
+namespace OMoney.Data.Repositories
 {
     public interface IUserRepository
     {

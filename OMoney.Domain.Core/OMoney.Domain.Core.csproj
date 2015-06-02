@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Account.cs" />
-    <Compile Include="Entities\AccountCurrency.cs" />
+    <Compile Include="Entities\Currency.cs" />
     <Compile Include="Entities\AccountType.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\CatItem.cs" />

@@ -1,5 +1,5 @@
 ﻿using Moq;
-using OMoney.Data.Users;
+using OMoney.Data.Repositories;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Users;

@@ -4,12 +4,13 @@ using Ninject.Modules;
 using OMoney.Data.Categories;
 using OMoney.Data.CatItems;
 using OMoney.Data.Plans;
-using OMoney.Data.Users;
+using OMoney.Data.Repositories;
 using OMoney.Domain.Services.Categories;
 using OMoney.Domain.Services.CatItems;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Plans;
 using OMoney.Domain.Services.Users;
+using OMoney.Web.Api.Context;
 
 namespace OMoney.Web.Api
 {
@@ -38,6 +39,9 @@ namespace OMoney.Web.Api
             Bind<ICategoryService>().To<CategoryService>();
             Bind<ICatItemRepository>().To<CatItemRepository>();
             Bind<ICatItemsService>().To<CatItemsService>();
+            Bind<ICurrencyRepository>().To<CurrencyRepository>();
+            Bind<ICurrencyService>().To<CurrencyService>();
+            Bind<ICurrentUser>().To<CurrentUser>();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Web.Http.Cors;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Users;
+using OMoney.Web.Api.Context;
 
 namespace OMoney.Web.Api.Controllers
 {
@@ -10,37 +11,39 @@ namespace OMoney.Web.Api.Controllers
     public class AccountController : ApiController
     {
         private readonly IAccountService _accountService;
+        private readonly ICurrentUser _currentUser;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(IAccountService accountService, ICurrentUser currentUser)
         {
             _accountService = accountService;
+            _currentUser = currentUser;
         }
 
         public IHttpActionResult Get()
         {
-            return Ok(_accountService.Get());
+            return Ok(_accountService.Get(_currentUser.GetCurrentUser()));
         }
 
         public IHttpActionResult Get(int id)
         {
-            return Ok(_accountService.Get(id));
+            return Ok(_accountService.Get(id, _currentUser.GetCurrentUser()));
         }
 
         public IHttpActionResult Post(Account account)
         {
-            return Ok(_accountService.Create(account));
+            return Ok(_accountService.Create(account, _currentUser.GetCurrentUser()));
         }
 
         public IHttpActionResult Put(Account account)
         {
-            return Ok(_accountService.Update(account));
+            return Ok(_accountService.Update(account, _currentUser.GetCurrentUser()));
         }
 
-        public IHttpActionResult Delete(Account account)
+        public IHttpActionResult Delete(int id)
         {
             try
             {
-                _accountService.Delete(account);
+                _accountService.Delete(id, _currentUser.GetCurrentUser());
                 return Ok();
             }
             catch

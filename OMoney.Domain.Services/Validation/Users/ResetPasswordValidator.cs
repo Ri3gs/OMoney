@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using OMoney.Data.Users;
+using OMoney.Data.Repositories;
 
 namespace OMoney.Domain.Services.Validation.Users
 {

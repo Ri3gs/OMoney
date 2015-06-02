@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -9,7 +8,7 @@ using Microsoft.Owin.Security.DataProtection;
 using OMoney.Data.Context;
 using OMoney.Domain.Core.Entities;
 
-namespace OMoney.Data.Users
+namespace OMoney.Data.Repositories
 {
     public class UserRepository : IUserRepository, IDisposable
     {

@@ -1,31 +1,60 @@
 ﻿(function (module) {
     'use strict';
-    module.controller('accountController', ['accountsService', 'accountsResource', function (accountsService, accountsResource) {
+    module.controller('accountController', ['accountsService', 'accountsResource', 'currencyService', function (accountsService, accountsResource, currencyService) {
 
         var vm = this;
 
-        accountsService.get(function(data) {
+        vm.accountTypes = [{id : 1, text: 'Credit Card'}, {id: 2, text: 'Bank account'}, {id: 3, text: 'Cash'}];
+
+        accountsService.get().$promise.then(function(data) {
             vm.accounts = data;
-        }, function() {
-            alert("Bad");
         });
 
-        //$scope.currencies = ['гривна', 'доллар', 'евро'];
-        //$scope.accounts = accounts.$values;
+        currencyService.get().$promise.then(function (data) {
+            vm.currencies = data;
+        });
 
-        //console.log($scope.accounts);
+        vm.showCurrency = function(id) {
+            for (var i = 0; i < vm.currencies.length; i++) {
+                if (vm.currencies[i].id === id) {
+                    return vm.currencies[i].code;
+                }
+            }
+            return "";
+        }
 
-        //    $scope.editaccount = function (account) {
-        //        modalService.openAccountModal(account);
-        //    }
+        vm.deleteAccount = function (index) {
+            vm.accounts[index].$delete({ id: vm.accounts[index].id }, function () {
+                vm.accounts.splice(index, 1);
+            });
+        };
 
-        //    $scope.delete = function (account) {
-        //        modalService.deleteAccountModal(account);
-        //    }
+        vm.addAccount = function () {
+            vm.inserted = new accountsResource({
+                name: '',
+                comments: '',
+                amount: 0,
+                currencyId: 0,
+                accountType: 1
+            });
+            vm.accounts.push(vm.inserted);
+        };
 
-        //    $scope.open = function() {
-        //        modalService.openAccountModal({});
-        //    }
+        vm.cancel = function (index) {
+            if (vm.accounts[index].id != undefined) {
+                // old one and cancel
+            } else {
+                vm.accounts.splice(index, 1);
+            }
+        }
+
+        vm.saveAccount = function(data, index) {
+            if (vm.accounts[index].id != undefined) {
+                vm.accounts[index].$update();
+            } else {
+                vm.accounts[index].$save();
+            }
+        }
 
     }]);
 }(angular.module('oMoney')));

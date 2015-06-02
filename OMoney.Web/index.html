@@ -11,7 +11,7 @@
     <link href="Content/toastr.css" rel="stylesheet" />
     <link href="Content/app.css" rel="stylesheet" />
     <link href="Content/main.css" rel="stylesheet" />
-
+    <link href="Content/xeditable.css" rel="stylesheet"/>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
@@ -44,6 +44,7 @@
                         <ul class="dropdown-menu pull-right">
                             <li><a href="#/profile">{{"index.nav.profile" | translate}}</a></li>
                             <li><a href="#/changepassword">{{"index.nav.change_pass" | translate}}</a></li>
+                            <li><a href="#/currencies">{{"index.nav.currencies" | translate}}</a></li>
                             <li><a href="" data-ng-click="logOut()">{{"index.nav.logout" | translate}}</a></li>
                         </ul>
                     </li>
@@ -88,7 +89,7 @@
 <script src="scripts/angular-local-storage.min.js"></script>
 <script src="scripts/angular-messages.js"></script>
 <script src="scripts/angular-cookies.min.js"></script>
-    <script src="scripts/angular-resource.min.js"></script>
+<script src="scripts/angular-resource.min.js"></script>
 <script src="scripts/toastr.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
 <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
@@ -98,6 +99,8 @@
 <script src="scripts/angular-translate-storage-cookie.js"></script>
 <script src="scripts/angular-translate-storage-local.js"></script>
 <script src="scripts/tmhDynamicLocale.js"></script>
+<script src="scripts/xeditable.js"></script>
+
 <!-- Application script -->
 <script src="app/app.js"></script>
 <script src="app/common/appSettings.js"></script>
@@ -115,6 +118,8 @@
 <script src="app/services/categoryService.js"></script>
 <script src="app/services/itemService.js"></script>
 <script src="app/services/LocaleService.js"></script>
+<script src="app/services/currencyService.js"></script>
+
 <!-- Controllers -->
 <script src="app/controllers/homeController.js"></script>
 <script src="app/controllers/navigationController.js"></script>
@@ -133,11 +138,38 @@
 <script src="app/controllers/createItemModalController.js"></script>
 <script src="app/controllers/editCategoryModalController.js"></script>
 <script src="app/controllers/editItemModalController.js"></script>
+<script src="app/controllers/currencyController.js"></script>
+
 <!-- Directives -->
 <script src="app/directives/password-check.js"></script>
 <script src="app/directives/LanguageSelectDirective.js"></script>
 
 <!-- Resources -->
-    <script src="app/resources/accountsResource.js"></script>
+<script src="app/resources/accountsResource.js"></script>
+<script src="app/resources/currencyResource.js"></script>
+
+
+<script type="text/javascript">
+    // create the back to top button
+    $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+
+    var amountScrolled = 300;
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > amountScrolled) {
+            $('a.back-to-top').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+        }
+    });
+
+    $('a.back-to-top, a.simple-back-to-top').click(function () {
+        $('body').animate({
+            scrollTop: 0
+        }, 'fast');
+        return false;
+    });
+    </script>
+
 </body>
 </html>

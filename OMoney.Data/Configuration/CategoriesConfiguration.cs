@@ -17,7 +17,6 @@ namespace OMoney.Data.Configuration
             Property(c => c.CatItemsTotalPrice).IsRequired().HasColumnName("CatItemsTotalPrice");
             Property(c => c.CreatedAt).IsRequired().HasColumnName("CreatedAt");
             Property(c => c.UpdatedAt).IsRequired().HasColumnName("UpdatedAt");
-            Property(c => c.Currency).IsRequired().HasColumnName("Currency");
 
             HasRequired(c => c.Plan).WithMany(p => p.Categories).HasForeignKey(c => c.PlanId).WillCascadeOnDelete(true);
         }

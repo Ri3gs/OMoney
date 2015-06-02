@@ -2,8 +2,9 @@
 using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
-using OMoney.Data.Users;
+using OMoney.Data.Repositories;
 
 namespace OMoney.Web.Api.Providers
 {
@@ -17,27 +18,25 @@ namespace OMoney.Web.Api.Providers
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
-            using (var userRepository = new UserRepository())
+            var userRepository = new UserRepository();
+            var user = userRepository.FindUser(context.UserName, context.Password);
+
+            if (user == null)
             {
-                var user = userRepository.FindUser(context.UserName, context.Password);
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
+            }
 
-                if (user == null)
-                {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
-                    return;
-                }
-
-                if (!user.EmailConfirmed)
-                {
-                    context.SetError("invalid_grant", "The email must be confirmed.");
-                    return;
-                }
+            if (!user.EmailConfirmed)
+            {
+                context.SetError("invalid_grant", "The email must be confirmed.");
+                return;
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            identity.AddClaim(new Claim("sub", context.UserName));
-            identity.AddClaim(new Claim("role", "user"));
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
 
+            userRepository.Dispose();
             context.Validated(identity);
         }
     }

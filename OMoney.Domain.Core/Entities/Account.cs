@@ -11,9 +11,11 @@ namespace OMoney.Domain.Core.Entities
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public AccountType AccountType { get; set; }
-        public AccountCurrency AccountCurrency { get; set; }
 
         public string UserId { get; set; }
         public User User { get; set; }
+
+        public int CurrencyId { get; set; }
+        public Currency Currency { get; set; }
     }
 }

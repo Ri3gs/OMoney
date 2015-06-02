@@ -5,8 +5,8 @@
         
         var accountServiceFactory = {};
 
-        var get = function(success, error) {
-            return accountsResource.query(success, error);
+        var get = function() {
+            return accountsResource.query();
         };
 
         var getById = function(id) {

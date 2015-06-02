@@ -93,6 +93,7 @@
     <Compile Include="Configuration\AccountConfiguration.cs" />
     <Compile Include="Configuration\CategoriesConfiguration.cs" />
     <Compile Include="Configuration\CatItemConfiguration.cs" />
+    <Compile Include="Configuration\CurrencyConfiguration.cs" />
     <Compile Include="Configuration\PlanConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
     <Compile Include="Context\ApplicationDbContext.cs" />
@@ -114,14 +115,20 @@
     <Compile Include="Migrations\201504291347340_AllNotNull.Designer.cs">
       <DependentUpon>201504291347340_AllNotNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505260702216_Add_Currencies.cs" />
+    <Compile Include="Migrations\201505260702216_Add_Currencies.Designer.cs">
+      <DependentUpon>201505260702216_Add_Currencies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Plans\IPlanRepository.cs" />
     <Compile Include="Plans\PlanRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users\AccountRepository.cs" />
-    <Compile Include="Users\IAccountRepository.cs" />
-    <Compile Include="Users\IUserRepository.cs" />
-    <Compile Include="Users\UserRepository.cs" />
+    <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\CurrencyRepository.cs" />
+    <Compile Include="Repositories\ICurrencyRepository.cs" />
+    <Compile Include="Repositories\IAccountRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -145,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504291347340_AllNotNull.resx">
       <DependentUpon>201504291347340_AllNotNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505260702216_Add_Currencies.resx">
+      <DependentUpon>201505260702216_Add_Currencies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

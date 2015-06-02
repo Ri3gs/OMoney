@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using OMoney.Domain.Core.Entities;
 
-namespace OMoney.Data.Users
+namespace OMoney.Data.Repositories
 {
     public interface IAccountRepository
     {
@@ -10,10 +10,5 @@ namespace OMoney.Data.Users
         Account Create(Account account);
         Account Update(Account account);
         void Delete(Account account);
-        //void CreateAccount(Account account);
-        //List<Account> GetAccounts(User user);
-        //void DeleteAccount(Account account);
-        //void UpdateAccount(Account account);
-        //Account FindById(int id);
     }
 }

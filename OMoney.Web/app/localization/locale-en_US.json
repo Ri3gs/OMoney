@@ -6,6 +6,7 @@
     "index.nav.login": "Login",
     "index.nav.accounts": "Accounts",
     "index.nav.plans": "Plans",
+    "index.nav.currencies":  "Currencies",
     "index.nav.calendar": "Calendar",
     "index.nav.hello": "Hello",
     "index.nav.profile": "Profile",
@@ -65,6 +66,8 @@
     "profile.givegold": "Give me gold for one month",
     "profile.removegold": "Remove my gold",
 
+    "currencies.title":  "Currencies",
+
     "activation.text": "Registration is successful. Activation link was sent to email address you provided.",
     "activation.continue": "Continue",
 
@@ -92,7 +95,10 @@
     "common.create":  "Create",
     "common.cancel": "Cancel",
     "common.refresh": "Refresh",
-    "common.save":  "Save",
+    "common.save": "Save",
+    "common.edit": "Edit",
+    "common.delete": "Delete",
+    "common.loading":  "Loading",
 
     
     "create_plan_modal.create": "Create plan",
@@ -187,6 +193,11 @@
     "common.text3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac eros dictum, pellentesque nunc eu, faucibus mauris. Vestibulum non leo tempus nisi sollicitudin sollicitudin. Nunc luctus, turpis sit amet maximus sollicitudin, mauris felis bibendum lacus, vitae malesuada libero lacus et erat. Suspendisse sed malesuada velit, eu.",
     "common.text2.cont": "ac eros dictum, pellentesque nunc eu, faucibus mauris.",
     "common.text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac eros dictum, pellentesque nunc eu, faucibus mauris. Vestibulum non leo tempus nisi sollicitudin sollicitudin.",
+
+    "currencies.create": "Create currency",
+    "currencies.code": "Code",
+    "currencies.name": "Name",
+    "currencies.title":  "Currencies",
 
     "directives.language-select.Language": "Language"
 }

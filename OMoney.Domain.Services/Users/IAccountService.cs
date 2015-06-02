@@ -5,11 +5,11 @@ namespace OMoney.Domain.Services.Users
 {
     public interface IAccountService
     {
-        IQueryable<Account> Get();
-        Account Get(int id);
-        Account Create(Account account);
-        Account Update(Account account);
-        void Delete(Account account);
+        IQueryable<Account> Get(User user);
+        Account Get(int id, User user);
+        Account Create(Account account, User user);
+        Account Update(Account account, User user);
+        void Delete(int id, User user);
         //void Create(Account account, string email);
         //void Delete(int id, string email);
         //void Update(Account account, string email);

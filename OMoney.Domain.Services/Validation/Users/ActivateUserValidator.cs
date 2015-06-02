@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using OMoney.Data.Users;
-using OMoney.Domain.Core.Entities;
+using OMoney.Data.Repositories;
 
 namespace OMoney.Domain.Services.Validation.Users
 {

@@ -11,5 +11,6 @@ namespace OMoney.Domain.Core.Entities
 
         public ICollection<Account> Accounts { get; set; }
         public ICollection<Plan> Plans { get; set; }
+        public ICollection<Currency> Currencies { get; set; }
     }
 }

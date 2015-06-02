@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Transactions;
 using System.Web;
 using System.Web.Configuration;
-using OMoney.Data.Users;
+using OMoney.Data.Repositories;
 using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Notifications.NotificationMessages;
 using OMoney.Domain.Services.Validation;
