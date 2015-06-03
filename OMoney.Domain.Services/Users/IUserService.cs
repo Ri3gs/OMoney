@@ -15,6 +15,7 @@ namespace OMoney.Domain.Services.Users
 
         User FindUser(string email, string password);
         User GetByEmail(string email);
+        User FindById(string id);
 
         bool CheckEmail(string email);
     }
