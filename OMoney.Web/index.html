@@ -163,10 +163,8 @@
         }
     });
 
-    $('a.back-to-top, a.simple-back-to-top').click(function () {
-        $('body').animate({
-            scrollTop: 0
-        }, 'fast');
+    $('a.back-to-top').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
         return false;
     });
     </script>
