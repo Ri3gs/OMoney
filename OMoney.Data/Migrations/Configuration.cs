@@ -1,3 +1,5 @@
+using OMoney.Domain.Core.Entities.Security;
+
 namespace OMoney.Data.Migrations
 {
     using System;
@@ -26,6 +28,10 @@ namespace OMoney.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Clients.AddOrUpdate(c => c.Id, 
+                new Client {Id = "androidApp", Secret = "androidSecret", Name = "Android Native Application", ApplicationType = ApplicationTypes.NativeConfidential, Active = true, RefreshTokenLifeTime = 14400, AllowedOrigin = "*"},
+                new Client {Id = "ngAuthApp", Secret = "ngappSecret", Name = "AngularJS front-end Application", ApplicationType = ApplicationTypes.JavaScript, Active = true, RefreshTokenLifeTime = 7200, AllowedOrigin = "*"});
         }
     }
 }

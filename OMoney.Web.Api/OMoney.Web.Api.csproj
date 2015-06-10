@@ -173,6 +173,7 @@
     <Compile Include="Controllers\PlanController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filter\ValidateModelAttribute.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Models\AccountListViewModel.cs" />
     <Compile Include="Models\AccountUpdateViewModel.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Providers\SimpleRefreshTokenProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

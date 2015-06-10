@@ -93,8 +93,10 @@
     <Compile Include="Configuration\AccountConfiguration.cs" />
     <Compile Include="Configuration\CategoriesConfiguration.cs" />
     <Compile Include="Configuration\CatItemConfiguration.cs" />
+    <Compile Include="Configuration\ClientConfiguration.cs" />
     <Compile Include="Configuration\CurrencyConfiguration.cs" />
     <Compile Include="Configuration\PlanConfiguration.cs" />
+    <Compile Include="Configuration\RefreshTokenConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
     <Compile Include="Context\ApplicationDbContext.cs" />
     <Compile Include="Context\AuthContext.cs" />
@@ -119,6 +121,14 @@
     <Compile Include="Migrations\201505260702216_Add_Currencies.Designer.cs">
       <DependentUpon>201505260702216_Add_Currencies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506091348508_RefreshTokens.cs" />
+    <Compile Include="Migrations\201506091348508_RefreshTokens.Designer.cs">
+      <DependentUpon>201506091348508_RefreshTokens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506091416580_RefreshTokens_Id.cs" />
+    <Compile Include="Migrations\201506091416580_RefreshTokens_Id.Designer.cs">
+      <DependentUpon>201506091416580_RefreshTokens_Id.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Plans\IPlanRepository.cs" />
     <Compile Include="Plans\PlanRepository.cs" />
@@ -127,7 +137,9 @@
     <Compile Include="Repositories\CurrencyRepository.cs" />
     <Compile Include="Repositories\ICurrencyRepository.cs" />
     <Compile Include="Repositories\IAccountRepository.cs" />
+    <Compile Include="Repositories\ITokenRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\TokenRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505260702216_Add_Currencies.resx">
       <DependentUpon>201505260702216_Add_Currencies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506091348508_RefreshTokens.resx">
+      <DependentUpon>201506091348508_RefreshTokens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506091416580_RefreshTokens_Id.resx">
+      <DependentUpon>201506091416580_RefreshTokens_Id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,10 +8,11 @@
 
         accountsService.get().$promise.then(function(data) {
             vm.accounts = data;
-        });
+            // only when we got accoutns - get currencies
+            currencyService.get().$promise.then(function (data) {
+                vm.currencies = data;
+            });
 
-        currencyService.get().$promise.then(function (data) {
-            vm.currencies = data;
         });
 
         vm.showCurrency = function(id) {
