@@ -9,7 +9,7 @@ namespace OMoney.Domain.Core.Entities
         public string Name { get; set; }
         public decimal Planned { get; set; }
         public decimal Spent { get; set; }
-        public decimal CatItemsTotalPrice { get; set; }
+        public decimal PurchaseItemsTotalPrice { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
@@ -18,6 +18,6 @@ namespace OMoney.Domain.Core.Entities
         public int PlanId { get; set; }
         public Plan Plan { get; set; }
 
-        public ICollection<CatItem> Items { get; set; }
+        public ICollection<Purchase> Items { get; set; }
     }
 }

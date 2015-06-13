@@ -14,7 +14,7 @@ namespace OMoney.Data.Configuration
             Property(c => c.Name).IsRequired().HasColumnName("Name").HasColumnType("nvarchar").HasMaxLength(255);
             Property(c => c.Planned).IsRequired().HasColumnName("Planned");
             Property(c => c.Spent).IsRequired().HasColumnName("Spent");
-            Property(c => c.CatItemsTotalPrice).IsRequired().HasColumnName("CatItemsTotalPrice");
+            Property(c => c.PurchaseItemsTotalPrice).IsRequired().HasColumnName("CatItemsTotalPrice");
             Property(c => c.CreatedAt).IsRequired().HasColumnName("CreatedAt");
             Property(c => c.UpdatedAt).IsRequired().HasColumnName("UpdatedAt");
 

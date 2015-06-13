@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using OMoney.Data.Categories;
 using OMoney.Domain.Core.Entities;
-using OMoney.Domain.Services.CatItems;
+using OMoney.Domain.Services.PurchaseItems;
 
 namespace OMoney.Domain.Services.Categories
 {
@@ -11,7 +10,7 @@ namespace OMoney.Domain.Services.Categories
     {
         private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryService(ICategoryRepository categoryRepository, ICatItemsService catItemsService)
+        public CategoryService(ICategoryRepository categoryRepository, IPurchaseItemsService purchaseItemsService)
         {
             _categoryRepository = categoryRepository;
         }

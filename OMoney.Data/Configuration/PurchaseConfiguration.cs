@@ -4,11 +4,11 @@ using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Data.Configuration
 {
-    public class CatItemConfiguration : EntityTypeConfiguration<CatItem>
+    public class PurchaseConfiguration : EntityTypeConfiguration<Purchase>
     {
-        public CatItemConfiguration()
+        public PurchaseConfiguration()
         {
-            ToTable("CatItems");
+            ToTable("PurchaseItems");
             HasKey(i => i.Id);
             Property(i => i.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(i => i.Name).IsRequired().HasColumnName("Name").HasColumnType("nvarchar").HasMaxLength(255);

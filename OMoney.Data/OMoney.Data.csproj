@@ -88,11 +88,11 @@
   <ItemGroup>
     <Compile Include="Categories\CategoryRepository.cs" />
     <Compile Include="Categories\ICategoryRepository.cs" />
-    <Compile Include="CatItems\CatItemRepository.cs" />
-    <Compile Include="CatItems\ICatItemRepository.cs" />
+    <Compile Include="PurchaseItems\PurchaseRepository.cs" />
+    <Compile Include="PurchaseItems\IPurchaseRepository.cs" />
     <Compile Include="Configuration\AccountConfiguration.cs" />
     <Compile Include="Configuration\CategoriesConfiguration.cs" />
-    <Compile Include="Configuration\CatItemConfiguration.cs" />
+    <Compile Include="Configuration\PurchaseConfiguration.cs" />
     <Compile Include="Configuration\ClientConfiguration.cs" />
     <Compile Include="Configuration\CurrencyConfiguration.cs" />
     <Compile Include="Configuration\PlanConfiguration.cs" />
