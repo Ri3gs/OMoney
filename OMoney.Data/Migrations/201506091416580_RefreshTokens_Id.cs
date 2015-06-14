@@ -1,8 +1,7 @@
+using System.Data.Entity.Migrations;
+
 namespace OMoney.Data.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class RefreshTokens_Id : DbMigration
     {
         public override void Up()
