@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
 using OMoney.Data.Context;
 using OMoney.Domain.Core.Entities;

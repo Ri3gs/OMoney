@@ -30,7 +30,7 @@ namespace OMoney.Data.Categories
             oldCategory.Planned = category.Planned;
             oldCategory.Spent = category.Spent;
             oldCategory.UpdatedAt = DateTime.Now;
-            oldCategory.CatItemsTotalPrice = category.CatItemsTotalPrice;
+            oldCategory.PurchaseItemsTotalPrice = category.PurchaseItemsTotalPrice;
             _domainDbContext.SaveChanges();
         }
 

@@ -2,11 +2,11 @@
 using Ninject;
 using Ninject.Modules;
 using OMoney.Data.Categories;
-using OMoney.Data.CatItems;
+using OMoney.Data.PurchaseItems;
 using OMoney.Data.Plans;
 using OMoney.Data.Repositories;
 using OMoney.Domain.Services.Categories;
-using OMoney.Domain.Services.CatItems;
+using OMoney.Domain.Services.PurchaseItems;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Plans;
 using OMoney.Domain.Services.Users;
@@ -37,8 +37,8 @@ namespace OMoney.Web.Api
             Bind<IPlanRepository>().To<PlanRepository>();
             Bind<ICategoryRepository>().To<CategoryRepository>();
             Bind<ICategoryService>().To<CategoryService>();
-            Bind<ICatItemRepository>().To<CatItemRepository>();
-            Bind<ICatItemsService>().To<CatItemsService>();
+            Bind<IPurchaseRepository>().To<PurchaseRepository>();
+            Bind<IPurchaseItemsService>().To<PurchaseItemsService>();
             Bind<ICurrencyRepository>().To<CurrencyRepository>();
             Bind<ICurrencyService>().To<CurrencyService>();
             Bind<ICurrentUser>().To<CurrentUser>();

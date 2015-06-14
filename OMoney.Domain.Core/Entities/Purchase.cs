@@ -2,9 +2,9 @@
 
 namespace OMoney.Domain.Core.Entities
 {
-    public class CatItem
+    public class Purchase
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public bool Buyed { get; set; }
