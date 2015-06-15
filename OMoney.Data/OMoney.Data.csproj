@@ -88,6 +88,10 @@
   <ItemGroup>
     <Compile Include="Categories\CategoryRepository.cs" />
     <Compile Include="Categories\ICategoryRepository.cs" />
+    <Compile Include="Migrations\201506151036200_Purchases.cs" />
+    <Compile Include="Migrations\201506151036200_Purchases.Designer.cs">
+      <DependentUpon>201506151036200_Purchases.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurchaseItems\PurchaseRepository.cs" />
     <Compile Include="PurchaseItems\IPurchaseRepository.cs" />
     <Compile Include="Configuration\AccountConfiguration.cs" />
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506091416580_RefreshTokens_Id.resx">
       <DependentUpon>201506091416580_RefreshTokens_Id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506151036200_Purchases.resx">
+      <DependentUpon>201506151036200_Purchases.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

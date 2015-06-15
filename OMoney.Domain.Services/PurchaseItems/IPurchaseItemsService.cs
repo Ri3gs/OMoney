@@ -21,7 +21,7 @@ namespace OMoney.Domain.Services.PurchaseItems
         //void SellItem(Purchase purchase, Category category);
 
         IQueryable<Purchase> Get();
-        Purchase Get(Guid id);
+        Purchase Get(int id);
         Purchase Create(Purchase purchase);
         Purchase Update(Purchase purchase);
         void Delete(Purchase purchase);

@@ -29,7 +29,7 @@ namespace OMoney.Web.Api.Controllers
             return Ok(_purchaseItemsService.Get());
         }
 
-        public IHttpActionResult Get(Guid id )
+        public IHttpActionResult Get(int id)
         {
             return Ok(_purchaseItemsService.Get(id));
         }
@@ -44,7 +44,7 @@ namespace OMoney.Web.Api.Controllers
             return Ok(_purchaseItemsService.Update(purchase));
         }
 
-        public IHttpActionResult Delete(Guid id)
+        public IHttpActionResult Delete(int id)
         {
             Purchase purchase = _purchaseItemsService.Get(id);
             _purchaseItemsService.Delete(purchase);

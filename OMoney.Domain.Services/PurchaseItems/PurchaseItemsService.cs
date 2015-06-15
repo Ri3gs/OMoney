@@ -19,7 +19,7 @@ namespace OMoney.Domain.Services.PurchaseItems
             return _purchaseRepository.Get();
         }
 
-        public Purchase Get(Guid id)
+        public Purchase Get(int id)
         {
             return _purchaseRepository.Get(id);
         }

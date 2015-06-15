@@ -58,7 +58,7 @@ namespace OMoney.Data.PurchaseItems
             return _domainDbContext.PurchaseItems;
         }
 
-        public Purchase Get(Guid id)
+        public Purchase Get(int id)
         {
             Purchase purchase = _domainDbContext.PurchaseItems.Find(id);
             return purchase;
