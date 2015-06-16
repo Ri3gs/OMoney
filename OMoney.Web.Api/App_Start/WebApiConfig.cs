@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
-using Microsoft.Owin.Cors;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using OMoney.Web.Api.Filter;
 
@@ -22,6 +22,7 @@ namespace OMoney.Web.Api
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             //ADDED
             //jsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All;
+            jsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 
             return config;
         }

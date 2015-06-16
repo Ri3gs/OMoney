@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using OMoney.Data.Repositories.Plans;
 using OMoney.Domain.Core.Entities;
@@ -14,18 +15,19 @@ namespace OMoney.Domain.Services.Plans
             _planRepository = planRepository;
         }
 
-        public IQueryable<Plan> Get()
+        public IQueryable<Plan> Get(User user)
         {
-            return _planRepository.Get();
+            return _planRepository.Get().Where(p => p.UserId == user.Id).Include(p => p.Categories.Select(c => c.Purchases));
         }
 
-        public Plan Get(int id)
+        public Plan Get(int id, User user)
         {
             return _planRepository.Get(id);
         }
 
-        public Plan Create(Plan plan)
+        public Plan Create(Plan plan, User user)
         {
+            plan.UserId = user.Id;
             plan.CreatedAt = DateTime.Now;
             plan.UpdatedAt = DateTime.Now;
             return _planRepository.Create(plan);
