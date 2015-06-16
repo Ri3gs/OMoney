@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using OMoney.Data.Repositories;
+using OMoney.Data.Repositories.Tokens;
+using OMoney.Data.Repositories.Users;
 using OMoney.Domain.Core.Entities.Security;
 
 namespace OMoney.Web.Api.Providers

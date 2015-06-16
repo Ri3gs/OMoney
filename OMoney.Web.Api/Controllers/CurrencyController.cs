@@ -1,11 +1,6 @@
-﻿using System.Linq;
-using System.Security.Principal;
-using System.Web;
-using System.Web.Http;
-using Microsoft.AspNet.Identity;
-using OMoney.Data.Repositories;
+﻿using System.Web.Http;
 using OMoney.Domain.Core.Entities;
-using OMoney.Domain.Services.Users;
+using OMoney.Domain.Services.Currencies;
 using OMoney.Web.Api.Context;
 
 namespace OMoney.Web.Api.Controllers
@@ -34,8 +29,7 @@ namespace OMoney.Web.Api.Controllers
 
         public IHttpActionResult Post(Currency currency)
         {
-            var user = _currentUser.GetCurrentUser();
-            return Ok(_currencyService.Create(currency, user));
+            return Ok(_currencyService.Create(currency, _currentUser.GetCurrentUser()));
         }
 
         public IHttpActionResult Put(Currency currency)

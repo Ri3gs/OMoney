@@ -86,65 +86,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categories\CategoryRepository.cs" />
-    <Compile Include="Categories\ICategoryRepository.cs" />
-    <Compile Include="Migrations\201506151036200_Purchases.cs" />
-    <Compile Include="Migrations\201506151036200_Purchases.Designer.cs">
-      <DependentUpon>201506151036200_Purchases.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PurchaseItems\PurchaseRepository.cs" />
-    <Compile Include="PurchaseItems\IPurchaseRepository.cs" />
-    <Compile Include="Configuration\AccountConfiguration.cs" />
-    <Compile Include="Configuration\CategoriesConfiguration.cs" />
-    <Compile Include="Configuration\PurchaseConfiguration.cs" />
-    <Compile Include="Configuration\ClientConfiguration.cs" />
-    <Compile Include="Configuration\CurrencyConfiguration.cs" />
-    <Compile Include="Configuration\PlanConfiguration.cs" />
-    <Compile Include="Configuration\RefreshTokenConfiguration.cs" />
-    <Compile Include="Configuration\UserConfiguration.cs" />
-    <Compile Include="Context\ApplicationDbContext.cs" />
-    <Compile Include="Context\AuthContext.cs" />
-    <Compile Include="Context\DomainDbContext.cs" />
-    <Compile Include="Migrations\201504271136319_Initial.cs" />
-    <Compile Include="Migrations\201504271136319_Initial.Designer.cs">
-      <DependentUpon>201504271136319_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271141551_Initial two.cs" />
-    <Compile Include="Migrations\201504271141551_Initial two.Designer.cs">
-      <DependentUpon>201504271141551_Initial two.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504291216353_ItemsPriceUpdate.cs" />
-    <Compile Include="Migrations\201504291216353_ItemsPriceUpdate.Designer.cs">
-      <DependentUpon>201504291216353_ItemsPriceUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504291347340_AllNotNull.cs" />
-    <Compile Include="Migrations\201504291347340_AllNotNull.Designer.cs">
-      <DependentUpon>201504291347340_AllNotNull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505260702216_Add_Currencies.cs" />
-    <Compile Include="Migrations\201505260702216_Add_Currencies.Designer.cs">
-      <DependentUpon>201505260702216_Add_Currencies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506091348508_RefreshTokens.cs" />
-    <Compile Include="Migrations\201506091348508_RefreshTokens.Designer.cs">
-      <DependentUpon>201506091348508_RefreshTokens.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506091416580_RefreshTokens_Id.cs" />
-    <Compile Include="Migrations\201506091416580_RefreshTokens_Id.Designer.cs">
-      <DependentUpon>201506091416580_RefreshTokens_Id.cs</DependentUpon>
+    <Compile Include="Migrations\201506160850386_RefactoredInitialMigration.cs" />
+    <Compile Include="Migrations\201506160850386_RefactoredInitialMigration.Designer.cs">
+      <DependentUpon>201506160850386_RefactoredInitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Plans\IPlanRepository.cs" />
-    <Compile Include="Plans\PlanRepository.cs" />
+    <Compile Include="Repositories\Categories\CategoryRepository.cs" />
+    <Compile Include="Repositories\Categories\ICategoryRepository.cs" />
+    <Compile Include="Repositories\Purchases\PurchaseRepository.cs" />
+    <Compile Include="Repositories\Purchases\IPurchaseRepository.cs" />
+    <Compile Include="Configurations\AccountConfiguration.cs" />
+    <Compile Include="Configurations\CategoryConfiguration.cs" />
+    <Compile Include="Configurations\PurchaseConfiguration.cs" />
+    <Compile Include="Configurations\ClientConfiguration.cs" />
+    <Compile Include="Configurations\CurrencyConfiguration.cs" />
+    <Compile Include="Configurations\PlanConfiguration.cs" />
+    <Compile Include="Configurations\RefreshTokenConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs" />
+    <Compile Include="Contexts\ApplicationDbContext.cs" />
+    <Compile Include="Contexts\AuthContext.cs" />
+    <Compile Include="Contexts\DomainDbContext.cs" />
+    <Compile Include="Repositories\Plans\IPlanRepository.cs" />
+    <Compile Include="Repositories\Plans\PlanRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AccountRepository.cs" />
-    <Compile Include="Repositories\CurrencyRepository.cs" />
-    <Compile Include="Repositories\ICurrencyRepository.cs" />
-    <Compile Include="Repositories\IAccountRepository.cs" />
-    <Compile Include="Repositories\ITokenRepository.cs" />
-    <Compile Include="Repositories\IUserRepository.cs" />
-    <Compile Include="Repositories\TokenRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\Accounts\AccountRepository.cs" />
+    <Compile Include="Repositories\Currencies\CurrencyRepository.cs" />
+    <Compile Include="Repositories\Currencies\ICurrencyRepository.cs" />
+    <Compile Include="Repositories\Accounts\IAccountRepository.cs" />
+    <Compile Include="Repositories\Tokens\ITokenRepository.cs" />
+    <Compile Include="Repositories\Users\IUserRepository.cs" />
+    <Compile Include="Repositories\Tokens\TokenRepository.cs" />
+    <Compile Include="Repositories\Users\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -157,29 +129,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504271136319_Initial.resx">
-      <DependentUpon>201504271136319_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271141551_Initial two.resx">
-      <DependentUpon>201504271141551_Initial two.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504291216353_ItemsPriceUpdate.resx">
-      <DependentUpon>201504291216353_ItemsPriceUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504291347340_AllNotNull.resx">
-      <DependentUpon>201504291347340_AllNotNull.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505260702216_Add_Currencies.resx">
-      <DependentUpon>201505260702216_Add_Currencies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506091348508_RefreshTokens.resx">
-      <DependentUpon>201506091348508_RefreshTokens.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506091416580_RefreshTokens_Id.resx">
-      <DependentUpon>201506091416580_RefreshTokens_Id.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506151036200_Purchases.resx">
-      <DependentUpon>201506151036200_Purchases.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506160850386_RefactoredInitialMigration.resx">
+      <DependentUpon>201506160850386_RefactoredInitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

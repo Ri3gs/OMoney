@@ -1,16 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Domain.Services.Categories
 {
     public interface ICategoryService
     {
-        void Create(Category category);
-        void Update(Category category);
-        void Delete(Category category);
+        IQueryable<Category> Get();
+        Category Get(int id);
+        Category Create(Category category);
+        Category Update(Category category);
         void Delete(int id);
-
-        List<Category> GetCategories(Plan plan);
-        Category FindById(int id);
     }
 }

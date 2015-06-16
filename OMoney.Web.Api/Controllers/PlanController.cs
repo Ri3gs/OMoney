@@ -1,48 +1,70 @@
 ﻿using System.Web.Http;
-using AutoMapper;
+using OMoney.Domain.Core.Entities;
 using OMoney.Domain.Services.Plans;
-using OMoney.Domain.Services.Users;
-using OMoney.Web.Api.Models;
-using Plan = OMoney.Domain.Core.Entities.Plan;
 
 namespace OMoney.Web.Api.Controllers
 {
-    [RoutePrefix("api/plan")]
+    [Authorize]
     public class PlanController : ApiController
     {
         private readonly IPlanService _planService;
-        private readonly IUserService _userService;
 
-        public PlanController(IPlanService planService, IUserService userService)
+        public PlanController(IPlanService planService)
         {
-            _userService = userService;
             _planService = planService;
         }
 
-        [HttpPost]
-        [Route("create")]
-        public IHttpActionResult Create(CreatePlanViewModel model)
+        public IHttpActionResult Get()
         {
-            Plan plan = new Plan {Month = model.Month, UserId = _userService.GetByEmail(model.Email).Id};
-            _planService.Create(plan);
-            return Ok();
+            return Ok(_planService.Get());
         }
 
-        [HttpGet]
-        [Route("getall")]
-        public IHttpActionResult GetAll(string email)
+        public IHttpActionResult Get(int id)
         {
-            var user = _userService.GetByEmail(email);
-            var plans = _planService.GetPlans(user);
-            return Ok(plans);
+            return Ok(_planService.Get(id));
         }
 
-        [HttpGet]
-        [Route("delete")]
+        public IHttpActionResult Post(Plan plan)
+        {
+            return Ok(_planService.Create(plan));
+        }
+
+        public IHttpActionResult Put(Plan plan)
+        {
+            return Ok(_planService.Update(plan));
+        }
+
         public IHttpActionResult Delete(int id)
         {
             _planService.Delete(id);
             return Ok();
         }
+
+
+        //[HttpPost]
+        //[Route("create")]
+        //public IHttpActionResult Create(CreatePlanViewModel model)
+        //{
+        //    Plan plan = new Plan {Month = model.Month, UserId = _userService.GetByEmail(model.Email).Id};
+        //    _planService.Create(plan);
+        //    return Ok();
+        //}
+
+        //[HttpGet]
+        //[Route("getall")]
+        //public IHttpActionResult GetAll(string email)
+        //{
+        //    var user = _userService.GetByEmail(email);
+        //    var plans = _planService.GetPlans(user);
+        //    return Ok(plans);
+        //}
+
+        //[HttpGet]
+        //[Route("delete")]
+        //public IHttpActionResult Delete(int id)
+        //{
+        //    _planService.Delete(id);
+        //    return Ok();
+        //}
     }
 }

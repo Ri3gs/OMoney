@@ -1,14 +1,19 @@
 ﻿using System.Reflection;
 using Ninject;
 using Ninject.Modules;
-using OMoney.Data.Categories;
-using OMoney.Data.PurchaseItems;
-using OMoney.Data.Plans;
 using OMoney.Data.Repositories;
+using OMoney.Data.Repositories.Accounts;
+using OMoney.Data.Repositories.Categories;
+using OMoney.Data.Repositories.Currencies;
+using OMoney.Data.Repositories.Plans;
+using OMoney.Data.Repositories.Purchases;
+using OMoney.Data.Repositories.Users;
+using OMoney.Domain.Services.Accounts;
 using OMoney.Domain.Services.Categories;
-using OMoney.Domain.Services.PurchaseItems;
+using OMoney.Domain.Services.Currencies;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Plans;
+using OMoney.Domain.Services.Purchases;
 using OMoney.Domain.Services.Users;
 using OMoney.Web.Api.Context;
 
@@ -38,7 +43,7 @@ namespace OMoney.Web.Api
             Bind<ICategoryRepository>().To<CategoryRepository>();
             Bind<ICategoryService>().To<CategoryService>();
             Bind<IPurchaseRepository>().To<PurchaseRepository>();
-            Bind<IPurchaseItemsService>().To<PurchaseItemsService>();
+            Bind<IPurchaseService>().To<PurchaseService>();
             Bind<ICurrencyRepository>().To<CurrencyRepository>();
             Bind<ICurrencyService>().To<CurrencyService>();
             Bind<ICurrentUser>().To<CurrentUser>();

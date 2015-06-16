@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using OMoney.Data.Plans;
+using System.Linq;
+using OMoney.Data.Repositories.Plans;
 using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Domain.Services.Plans
@@ -14,37 +14,33 @@ namespace OMoney.Domain.Services.Plans
             _planRepository = planRepository;
         }
 
-        public void Create(Plan plan)
+        public IQueryable<Plan> Get()
+        {
+            return _planRepository.Get();
+        }
+
+        public Plan Get(int id)
+        {
+            return _planRepository.Get(id);
+        }
+
+        public Plan Create(Plan plan)
         {
             plan.CreatedAt = DateTime.Now;
             plan.UpdatedAt = DateTime.Now;
-            _planRepository.Create(plan);
+            return _planRepository.Create(plan);
         }
 
-        public void Update(Plan plan)
+        public Plan Update(Plan plan)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Plan plan)
-        {
-            _planRepository.Delete(plan);
+            plan.UpdatedAt = DateTime.Now;
+            return _planRepository.Update(plan);
         }
 
         public void Delete(int id)
         {
-            var plan = _planRepository.FindById(id);
-            Delete(plan);
-        }
-
-        public List<Plan> GetPlans(User user)
-        {
-            return _planRepository.GetPlans(user);
-        }
-
-        public Plan FindById(int id)
-        {
-            return _planRepository.FindById(id);
+            var plan = _planRepository.Get(id);
+            _planRepository.Delete(plan);
         }
     }
 }

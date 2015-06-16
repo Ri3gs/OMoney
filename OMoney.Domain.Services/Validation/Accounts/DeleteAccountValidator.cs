@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using OMoney.Data.Repositories;
+using OMoney.Data.Repositories.Accounts;
+using OMoney.Data.Repositories.Users;
 using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Domain.Services.Validation.Accounts

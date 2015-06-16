@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
 using OMoney.Domain.Core.Entities;
-using OMoney.Domain.Services.Users;
+using OMoney.Domain.Services.Accounts;
 using OMoney.Web.Api.Context;
 
 namespace OMoney.Web.Api.Controllers

@@ -1,16 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using OMoney.Domain.Core.Entities;
 
 namespace OMoney.Domain.Services.Plans
 {
     public interface IPlanService
     {
-        void Create(Plan plan);
-        void Update(Plan plan);
-        void Delete(Plan plan);
+        IQueryable<Plan> Get();
+        Plan Get(int id);
+        Plan Create(Plan plan);
+        Plan Update(Plan plan);
         void Delete(int id);
-
-        List<Plan> GetPlans(User user);
-        Plan FindById(int id);
     }
 }

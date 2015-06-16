@@ -53,9 +53,7 @@
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Purchase.cs" />
     <Compile Include="Entities\Security\RefreshToken.cs" />
-    <Compile Include="Entities\ShopItem.cs" />
     <Compile Include="Entities\Plan.cs" />
-    <Compile Include="Entities\ShopingList.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

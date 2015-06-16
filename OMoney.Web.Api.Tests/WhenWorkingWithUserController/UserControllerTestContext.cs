@@ -2,6 +2,7 @@
 using System.Web.Http;
 using Moq;
 using OMoney.Data.Repositories;
+using OMoney.Data.Repositories.Users;
 using OMoney.Domain.Services.Notifications;
 using OMoney.Domain.Services.Users;
 using OMoney.Web.Api.Controllers;

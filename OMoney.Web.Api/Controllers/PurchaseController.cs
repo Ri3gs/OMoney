@@ -1,53 +1,42 @@
-﻿using System;
-using System.Web.Http;
-//using AutoMapper;
+﻿using System.Web.Http;
 using OMoney.Domain.Core.Entities;
-//using OMoney.Domain.Services.Categories;
-using OMoney.Domain.Services.PurchaseItems;
-//using OMoney.Web.Api.Models;
+using OMoney.Domain.Services.Purchases;
 
 namespace OMoney.Web.Api.Controllers
 {
-    //[RoutePrefix("api/purchaseitems")]
+    [Authorize]
     public class PurchaseController : ApiController
     {
-        private readonly IPurchaseItemsService _purchaseItemsService;
-        //private readonly ICategoryService _categoryService;
+        private readonly IPurchaseService _purchaseService;
 
-        //public PurchaseController(IPurchaseItemsService purchaseItemsService, ICategoryService categoryService)
-        //{
-        //    _purchaseItemsService = purchaseItemsService;
-        //    _categoryService = categoryService;
-        //}
-        public PurchaseController(IPurchaseItemsService purchaseItemsService)
+        public PurchaseController(IPurchaseService purchaseService)
         {
-            _purchaseItemsService = purchaseItemsService;
+            _purchaseService = purchaseService;
         }
 
         public IHttpActionResult Get()
         {
-            return Ok(_purchaseItemsService.Get());
+            return Ok(_purchaseService.Get());
         }
 
         public IHttpActionResult Get(int id)
         {
-            return Ok(_purchaseItemsService.Get(id));
+            return Ok(_purchaseService.Get(id));
         }
 
         public IHttpActionResult Post(Purchase purchase)
         {
-            return Ok(_purchaseItemsService.Create(purchase));
+            return Ok(_purchaseService.Create(purchase));
         }
 
         public IHttpActionResult Put(Purchase purchase)
         {
-            return Ok(_purchaseItemsService.Update(purchase));
+            return Ok(_purchaseService.Update(purchase));
         }
 
         public IHttpActionResult Delete(int id)
         {
-            Purchase purchase = _purchaseItemsService.Get(id);
-            _purchaseItemsService.Delete(purchase);
+            _purchaseService.Delete(id);
             return Ok();
         }
 

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using OMoney.Data.Categories;
+using System.Linq;
+using OMoney.Data.Repositories.Categories;
 using OMoney.Domain.Core.Entities;
-using OMoney.Domain.Services.PurchaseItems;
 
 namespace OMoney.Domain.Services.Categories
 {
@@ -10,42 +9,38 @@ namespace OMoney.Domain.Services.Categories
     {
         private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryService(ICategoryRepository categoryRepository, IPurchaseItemsService purchaseItemsService)
+        public CategoryService(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
         }
 
-        public void Create(Category category)
+        public IQueryable<Category> Get()
+        {
+            return _categoryRepository.Get();
+        }
+
+        public Category Get(int id)
+        {
+            return _categoryRepository.Get(id);
+        }
+
+        public Category Create(Category category)
         {
             category.CreatedAt = DateTime.Now;
             category.UpdatedAt = DateTime.Now;
-            _categoryRepository.Create(category);
+            return _categoryRepository.Create(category);
         }
 
-        public void Update(Category category)
+        public Category Update(Category category)
         {
-            _categoryRepository.Update(category);
-        }
-
-        public void Delete(Category category)
-        {
-            _categoryRepository.Delete(category);
+            category.UpdatedAt = DateTime.Now;
+            return _categoryRepository.Update(category);
         }
 
         public void Delete(int id)
         {
-            var category = _categoryRepository.FindByid(id);
-            Delete(category);
-        }
-
-        public List<Category> GetCategories(Plan plan)
-        {
-            return _categoryRepository.GetCategories(plan);
-        }
-
-        public Category FindById(int id)
-        {
-            return _categoryRepository.FindByid(id);
+            var category = _categoryRepository.Get(id);
+            _categoryRepository.Delete(category);
         }
     }
 }

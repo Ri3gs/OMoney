@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.Owin.Security.Infrastructure;
 using OMoney.Data.Repositories;
+using OMoney.Data.Repositories.Tokens;
 using OMoney.Domain.Core.Entities.Security;
 
 namespace OMoney.Web.Api.Providers
