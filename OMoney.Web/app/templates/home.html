@@ -1,0 +1,261 @@
+﻿
+<div class="c-slider" id="signup">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 c-form">
+                <p>
+                    <b>Omoney</b>{{"home.text1" | translate}}<br />
+                    {{"home.text2" | translate}}<br />
+                    {{"home.text3" | translate}}
+                </p>
+
+                <form ng-if="!authentication.isAuthenticated" name="signupForm" role="form" novalidate>
+                    <b>{{"home.create_account" | translate}}</b>
+
+                    <input class="form-control" name="Email" id="Email" type="email" placeholder="Введите Ваш Email" data-ng-model="signupViewModel.email" ng-pattern="/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-.]+\.[a-zA-Z]{2,}/" ng-model-options="{ debounce: 600 }" required autofocus />
+                    <div ng-if="signupForm.Email.$dirty" ng-messages="signupForm.Email.$error" ng-messages-include="app/templates/messages.html"></div>
+
+                    <input class="form-control" name="Password" id="Password" type="password" placeholder="Пароль" data-ng-model="signupViewModel.password" ng-pattern="/^\S*$/" ng-minlength=6 ng-model-options="{ debounce: 600 }" required />
+                    <input class="form-control" name="ConfirmPassword" id="Confirmpassword" type="password" placeholder="Повторите пароль" data-ng-model="signupViewModel.confirmPassword" password-check="Password" ng-pattern="/^\S*$/" ng-minlength=6 ng-model-options="{ debounce: 600 }" required />
+
+                    <div ng-if="signupForm.Password.$dirty" ng-messages="signupForm.Password.$error" ng-messages-include="app/templates/messages.html"></div>
+                    <div ng-if="signupForm.ConfirmPassword.$dirty" ng-messages="signupForm.ConfirmPassword.$error" ng-messages-include="app/templates/messages.html"></div>
+
+                    <button class="btn btn-lg btn-warning btn-block" type="submit" data-ng-click="signup()" ng-disabled="signupForm.$invalid">{{"home.reg" | translate}}</button>
+                </form>
+            </div>
+
+            <div class="col-md-7">
+                <div class="c-screen carousel" id="myCarousel" data-pause="hover">
+
+                    <ol class="carousel-indicators">
+                        <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="Content/img/screen.png" />
+                        </div>
+                        <div class="item">
+                            <img src="Content/img/11.jpg" />
+                        </div>
+                        <div class="item">
+                            <img src="Content/img/13.jpg" />
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    <!--
+    <div class="c-pager">
+        <a href="#"></a>
+        <a href="#" class="c-active"></a>
+        <a href="#"></a>
+    </div>
+        -->
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('.carousel').carousel({
+        interval: 6000
+    })
+</script>
+
+
+<div class="c-about" id="about">
+    <div class="container">
+        <h2 class="c-title">{{"home.about" | translate}}</h2>
+
+        <p class="c-discription">
+            {{"common.text1" | translate}}<br />
+            {{"common.text2" | translate}}
+        </p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src="../../Content/img/block11.png" alt="" />
+            </div>
+            <div class="col-md-6">
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text3" | translate}}</p>
+            </div>
+        </div>
+
+        <div class="row text-right">
+            <div class="col-md-4 pull-right">
+                <img class="img-responsive pull-right" src="../../Content/img/block12.png" alt="" />
+            </div>
+            <div class="col-md-6 pull-right">
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text3" | translate}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src="../../Content/img/block13.png" alt="" />
+            </div>
+            <div class="col-md-6">
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text3" | translate}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="c-advantages" id="advantages">
+    <div class="container">
+        <h2 class="c-title">{{"home.advantages" | translate}}</h2>
+
+        <p class="c-discription">
+            {{"common.text1" | translate}}<br />
+            {{"common.text2" | translate}}<br />
+            {{"common.text2.cont" | translate}}
+        </p>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <img src="../../Content/img/block21.png" alt="" />
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text4" | translate}}</p>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <img src="../../Content/img/block22.png" alt="" />
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text4" | translate}}</p>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <img src="../../Content/img/block23.png" alt="" />
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text4" | translate}}</p>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <img src="../../Content/img/block24.png" alt="" />
+                <h3>{{"common.title" | translate}}</h3>
+                <p>{{"common.text4" | translate}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="people">
+    <h2 class="c-title">{{"home.stories" | translate}}</h2>
+
+    <p class="c-discription">
+        {{"common.text1" | translate}}
+    </p>
+
+    <div class="row c-histories">
+        <div class="col-lg-4">
+            <img src="../../Content/img/block31.png" alt="" />
+            <h3>{{"home.stories.ivan" | translate}}</h3>
+            <p>{{"home.stories.ivan.dir" | translate}}</p>
+            <h4>
+                {{"home.stories.ivan.story1" | translate}}<br />
+                {{"home.stories.ivan.story2" | translate}}
+            </h4>
+        </div>
+
+        <div class="col-lg-4">
+            <img src="../../Content/img/block32.png" alt="" />
+            <h3>{{"home.stories.petr" | translate}}</h3>
+            <p>{{"home.stories.petr.dir" | translate}}</p>
+            <h4>
+                {{"home.stories.petr.story1" | translate}}<br />
+                {{"home.stories.petr.story2" | translate}}
+            </h4>
+        </div>
+
+        <div class="col-lg-4">
+            <img src="../../Content/img/block33.png" alt="" />
+            <h3>{{"home.stories.olga" | translate}}</h3>
+            <p>{{"home.stories.olga.dir" | translate}}</p>
+            <h4>
+                {{"home.stories.olga.story1" | translate}}<br />
+                {{"home.stories.olga.story2" | translate}}
+            </h4>
+        </div>
+
+        <p class="text-center"><a class="btn btn-lg btn-success" href="#" role="button">{{"home.stories.more" | translate}}</a></p>
+    </div>
+</div>
+
+<div class="c-tariffs" id="money">
+    <div class="container">
+        <h2 class="c-title">{{"home.stories.prices" | translate}}</h2>
+
+        <p class="c-discription">
+            {{"common.text1" | translate}}<br />
+            {{"common.text2" | translate}}
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <strong>{{"home.prices.start" | translate}}</strong><br />
+                        <small>{{"home.prices.free" | translate}}</small>
+                    </th>
+                    <th>
+                        <strong>{{"home.prices.premium" | translate}}</strong><br />
+                        <small>
+                            {{"home.prices.price1" | translate}}<br />
+                            <span>{{"home.prices.price2" | translate}}</span>
+                            {{"home.prices.price3" | translate}}
+                        </small>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{"home.prices.cat" | translate}}</td>
+                    <td><span>{{"home.prices.as_many" | translate}}</span>
+                        {{"home.prices.categories" | translate}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{"home.prices.three_accounts" | translate}}</td>
+                    <td>
+                        <span>
+                        {{"home.prices.as_many" | translate}}
+                        </span>
+                        {{"home.prices.accounts" | translate}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{"home.prices.one_currency" | translate}}</td>
+                    <td>
+                        <span>
+                            {{"home.prices.as_many" | translate}}
+                        </span>
+                         {{"home.prices.currencies" | translate}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>{{"home.prices.budget_planning" | translate}}</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>{{"home.prices.import" | translate}}</td>
+                </tr>
+                <tr>
+                    <td>{{"home.prices.ads" | translate}}</td>
+                    <td>{{"home.prices.no_ads" | translate}}</td>
+                </tr>
+                <tr>
+                    <td><a class="btn btn-lg btn-success" href="#" role="button">{{"home.prices.take" | translate}}</a></td>
+                    <td><a class="btn btn-lg btn-success" href="#" role="button">{{"home.prices.buy" | translate}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

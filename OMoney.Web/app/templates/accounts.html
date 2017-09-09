@@ -1,0 +1,69 @@
+﻿<div class="containter">
+    <h2 class="c-title">{{"accounts.title" | translate}}</h2>
+
+    <div ng-if="!vm.accounts.$resolved && !vm.currencies.$resolved">
+        <h2>{{"common.loading" | translate}}...</h2>
+    </div>
+
+    <div>
+        <table ng-if="vm.accounts.$resolved && vm.currencies.$resolved"
+               class="c-accounts table-striped">
+            <tr ng-repeat="account in vm.accounts">
+                <td>
+                    <span editable-select="account.accountType"
+                          e-ng-options="t.id as t.text for t in vm.accountTypes"
+                          e-name="accountType"
+                          e-form="rowform"
+                          e-required>
+                    </span>
+                    <img ng-if="account.accountType == 1 && !rowform.$visible" src="../../Content/img/card.png" title="Кредитка" />
+                    <img ng-if="account.accountType == 2 && !rowform.$visible" src="../../Content/img/account.png" title="Банковский счет" />
+                    <img ng-if="account.accountType == 3 && !rowform.$visible" src="../../Content/img/uah.png" title="Наличные" />
+                </td>
+                <td>
+                    <b editable-text="account.name" e-name="name" e-form="rowform" e-required>
+                        {{ account.name || 'empty' }}
+                    </b>
+                </td>
+                <td>
+                    <p editable-text="account.comments" e-name="comments" e-form="rowform" e-required>
+                        {{ account.comments || 'empty' }}
+                    </p>
+                </td>
+                <td>
+                    <span editable-number="account.amount" e-name="amount" e-form="rowform" e-required>
+                        {{ account.amount || 'empty' }}
+                    </span>
+                </td>
+                <td>
+                    <span editable-select="account.currencyId"
+                          e-ng-options="c.id as c.code for c in vm.currencies"
+                          e-name="currency"
+                          e-form="rowform"
+                          e-required>
+                        {{ vm.showCurrency(account.currencyId) || 'empty' }}
+                    </span>
+                </td>
+                <td style="white-space: nowrap">
+                    <form editable-form name="rowform" ng-show="rowform.$visible"
+                          class="form-buttons form-inline" shown="account.id === undefined"
+                          oncancel="vm.cancel($index)" onaftersave="vm.saveAccount($data, $index)">
+                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success">
+                            {{"common.save" | translate}}
+                        </button>
+                        <span><a href="" type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()">{{"common.cancel" | translate}}</a></span>
+                    </form>
+                    <div ng-show="!rowform.$visible">
+                        <a class="btn btn-lg btn-success" ng-click="rowform.$show()" role="button">{{"accounts.edit" | translate}}</a>
+                        <span><a href="" ng-click="vm.deleteAccount($index)">{{"accounts.delete" | translate}}</a></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="c-accounts-buttons">
+            <a class="btn btn-lg btn-warning" href="" ng-click="vm.addAccount()">{{"accounts.add_account" | translate}}</a>
+        </div>
+    </div>
+
+</div>

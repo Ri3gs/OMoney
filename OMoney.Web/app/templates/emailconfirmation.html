@@ -1,0 +1,32 @@
+﻿<div class="c-slider-login">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-md-offset-2 c-form" ng-show="!emailConfirmed&&!password">
+                <p>
+                    {{"email_confirm.text1" | translate}}
+                    <a href="#/login" class="btn btn-lg btn-warning" data-ng-click="continue()">
+                        {{"email_confirm.here" | translate}}
+                    </a>{{"email_confirm.text2" | translate}}
+                </p>
+            </div>
+            <div class="col-md-7 col-md-offset-2 c-form" ng-show="emailConfirmed">
+                <p>
+                    {{"email_confirm.success1" | translate}}
+                    {{"email_confirm.success2" | translate}}
+                    <a href="#/login" class="btn btn-lg btn-warning">
+                        {{"email_confirm.begin" | translate}}
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-7 col-md-offset-2 c-form" ng-show="password">
+                <p>
+                    {{"email_confirm.success3" | translate}}
+                    <a href="#/restorepassword" class="btn btn-lg btn-warning">
+                        {{"email_confirm.here" | translate}}
+                    </a> 
+                    {{"email_confirm.success4" | translate}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

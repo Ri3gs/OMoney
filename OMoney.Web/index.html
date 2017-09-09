@@ -1,21 +1,173 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <title>OMoney</title>
-    <link href="Content/foundation/normalize.css" rel="stylesheet" />
-    <link href="Content/foundation/foundation.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Omoney</title>
+
+    <!-- Stylesheets -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/toastr.css" rel="stylesheet" />
+    <link href="Content/app.css" rel="stylesheet" />
+    <link href="Content/main.css" rel="stylesheet" />
+    <link href="Content/xeditable.css" rel="stylesheet"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
-<body>
-    <h1>Hello OMoney!</h1>
-    
-    <!-- 3rd Party Scripts -->
-    <script src="scripts/jquery-2.1.3.min.js"></script>
-    <script src="scripts/foundation/foundation.js"></script>
-    <script>
-        $(document).foundation();
+<body ng-app="oMoney">
+    <div ng-translate-language-select></div>
+<div>
+    <div class="c-header" data-ng-controller="navigationController">
+        <div class="container">
+            <div class="c-logo">
+                <a href="#/">
+                    <img src="../../Content/img/Logo-Final.jpg" width="294" height="96" alt=""/>
+                </a>
+            </div>
+
+            <nav class="c-nav">
+                <ul ng-if="!authentication.isAuthenticated && currentRoute === '/home'">
+                    <li><a href="" ng-click="gotoElement('about')">{{"index.nav.about" | translate}}</a></li>
+                    <li><a href="" ng-click="gotoElement('advantages')">{{"index.nav.advantages" | translate}}</a></li>
+                    <li><a href="" ng-click="gotoElement('people')">{{"index.nav.reviews" | translate}}</a></li>
+                    <li><a href="" ng-click="gotoElement('money')">{{"index.nav.prices" | translate}}</a></li>
+                    <li><a href="#/login">{{"index.nav.login" | translate}}</a></li>
+                </ul>
+
+                <ul ng-if="authentication.isAuthenticated">
+                    <li><a href="#/accounts">{{"index.nav.accounts" | translate}}</a></li>
+                    <li><a href="#/plans">{{"index.nav.plans" | translate}}</a></li>
+                    <li><a href="#/accounts">{{"index.nav.calendar" | translate}}</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">{{"index.nav.hello" | translate}}, {{authentication.userName}} <b class="caret"></b></a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#/profile">{{"index.nav.profile" | translate}}</a></li>
+                            <li><a href="#/changepassword">{{"index.nav.change_pass" | translate}}</a></li>
+                            <li><a href="#/currencies">{{"index.nav.currencies" | translate}}</a></li>
+                            <li><a href="" data-ng-click="logOut()">{{"index.nav.logout" | translate}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div>
+        <div data-ng-view=""></div>
+    </div>
+
+    <div class="c-footer">
+        <div class="container">
+            <div class="c-footer-nav">
+                <div class="c-copyright">© 2015 Omoney</div>
+
+                <ul>
+                    <li><a href="">{{"index.nav.about" | translate}}</a></li>
+                    <li><a href="">{{"index.nav.advantages" | translate}}</a></li>
+                    <li><a href="">{{"index.nav.reviews" | translate}}</a></li>
+                    <li><a href="">{{"index.nav.prices" | translate}}</a></li>
+                </ul>
+            </div>
+
+            <div class="pull-right">
+                <img src="Content/img/footer_logo.png" alt=""/>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- footer end -->
+</div>
+
+<!-- Libraries -->
+<script src="scripts/jquery-2.1.3.min.js"></script>
+<script src="scripts/angular.min.js"></script>
+<script src="scripts/angular-route.min.js"></script>
+<script src="scripts/angular-local-storage.min.js"></script>
+<script src="scripts/angular-messages.js"></script>
+<script src="scripts/angular-cookies.min.js"></script>
+<script src="scripts/angular-resource.min.js"></script>
+<script src="scripts/toastr.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+<script src="scripts/angular-translate.min.js"></script>
+<script src="scripts/angular-translate-handler-log.js"></script>
+<script src="scripts/angular-translate-loader-static-files.js"></script>
+<script src="scripts/angular-translate-storage-cookie.js"></script>
+<script src="scripts/angular-translate-storage-local.js"></script>
+<script src="scripts/tmhDynamicLocale.js"></script>
+<script src="scripts/xeditable.js"></script>
+
+<!-- Application script -->
+<script src="app/app.js"></script>
+<script src="app/common/appSettings.js"></script>
+
+<!-- Services -->
+<script src="app/services/authService.js"></script>
+<script src="app/services/userService.js"></script>
+<script src="app/services/notificationService.js"></script>
+<script src="app/services/emailNotificationService.js"></script>>
+<script src="app/services/authInterceptorService.js"></script>
+<script src="app/services/anchorSmoothScrollService.js"></script>
+<script src="app/services/accountsService.js"></script>
+<script src="app/services/modalService.js"></script>
+<script src="app/services/plansService.js"></script>
+<script src="app/services/categoryService.js"></script>
+<script src="app/services/itemService.js"></script>
+<script src="app/services/LocaleService.js"></script>
+<script src="app/services/currencyService.js"></script>
+
+<!-- Controllers -->
+<script src="app/controllers/homeController.js"></script>
+<script src="app/controllers/navigationController.js"></script>
+<script src="app/controllers/activationController.js"></script>
+<script src="app/controllers/loginController.js"></script>
+<script src="app/controllers/profileController.js"></script>
+<script src="app/controllers/changePasswordController.js"></script>
+<script src="app/controllers/restorePasswordController.js"></script>
+<script src="app/controllers/resetPasswordController.js"></script>
+<script src="app/controllers/emailConfirmationController.js"></script>
+<script src="app/controllers/accountController.js"></script>
+<script src="app/controllers/editAccountModalController.js"></script>
+<script src="app/controllers/plansController.js"></script>
+<script src="app/controllers/createPlanModalController.js"></script>
+<script src="app/controllers/createCategoryModalController.js"></script>
+<script src="app/controllers/createItemModalController.js"></script>
+<script src="app/controllers/editCategoryModalController.js"></script>
+<script src="app/controllers/editItemModalController.js"></script>
+<script src="app/controllers/currencyController.js"></script>
+
+<!-- Directives -->
+<script src="app/directives/password-check.js"></script>
+<script src="app/directives/LanguageSelectDirective.js"></script>
+
+<!-- Resources -->
+<script src="app/resources/accountsResource.js"></script>
+<script src="app/resources/currencyResource.js"></script>
+
+
+<script type="text/javascript">
+    // create the back to top button
+    $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+
+    var amountScrolled = 300;
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > amountScrolled) {
+            $('a.back-to-top').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+        }
+    });
+
+    $('a.back-to-top').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+        return false;
+    });
     </script>
-    
-    <!-- AngularJS Libraries -->
-    <script src="scripts/angular.min.js"></script>
+
 </body>
 </html>
