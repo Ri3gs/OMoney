@@ -25,7 +25,7 @@ namespace OMoney.Web.Api.Controllers
         {
             try
             {
-                Mapper.CreateMap<UserViewModel, User>();
+                Mapper.Initialize(cfg => cfg.CreateMap<UserViewModel, User>());
                 var user = Mapper.Map<User>(userModel);
                 user.UserName = userModel.Email;
                 user.GoldExpirationTime = DateTime.Now;

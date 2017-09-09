@@ -15,7 +15,7 @@ namespace OMoney.Integration.Tests
         public WebDriverWait Wait;
 
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void SetupTest()
         {
            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(20));
@@ -25,6 +25,7 @@ namespace OMoney.Integration.Tests
 
 
         }
+
         [TearDown]
         public void TeardownTest()
         {
