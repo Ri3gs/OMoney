@@ -200,17 +200,17 @@
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OMoney.Data\OMoney.Data.csproj">
+    <ProjectReference Include="..\OMoney.Data\OMoney.Data_Old.csproj">
       <Project>{f4b72a91-ac12-4eb8-b452-1f0fde6ed9f5}</Project>
-      <Name>OMoney.Data</Name>
+      <Name>OMoney.Data_Old</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OMoney.Domain.Core\OMoney.Domain.Core.csproj">
+    <ProjectReference Include="..\OMoney.Domain.Core\OMoney.Domain.Core_Old.csproj">
       <Project>{4580fe8b-3cb6-4dbe-b70b-067b1ed44393}</Project>
-      <Name>OMoney.Domain.Core</Name>
+      <Name>OMoney.Domain.Core_Old</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OMoney.Domain.Services\OMoney.Domain.Services.csproj">
+    <ProjectReference Include="..\OMoney.Domain.Services\OMoney.Domain.Services_Old.csproj">
       <Project>{a04daf73-e074-4586-9540-8e03f3ce4d2a}</Project>
-      <Name>OMoney.Domain.Services</Name>
+      <Name>OMoney.Domain.Services_Old</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

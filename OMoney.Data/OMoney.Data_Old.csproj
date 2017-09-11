@@ -119,9 +119,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OMoney.Domain.Core\OMoney.Domain.Core.csproj">
+    <ProjectReference Include="..\OMoney.Domain.Core\OMoney.Domain.Core_Old.csproj">
       <Project>{4580fe8b-3cb6-4dbe-b70b-067b1ed44393}</Project>
-      <Name>OMoney.Domain.Core</Name>
+      <Name>OMoney.Domain.Core_Old</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

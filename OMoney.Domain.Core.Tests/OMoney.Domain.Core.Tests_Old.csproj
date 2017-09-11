@@ -54,13 +54,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OMoney.Domain.Core\OMoney.Domain.Core.csproj">
+    <ProjectReference Include="..\OMoney.Domain.Core\OMoney.Domain.Core_Old.csproj">
       <Project>{4580fe8b-3cb6-4dbe-b70b-067b1ed44393}</Project>
-      <Name>OMoney.Domain.Core</Name>
+      <Name>OMoney.Domain.Core_Old</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OMoney.Domain.Services\OMoney.Domain.Services.csproj">
+    <ProjectReference Include="..\OMoney.Domain.Services\OMoney.Domain.Services_Old.csproj">
       <Project>{A04DAF73-E074-4586-9540-8E03F3CE4D2A}</Project>
-      <Name>OMoney.Domain.Services</Name>
+      <Name>OMoney.Domain.Services_Old</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
